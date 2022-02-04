@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit App</title>
     <script type="module" src="/src/my-element.ts"></script>
+    <script type="module" src="/src/badge/badge.ts"></script>
     <link rel="stylesheet" href="src/index.css">
   </head>
   <body>
+    <sl-badge pill>
+      <p>This is child content</p>
+    </sl-badge>
     <my-element>
       <p>This is child content</p>
     </my-element>
