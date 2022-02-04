@@ -27,7 +27,7 @@ export default class SlBadge extends LitElement {
     }
 
     @keyframes ping {
-      0% { box-shadow: 0 0 0 0 var(--tw-shadow-color); }
+      0% { box-shadow: 0 0 0 0 var(--tw-var-color-600); }
       70% { box-shadow: 0 0 0 0.5rem transparent; }
       100% { box-shadow: 0 0 0 0 transparent; }
     }
@@ -39,15 +39,15 @@ export default class SlBadge extends LitElement {
       <span
         part="base"
         class=${classMap({
-      'inline-flex items-center justify-center text-xs font-semibold leading-none rounded whitespace-nowrap py-1 px-2 select-none text-white': true,
-      'bg-indigo-600 shadow-indigo-600': this.variant === 'primary',
-      'bg-green-600 shadow-green-600': this.variant === 'success',
-      'bg-gray-600 shadow-gray-600': this.variant === 'neutral',
-      'bg-orange-600 shadow-orange-600': this.variant === 'warning',
-      'bg-red-600 shadow-red-600': this.variant === 'danger',
-      'rounded-full': this.pill,
-      'ping': this.ping
-    })}
+          'inline-flex bg-var-600 items-center justify-center text-xs font-semibold leading-none rounded whitespace-nowrap py-1 px-2 select-none text-white': true,
+          'var-indigo': this.variant === 'primary',
+          'var-green': this.variant === 'success',
+          'var-gray': this.variant === 'neutral',
+          'var-orange': this.variant === 'warning',
+          'var-red': this.variant === 'danger',
+          'rounded-full': this.pill,
+          'ping': this.ping
+        })}
         role="status"
       >
         <slot></slot>
