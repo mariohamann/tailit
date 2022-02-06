@@ -50,7 +50,7 @@ module.exports = {
             }
           },
         },
-        { values: theme('colors'), type: 'color' },
+        { values: theme('colors', {}), type: 'color' },
       );
 
 
@@ -62,7 +62,7 @@ module.exports = {
       * - black               ->  50.black ... 900.black
       */
 
-      const colorsAsEntries = Object.entries(theme('colors'));
+      const colorsAsEntries = Object.entries(theme('colors', {}));
 
       const getTransformedColors = (variant) => {
         const transformedColors = {};
