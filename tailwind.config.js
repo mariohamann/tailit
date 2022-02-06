@@ -26,19 +26,16 @@ module.exports = {
   plugins: [
     plugin(function ({ matchUtilities, theme }) {
 
-      const possibleVariables = Object.keys(theme('colors.var'));
-      const oneLevelVariables = {};
+      const variablesPalette = Object.keys(theme('colors.var'));
       const twoLevelVariables = {};
 
-      possibleVariables.forEach(variable => twoLevelVariables[variable] = {});
+      variablesPalette.forEach(variable => twoLevelVariables[variable] = {});
 
       Object.keys(theme('colors')).forEach(colorKey => {
         const colorValue = theme('colors')[colorKey];
         if (typeof colorValue === 'string') {
-          // Sets var-black, var-transparent etc.
-          oneLevelVariables[colorKey] = colorValue;
           // set var-50-black, var-100-black etc.
-          possibleVariables.forEach(variable =>
+          variablesPalette.forEach(variable =>
             twoLevelVariables[variable][colorKey] = colorValue
           );
         }
@@ -47,30 +44,30 @@ module.exports = {
           Object.keys(colorValue).forEach(variant => {
             // set var-50-red, var-100-red, var-50-sky etc.
             twoLevelVariables[variant][colorKey] = colorValue[variant];
-            // set var-red, var-indigo, var-sky etc.
-            flattedVariants[`--tw-var-color-${variant}`] = colorValue[variant];
           });
-          // set var-red, var-indigo, var-sky etc.
-          oneLevelVariables[colorKey] = flattedVariants;
         }
       });
 
       // Set oneLevelVariables
       matchUtilities(
         {
-          'var': (value) => {
-            if (typeof value === 'string') {
+          'var': (color) => {
+            if (typeof color === 'string') {
               const output = {};
-              possibleVariables.forEach(variant => {
-                output[`--tw-var-color-${variant}`] = value;
+              variablesPalette.forEach(variant => {
+                output[`--tw-var-color-${variant}`] = color;
               });
               return output;
             } else {
-              return value;
+              const output = {};
+              variablesPalette.forEach(variant => {
+                output[`--tw-var-color-${variant}`] = color[variant];
+              });
+              return output;
             }
           },
         },
-        { values: oneLevelVariables, type: 'color' },
+        { values: theme('colors'), type: 'color' },
       );
 
       // Set twoLevelVariables
