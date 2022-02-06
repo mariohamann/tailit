@@ -27,28 +27,11 @@ module.exports = {
     plugin(function ({ matchUtilities, theme }) {
 
       const variablesPalette = Object.keys(theme('colors.var'));
-      const twoLevelVariables = {};
 
-      variablesPalette.forEach(variable => twoLevelVariables[variable] = {});
+      /*
+      * Set one-level variables like var-red, var-indigo, var-[pink] etc.
+      */
 
-      Object.keys(theme('colors')).forEach(colorKey => {
-        const colorValue = theme('colors')[colorKey];
-        if (typeof colorValue === 'string') {
-          // set var-50-black, var-100-black etc.
-          variablesPalette.forEach(variable =>
-            twoLevelVariables[variable][colorKey] = colorValue
-          );
-        }
-        else {
-          const flattedVariants = {};
-          Object.keys(colorValue).forEach(variant => {
-            // set var-50-red, var-100-red, var-50-sky etc.
-            twoLevelVariables[variant][colorKey] = colorValue[variant];
-          });
-        }
-      });
-
-      // Set oneLevelVariables
       matchUtilities(
         {
           'var': (color) => {
@@ -70,16 +53,38 @@ module.exports = {
         { values: theme('colors'), type: 'color' },
       );
 
-      // Set twoLevelVariables
-      Object.keys(twoLevelVariables).forEach(variant => {
-        // e. g. var-color-red-50
+
+      /*
+      * Set two-level variables like var-50-red, var-100-indigo, var-50-[pink] etc.
+      * We need to transform the color palette from format "color.shade" to "shade.color"
+      * Examples:
+      * - red.50 ... red.900  ->  50.red   ... 900.red
+      * - black               ->  50.black ... 900.black
+      */
+
+      const colorsAsEntries = Object.entries(theme('colors'));
+
+      const getTransformedColors = (variant) => {
+        const transformedColors = {};
+        colorsAsEntries.forEach(([key, value]) => {
+          if (typeof value === 'string') {
+            transformedColors[key] = value
+          }
+          else {
+            transformedColors[key] = value[variant]
+          }
+        });
+        return transformedColors;
+      }
+
+      variablesPalette.forEach(variant => {
         matchUtilities(
           {
             [`var-${variant}`]: (value) => ({
               [`--tw-var-color-${variant}`]: value
             })
           },
-          { values: twoLevelVariables[variant], type: 'color' },
+          { values: getTransformedColors(variant), type: 'color' },
         );
       });
     }),
