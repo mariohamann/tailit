@@ -35,7 +35,7 @@ export default class SlBadge extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="src/index.css">
+      <link class="var-current" rel="stylesheet" href="src/index.css">
       <span
         part="base"
         class=${classMap({

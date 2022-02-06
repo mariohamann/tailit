@@ -25,59 +25,66 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ matchUtilities, theme }) {
-      // const tailwindColors = Object.keys(theme('colors')).map(
-      //   (color) => theme('colors')[color],
-      // );
-      // console.log(tailwindColors);
-      flatColors = {};
-      nestedColors = {};
-      flattedNestedColors = {};
-      Object.keys(theme('colors')).forEach(color => {
-        if (typeof theme('colors')[color] === 'string') {
-          flatColors[color] = theme('colors')[color];
+
+      const possibleVariables = Object.keys(theme('colors.var'));
+      const oneLevelVariables = {};
+      const twoLevelVariables = {};
+
+      possibleVariables.forEach(variable => twoLevelVariables[variable] = {});
+
+      Object.keys(theme('colors')).forEach(colorKey => {
+        const colorValue = theme('colors')[colorKey];
+        if (typeof colorValue === 'string') {
+          // Sets var-black, var-transparent etc.
+          oneLevelVariables[colorKey] = colorValue;
+          // set var-50-black, var-100-black etc.
+          possibleVariables.forEach(variable =>
+            twoLevelVariables[variable][colorKey] = colorValue
+          );
         }
         else {
-          nestedColors[color] = theme('colors')[color];
-          flattedVariants = {};
-          Object.keys(theme('colors')[color]).forEach(variant => {
-            flattedVariants[`--tw-var-color-${variant}`] = theme('colors')[color][variant];
+          const flattedVariants = {};
+          Object.keys(colorValue).forEach(variant => {
+            // set var-50-red, var-100-red, var-50-sky etc.
+            twoLevelVariables[variant][colorKey] = colorValue[variant];
+            // set var-red, var-indigo, var-sky etc.
+            flattedVariants[`--tw-var-color-${variant}`] = colorValue[variant];
           });
-          flattedNestedColors[color] = flattedVariants;
+          // set var-red, var-indigo, var-sky etc.
+          oneLevelVariables[colorKey] = flattedVariants;
         }
       });
 
-      // // Flat colors
-      // css = {
-      //   'var': (value) => ({
-      //     '--tw-var-color': value
-      //   }),
-      // };
-      // matchUtilities(
-      //   css,
-      //   { values: flatColors, type: 'color' },
-      // );
-
-      // !! Flatted nested colors
+      // Set oneLevelVariables
       matchUtilities(
         {
-          'var': (value) => value
-          ,
+          'var': (value) => {
+            if (typeof value === 'string') {
+              const output = {};
+              possibleVariables.forEach(variant => {
+                output[`--tw-var-color-${variant}`] = value;
+              });
+              return output;
+            } else {
+              return value;
+            }
+          },
         },
-        { values: flattedNestedColors, type: 'color' },
+        { values: oneLevelVariables, type: 'color' },
       );
 
-      // // Nested colors
-      // Object.keys(nestedColors).forEach(color => {
-      //   // e. g. var-color-red-50
-      //   css = {};
-      //   css[`var-${color}`] = (value) => ({
-      //     '--tw-var-color': value
-      //   });
-      //   matchUtilities(
-      //     css,
-      //     { values: nestedColors[color], type: 'color' },
-      //   );
-      // });
+      // Set twoLevelVariables
+      Object.keys(twoLevelVariables).forEach(variant => {
+        // e. g. var-color-red-50
+        matchUtilities(
+          {
+            [`var-${variant}`]: (value) => ({
+              [`--tw-var-color-${variant}`]: value
+            })
+          },
+          { values: twoLevelVariables[variant], type: 'color' },
+        );
+      });
     }),
   ]
 }
