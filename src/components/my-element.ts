@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { styles } from '../index'
 
 /**
  * An example element.
@@ -24,7 +25,7 @@ export class MyElement extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="src/index.css">
+      <style>${styles}</style>
       <div class="bg-indigo-700">
         <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
           <h2 class="text-3xl font-extrabold text-white sm:text-4xl">

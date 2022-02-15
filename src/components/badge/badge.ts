@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { styles } from '../../index'
 
 export const properties = {
   variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,
@@ -34,7 +35,7 @@ export default class SlBadge extends LitElement {
 
   render() {
     return html`
-      <link class="var-current" rel="stylesheet" href="src/index.css">
+      <style>${styles}</style>
       <span
         part="base"
         class=${classMap({

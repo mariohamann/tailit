@@ -1,14 +1,17 @@
 import { defineConfig } from 'vite'
+const path = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/components/my-element.ts',
-      formats: ['es']
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'Tailit Components',
+      formats: ['es'],
+      fileName: (format) => `tailit-components.${format}.js`
     },
     rollupOptions: {
-      external: /^lit/
+      // external: /^lit/
     }
   }
 })
