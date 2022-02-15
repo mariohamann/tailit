@@ -1,6 +1,6 @@
 import { html } from 'lit';
-import './badge';
-import { properties } from './badge';
+import '../../index';
+import { properties } from './tailit-badge';
 
 export const Default = (args: any) =>
   html`
