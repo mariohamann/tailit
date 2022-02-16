@@ -1,1 +1,1 @@
-export declare const styles: string;
+export declare const tailwind: import("lit").CSSResult;

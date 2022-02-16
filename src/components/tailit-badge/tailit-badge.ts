@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { styles } from '../../index'
+import { tailwind } from '../../index'
 
 export const properties = {
   variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,
@@ -21,7 +21,9 @@ export default class SlBadge extends LitElement {
   /** Makes the badge pulsate to draw attention. */
   @property({ type: Boolean, reflect: true }) ping = false;
 
-  static styles = css`
+  static styles = [
+    css`${tailwind}`,
+    css`
     .ping {
       animation: ping 1.5s infinite;
     }
@@ -30,12 +32,10 @@ export default class SlBadge extends LitElement {
       0% { box-shadow: 0 0 0 0 var(--tw-var-color-600); }
       70% { box-shadow: 0 0 0 0.5rem transparent; }
       100% { box-shadow: 0 0 0 0 transparent; }
-    }
-  `;
+    }`];
 
   render() {
     return html`
-      <style>${styles}</style>
       <span
         part="base"
         class=${classMap({
