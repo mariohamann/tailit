@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
@@ -8,6 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: colors.sky,
+        secondary: colors.pink,
         'var': {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
@@ -24,69 +27,6 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ matchUtilities, theme }) {
-
-      const variablesPalette = Object.keys(theme('colors.var'));
-
-      /*
-      * Set one-level variables like var-red, var-indigo, var-[pink] etc.
-      */
-
-      matchUtilities(
-        {
-          'var': (color) => {
-            if (typeof color === 'string') {
-              const output = {};
-              variablesPalette.forEach(variant => {
-                output[`--tw-var-color-${variant}`] = color;
-              });
-              return output;
-            } else {
-              const output = {};
-              variablesPalette.forEach(variant => {
-                output[`--tw-var-color-${variant}`] = color[variant];
-              });
-              return output;
-            }
-          },
-        },
-        { values: theme('colors', {}), type: 'color' },
-      );
-
-
-      /*
-      * Set two-level variables like var-50-red, var-100-indigo, var-50-[pink] etc.
-      * We need to transform the color palette from format "color.shade" to "shade.color"
-      * Examples:
-      * - red.50 ... red.900  ->  50.red   ... 900.red
-      * - black               ->  50.black ... 900.black
-      */
-
-      const colorsAsEntries = Object.entries(theme('colors', {}));
-
-      const getTransformedColors = (variant) => {
-        const transformedColors = {};
-        colorsAsEntries.forEach(([key, value]) => {
-          if (typeof value === 'string') {
-            transformedColors[key] = value
-          }
-          else {
-            transformedColors[key] = value[variant]
-          }
-        });
-        return transformedColors;
-      }
-
-      variablesPalette.forEach(variant => {
-        matchUtilities(
-          {
-            [`var-${variant}`]: (value) => ({
-              [`--tw-var-color-${variant}`]: value
-            })
-          },
-          { values: getTransformedColors(variant), type: 'color' },
-        );
-      });
-    }),
+    require('@mariohamann/tailwindcss-var'),
   ]
 }

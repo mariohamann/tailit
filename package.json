@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6999",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.2",
+    "@mariohamann/tailwindcss-var": "^0.1.1",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-backgrounds": "^6.4.18",
     "@storybook/addon-essentials": "^6.4.18",
