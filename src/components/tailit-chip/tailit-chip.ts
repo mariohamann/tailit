@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, eventOptions } from 'lit/decorators.js';
 import { html, literal, unsafeStatic } from 'lit/static-html.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { tailwind } from '../../index'
@@ -34,27 +34,41 @@ export default class TailitChip extends LitElement {
 
   static styles = [css`${tailwind}`];
 
+  beforeSlot() {
+    return;
+  }
+
+  afterSlot() {
+    return;
+  }
+
   render() {
     const tag = literal`${unsafeStatic(this.as)}`;
 
+    const colorClass = {
+      primary: 'var-primary',
+      secondary: 'var-secondary',
+      gray: 'var-gray'
+    };
+
+    const filledClass = this.filled ? 'bg-var-100 border-var-100 text-black' : 'border-var-900 border text-var-900';
+
     return html`
       <${tag}
+        @click=${this._onClick}
         part="base"
-        class=${classMap(
-      {
-        'inline-flex items-center border justify-center rounded-full text-xs font-medium leading-none rounded-full whitespace-nowrap py-1 px-2.5 select-none': true,
-        'var-primary': this.color === 'primary',
-        'var-secondary': this.color === 'secondary',
-        'var-gray': this.color === 'gray',
-        'bg-var-600 border-var-600 text-white': this.filled,
-        'bg-var-50 border-var-800 border text-var-900': !this.filled
-      }
-    )}
+        class="${colorClass[this.color]} ${filledClass} inline-flex items-center border justify-center rounded-full text-sm font-medium leading-none whitespace-nowrap h-7 px-3 select-none"
         role=${this.role}
       >
-        <slot></slot>
+      ${this.beforeSlot()}<slot></slot>${this.afterSlot()}
       </${tag}>
     `;
+  }
+
+  @eventOptions({ capture: true })
+  _onClick(e: Event) {
+    console.log(e);
+    return;
   }
 }
 

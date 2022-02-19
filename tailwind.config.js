@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        var: 'var(--tw-var-spacing)'
+      },
       colors: {
         primary: colors.sky,
         secondary: colors.pink,
