@@ -4,107 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-badge/tailit-badge.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "SlBadge",
-          "slots": [
-            {
-              "description": "The badge's content.",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "attribute": "ping",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "fieldName": "variant"
-            },
-            {
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "fieldName": "ping"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "sl-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "sl-badge",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/tailit-chip/tailit-chip.ts",
       "declarations": [
         {
@@ -566,6 +465,107 @@
           "declaration": {
             "name": "MyElement",
             "module": "src/components/tailit-example/tailit-example.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-badge/tailit-badge.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "properties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SlBadge",
+          "slots": [
+            {
+              "description": "The badge's content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "attribute": "ping",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "fieldName": "ping"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "sl-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "properties",
+          "declaration": {
+            "name": "properties",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "sl-badge",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
           }
         }
       ]
