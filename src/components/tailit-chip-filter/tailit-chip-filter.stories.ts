@@ -10,8 +10,11 @@ export const chipFilter = (args: any) =>
   >${args.slot}</tailit-chip-filter>
 `;
 
+const disabled = { table: { disable: true, }, };
+
 export default {
   title: 'Components/Chip',
+  component: "tailit-chip-filter",
   argTypes: {
     slot: {
       control: { type: 'text' },
@@ -24,7 +27,10 @@ export default {
     },
     checked: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
-  }
+    filled: disabled,
+    beforeSlot: disabled,
+    role: disabled,
+    as: disabled,
+  },
 }; 

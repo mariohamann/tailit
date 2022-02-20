@@ -12,6 +12,7 @@ export const Chip = (args: any) =>
 
 export default {
   title: 'Components/Chip',
+  component: "tailit-chip",
   argTypes: {
     slot: {
       control: { type: 'text' },

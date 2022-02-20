@@ -13,7 +13,7 @@ export const properties = {
  * @since 0.1
  * @status beta
  *
- * @slot - The badge's content.
+ * @slot - The chip's content.
  * 
  * Inspired by:
  * - https://m3.material.io/components/chips/overview
@@ -29,7 +29,6 @@ export default class TailitChipFilter extends TailitChip {
   /* Changes the buttons style. This is especially useful for filter-styles. */
   @property({ type: Boolean, reflect: true, attribute: 'checked' }) filled = false;
 
-  // Transition:  transition-all
   beforeSlot = () => html`<span
     class="${this.filled ? 'w-auto opacity-100 mr-1' : 'invisible w-0 opacity-0 mr-0'}
     material-icons var-spacing-4 text-var overflow-hidden transition-all"
