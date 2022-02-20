@@ -2,7 +2,7 @@ import { html } from 'lit';
 import '../../index';
 import { properties } from './tailit-chip-filter';
 
-export const Default = (args: any) =>
+export const chipFilter = (args: any) =>
   html`
   <tailit-chip-filter
     color=${args.color}
@@ -10,24 +10,21 @@ export const Default = (args: any) =>
   >${args.slot}</tailit-chip-filter>
 `;
 
-Default.args = {
-  color: 'primary',
-  checked: false,
-  slot: 'Title',
-};
-
 export default {
-  title: 'Components/ChipFilter',
+  title: 'Components/Chip',
   argTypes: {
+    slot: {
+      control: { type: 'text' },
+      defaultValue: 'Slot',
+    },
     color: {
       control: { type: 'select' },
       options: properties.colors,
+      defaultValue: properties.colors[0],
     },
     checked: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
+      defaultValue: false,
     },
-    slot: {
-      control: { type: 'text' }
-    },
-  },
+  }
 }; 

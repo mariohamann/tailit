@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         primary: colors.sky,
-        secondary: colors.pink,
+        secondary: colors.orange,
         'var': {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
