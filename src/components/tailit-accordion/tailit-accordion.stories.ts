@@ -3,7 +3,7 @@ import '../../index';
 
 export const Default = (args: any) =>
   html`
-  <tailit-accordion class="w-full" summary="Toggle Me">
+  <tailit-accordion class="w-full" summary="Toggle Me" ?open=${args.open} ?disabled=${args.disabled}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   </tailit-accordion>
@@ -22,9 +22,13 @@ export default {
     //   options: properties.colors,
     //   defaultValue: properties.colors[0],
     // },
-    // filled: {
-    //   control: { type: 'boolean' },
-    //   defaultValue: false,
-    // },
+    open: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
   }
 }; 

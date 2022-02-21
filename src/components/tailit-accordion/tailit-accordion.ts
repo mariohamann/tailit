@@ -23,7 +23,7 @@ export default class TailitAccordion extends HeadlessAccordion {
   static styles = [css`${tailwind}`];
 
   /** The summary to show in the details header. If you need to display HTML, use the `summary` slot instead. */
-  @property() summary: string;
+  @property() summary!: string;
 
   styledHeader = () => html`
     <div

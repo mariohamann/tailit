@@ -16,7 +16,7 @@ import { watch } from '../../internal/watch';
  */
 
 export default class HeadlessAccordion extends LitElement {
-  @query('#header') header: HTMLElement;
+  @query('#header') header!: HTMLElement;
 
   /** Indicates whether or not the details is open. You can use this in lieu of the show/hide methods. */
   @property({ type: Boolean, reflect: true }) open = false;

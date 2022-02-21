@@ -18,7 +18,6 @@ export default class TailitChipAvatar extends TailitChip {
     /** Overwrites default of TailitChip */
     as: string;
     img: string;
-    blackAndWhite: boolean;
     filled: boolean;
     beforeSlot: () => import("lit-html").TemplateResult<2 | 1>;
     _onClick(): void;

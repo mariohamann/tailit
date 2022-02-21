@@ -54,7 +54,7 @@ export function watch(propName: string, options?: WatchOptions) {
             }
           }
         }
-
+        /* @ts-ignore @TODO: Should be fixed!*/
         update.call(this, changedProps);
       };
     }
