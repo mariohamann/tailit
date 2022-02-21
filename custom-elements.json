@@ -32,8 +32,8 @@
                 "text": "string"
               },
               "default": "'button'",
-              "attribute": "as",
               "description": "Overwrites default of TailitChip",
+              "attribute": "as",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chip/tailit-chip.ts"
@@ -122,8 +122,8 @@
                 "text": "string"
               },
               "default": "'button'",
-              "fieldName": "as",
               "description": "Overwrites default of TailitChip",
+              "fieldName": "as",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chip/tailit-chip.ts"
@@ -263,6 +263,7 @@
                 "text": "string"
               },
               "default": "'span'",
+              "description": "Changes the tag of the chip",
               "attribute": "as"
             },
             {
@@ -320,6 +321,7 @@
                 "text": "string"
               },
               "default": "'span'",
+              "description": "Changes the tag of the chip",
               "fieldName": "as"
             },
             {

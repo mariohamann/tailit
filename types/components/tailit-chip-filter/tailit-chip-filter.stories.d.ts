@@ -1,5 +1,5 @@
 import '../../index';
-export declare const Chip: (args: any) => import("lit-html").TemplateResult<1>;
+export declare const chipFilter: (args: any) => import("lit-html").TemplateResult<1>;
 declare const _default: {
     title: string;
     component: string;
@@ -17,11 +17,30 @@ declare const _default: {
             options: readonly ["primary", "secondary", "gray"];
             defaultValue: "primary";
         };
-        filled: {
+        checked: {
             control: {
                 type: string;
             };
-            defaultValue: boolean;
+        };
+        filled: {
+            table: {
+                disable: boolean;
+            };
+        };
+        beforeSlot: {
+            table: {
+                disable: boolean;
+            };
+        };
+        role: {
+            table: {
+                disable: boolean;
+            };
+        };
+        as: {
+            table: {
+                disable: boolean;
+            };
         };
     };
 };

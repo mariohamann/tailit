@@ -19,10 +19,14 @@ export default class TailitChip extends LitElement {
     color: typeof properties.colors[number];
     /** Changes the buttons style. This is especially useful for filter-styles. */
     filled: boolean;
+    /** Changes the tag of the chip */
     as: string;
     role: string;
     static styles: import("lit").CSSResult[];
+    beforeSlot(): void;
+    afterSlot(): void;
     render(): import("lit-html").TemplateResult<2 | 1>;
+    _onClick(e: Event): void;
 }
 declare global {
     interface HTMLElementTagNameMap {

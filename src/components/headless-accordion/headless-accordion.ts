@@ -114,18 +114,6 @@ export default class HeadlessAccordion extends LitElement {
   <div id="body">
     ${this.styledBody()}
   </div>`;
-
-  // render() {
-  //   return html`
-  //     <div
-  //       part="base"
-  //       class="var-blue rounded-sm overflow-hidden shadow-md"
-  //     >
-  //       ${this.headlessHeader()}
-  //       ${this.headlessBody()}
-  //     </div>
-  //   `;
-  // }
 }
 
 declare global {

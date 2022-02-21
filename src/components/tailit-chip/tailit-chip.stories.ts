@@ -16,7 +16,7 @@ export default {
   argTypes: {
     slot: {
       control: { type: 'text' },
-      defaultValue: 'Slot',
+      defaultValue: 'Slot-Content',
     },
     color: {
       control: { type: 'select' },

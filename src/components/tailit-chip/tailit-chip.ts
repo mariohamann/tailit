@@ -27,6 +27,8 @@ export default class TailitChip extends LitElement {
   /** Changes the buttons style. This is especially useful for filter-styles. */
   @property({ type: Boolean, reflect: true }) filled = false;
 
+
+  /** Changes the tag of the chip */
   @property() as = 'span';
 
   @property() role = '';
