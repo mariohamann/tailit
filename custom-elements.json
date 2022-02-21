@@ -4,6 +4,310 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/tailit-accordion/details.styles.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-accordion/tailit-accordion.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SlDetails",
+          "cssParts": [
+            {
+              "description": "The component's base wrapper.",
+              "name": "base"
+            },
+            {
+              "description": "The summary header.",
+              "name": "header"
+            },
+            {
+              "description": "The details summary.",
+              "name": "summary"
+            },
+            {
+              "description": "The expand/collapse summary icon.",
+              "name": "summary-icon"
+            },
+            {
+              "description": "The details content.",
+              "name": "content"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The details' content.",
+              "name": ""
+            },
+            {
+              "description": "The details' summary. Alternatively, you can use the summary prop.",
+              "name": "summary"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "details",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "body",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
+              "attribute": "open",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "description": "The summary to show in the details header. If you need to display HTML, use the `summary` slot instead.",
+              "attribute": "summary"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Shows the details."
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Hides the details"
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleOpenChange"
+            }
+          ],
+          "events": [
+            {
+              "description": "Emitted when the details opens.",
+              "name": "sl-show"
+            },
+            {
+              "description": "Emitted after the details opens and all animations are complete.",
+              "name": "sl-after-show"
+            },
+            {
+              "description": "Emitted when the details closes.",
+              "name": "sl-hide"
+            },
+            {
+              "description": "Emitted after the details closes and all animations are complete.",
+              "name": "sl-after-hide"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
+              "fieldName": "open"
+            },
+            {
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "description": "The summary to show in the details header. If you need to display HTML, use the `summary` slot instead.",
+              "fieldName": "summary"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "tailit-accordion",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "SlDetails",
+            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-accordion",
+          "declaration": {
+            "name": "SlDetails",
+            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-badge/tailit-badge.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "properties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SlBadge",
+          "slots": [
+            {
+              "description": "The badge's content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "attribute": "ping",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "fieldName": "ping"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "sl-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "properties",
+          "declaration": {
+            "name": "properties",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "sl-badge",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/tailit-chip/tailit-chip.ts",
       "declarations": [
         {
@@ -153,6 +457,109 @@
           "declaration": {
             "name": "TailitChip",
             "module": "src/components/tailit-chip/tailit-chip.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-example/tailit-example.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "An example element.",
+          "name": "MyElement",
+          "cssParts": [
+            {
+              "description": "The button",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "This element has a slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'World'",
+              "description": "The name to say \"Hello\" to.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The number of times the button has been clicked.",
+              "attribute": "count"
+            },
+            {
+              "kind": "method",
+              "name": "_onClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "foo",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'World'",
+              "description": "The name to say \"Hello\" to.",
+              "fieldName": "name"
+            },
+            {
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The number of times the button has been clicked.",
+              "fieldName": "count"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "my-element",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MyElement",
+          "declaration": {
+            "name": "MyElement",
+            "module": "src/components/tailit-example/tailit-example.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "my-element",
+          "declaration": {
+            "name": "MyElement",
+            "module": "src/components/tailit-example/tailit-example.ts"
           }
         }
       ]
@@ -362,210 +769,6 @@
           "declaration": {
             "name": "TailitChipFilter",
             "module": "src/components/tailit-chip-filter/tailit-chip-filter.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-example/tailit-example.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "An example element.",
-          "name": "MyElement",
-          "cssParts": [
-            {
-              "description": "The button",
-              "name": "button"
-            }
-          ],
-          "slots": [
-            {
-              "description": "This element has a slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'World'",
-              "description": "The name to say \"Hello\" to.",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "count",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The number of times the button has been clicked.",
-              "attribute": "count"
-            },
-            {
-              "kind": "method",
-              "name": "_onClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "foo",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'World'",
-              "description": "The name to say \"Hello\" to.",
-              "fieldName": "name"
-            },
-            {
-              "name": "count",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The number of times the button has been clicked.",
-              "fieldName": "count"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "my-element",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MyElement",
-          "declaration": {
-            "name": "MyElement",
-            "module": "src/components/tailit-example/tailit-example.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "my-element",
-          "declaration": {
-            "name": "MyElement",
-            "module": "src/components/tailit-example/tailit-example.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-badge/tailit-badge.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "SlBadge",
-          "slots": [
-            {
-              "description": "The badge's content.",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "attribute": "ping",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "fieldName": "variant"
-            },
-            {
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "fieldName": "ping"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "sl-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "sl-badge",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
           }
         }
       ]

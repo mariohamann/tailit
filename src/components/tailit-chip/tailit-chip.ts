@@ -1,7 +1,6 @@
 import { LitElement, css } from 'lit';
 import { customElement, property, eventOptions } from 'lit/decorators.js';
 import { html, literal, unsafeStatic } from 'lit/static-html.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { tailwind } from '../../index'
 
 export const properties = {
