@@ -14,7 +14,7 @@ export declare class MyElement extends LitElement {
      * The number of times the button has been clicked.
      */
     count: number;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     private _onClick;
     foo(): string;
 }

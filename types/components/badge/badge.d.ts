@@ -1,21 +1,20 @@
 import { LitElement } from 'lit';
+export declare const properties: {
+    variants: readonly ["primary", "success", "neutral", "warning", "danger"];
+};
 /**
- * @since 2.0
- * @status stable
+ * @since 0.1
+ * @status beta
  *
  * @slot - The badge's content.
- *
- * @csspart base - The base wrapper
  */
 export default class SlBadge extends LitElement {
     /** The badge's variant. */
-    variant: 'primary' | 'success' | 'neutral' | 'warning' | 'danger';
-    /** Draws a pill-style badge with rounded edges. */
-    pill: boolean;
+    variant: typeof properties.variants[number];
     /** Makes the badge pulsate to draw attention. */
     ping: boolean;
     static styles: import("lit").CSSResult;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
 }
 declare global {
     interface HTMLElementTagNameMap {

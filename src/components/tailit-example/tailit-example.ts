@@ -1,5 +1,6 @@
-import { html, LitElement } from 'lit'
+import { html, LitElement, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { tailwind } from '../../index'
 
 /**
  * An example element.
@@ -22,9 +23,10 @@ export class MyElement extends LitElement {
   @property({ type: Number })
   count = 0
 
+  static styles = css`${tailwind}`;
+
   render() {
     return html`
-      <link rel="stylesheet" href="src/index.css">
       <div class="bg-indigo-700">
         <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
           <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
