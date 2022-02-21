@@ -27,6 +27,9 @@ module.exports = {
           900: 'var(--tw-var-color-900)',
         }
       },
+      spacing: {
+        'var': 'var(--tw-var-size)'
+      }
     },
   },
   plugins: [
