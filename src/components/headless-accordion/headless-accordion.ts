@@ -1,6 +1,5 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
-import { tailwind } from '../../index'
+import { LitElement, html } from 'lit';
+import { property, query } from 'lit/decorators.js';
 import { emit, waitForEvent } from '../../internal/event';
 import { watch } from '../../internal/watch';
 
