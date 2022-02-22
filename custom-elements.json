@@ -4,12 +4,12 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/headless-accordion/headless-accordion.ts",
+      "path": "src/components/headless-expandable/headless-expandable.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "HeadlessAccordion",
+          "name": "HeadlessExpandable",
           "members": [
             {
               "kind": "field",
@@ -137,8 +137,8 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "HeadlessAccordion",
-            "module": "src/components/headless-accordion/headless-accordion.ts"
+            "name": "HeadlessExpandable",
+            "module": "src/components/headless-expandable/headless-expandable.ts"
           }
         }
       ]
@@ -298,16 +298,16 @@
               "kind": "field",
               "name": "styledHeader",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "field",
               "name": "styledBody",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -317,8 +317,8 @@
                 "text": "HTMLElement"
               },
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -332,8 +332,8 @@
               "attribute": "open",
               "reflects": true,
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -347,8 +347,8 @@
               "attribute": "disabled",
               "reflects": true,
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -356,8 +356,8 @@
               "name": "show",
               "description": "Shows the details.",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -365,16 +365,16 @@
               "name": "hide",
               "description": "Hides the details",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "method",
               "name": "handleSummaryClick",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -389,32 +389,32 @@
                 }
               ],
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "method",
               "name": "handleOpenChange",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "field",
               "name": "headlessHeader",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "field",
               "name": "headlessBody",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             }
           ],
@@ -436,8 +436,8 @@
               "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
               "fieldName": "open",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -449,14 +449,14 @@
               "description": "Disables the details so it can't be toggled.",
               "fieldName": "disabled",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             }
           ],
           "superclass": {
-            "name": "HeadlessAccordion",
-            "module": "/src/components/headless-accordion/headless-accordion"
+            "name": "HeadlessExpandable",
+            "module": "/src/components/headless-expandable/headless-expandable"
           },
           "tagName": "tailit-accordion",
           "customElement": true,
@@ -465,32 +465,32 @@
               "description": "Emitted when the details opens.",
               "name": "sl-show",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "description": "Emitted after the details opens and all animations are complete.",
               "name": "sl-after-show",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "description": "Emitted when the details closes.",
               "name": "sl-hide",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "description": "Emitted after the details closes and all animations are complete.",
               "name": "sl-after-hide",
               "inheritedFrom": {
-                "name": "HeadlessAccordion",
-                "module": "src/components/headless-accordion/headless-accordion.ts"
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless-expandable/headless-expandable.ts"
               }
             }
           ]

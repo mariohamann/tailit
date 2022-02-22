@@ -10,7 +10,7 @@ import { LitElement } from 'lit';
  * @event sl-hide - Emitted when the details closes.
  * @event sl-after-hide - Emitted after the details closes and all animations are complete.
  */
-export default class HeadlessAccordion extends LitElement {
+export default class HeadlessExpandable extends LitElement {
     header: HTMLElement;
     /** Indicates whether or not the details is open. You can use this in lieu of the show/hide methods. */
     open: boolean;
@@ -30,6 +30,6 @@ export default class HeadlessAccordion extends LitElement {
 }
 declare global {
     interface HTMLElementTagNameMap {
-        'headless-accordion': HeadlessAccordion;
+        'headless-expandable': HeadlessExpandable;
     }
 }
