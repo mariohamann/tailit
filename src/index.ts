@@ -11,12 +11,46 @@ import classes from './styles/tailwind.css'
 export const tailwind = css`${unsafeCSS(classes)}`;
 
 /*
-* 2. Import all components
+* 2. Import components dynamically
 */
 const modules = import.meta.glob('./components/**/!(*.stories).ts')
 
+const moduleArray = ([] as { name: string, path: string }[]);
+
 for (const path in modules) {
-  modules[path]().then((mod) => {
-    console.log(path, mod)
-  })
+  const fileName = path.split('/').slice(-1)[0].split('.')[0];
+  moduleArray.push({
+    name: fileName,
+    path: path
+  });
 }
+
+const registerAvailableComponents = () => {
+  // Debugging: Check performance
+  const start = Date.now();
+  moduleArray.forEach((module) => {
+    // Check if Custom Element is already registered
+    if (customElements.get(module.name)) return;
+
+    // Check if one of the elements is in DOM
+    if (document.getElementsByTagName(module.name).length === 0) return;
+
+    // Import Custom Element definitions
+    modules[module.path]().then(() => {
+      console.log(`${module.name} connected`);
+    })
+  })
+
+  // Debugging: Check performance
+  console.log(Date.now() - start)
+}
+
+// Initially check server rendered components
+registerAvailableComponents();
+
+// Look if new elements are added dynamically in main DOM
+const observer = new MutationObserver(function () {
+  registerAvailableComponents();
+});
+
+observer.observe(document, { subtree: true, childList: true });
