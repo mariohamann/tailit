@@ -1,6 +1,20 @@
+const { loadConfigFromFile, mergeConfig } = require("vite");
+const path = require('path');
+
 module.exports = {
+  async viteFinal(config, { configType }) {
+    config.resolve.dedupe = ["@storybook/client-api"];
+    const { config: userConfig } = await loadConfigFromFile(
+      path.resolve(__dirname, "../vite.config.ts")
+    );
+
+    return mergeConfig(config, {
+      ...userConfig,
+      // manually specify plugins to avoid conflict
+      plugins: [],
+    });
+  },
   "stories": [
-    "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
@@ -9,6 +23,6 @@ module.exports = {
   ],
   "framework": "@storybook/web-components",
   "core": {
-    "builder": "storybook-builder-vite"
+    "builder": "@storybook/builder-vite"
   }
 }
