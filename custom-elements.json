@@ -32,12 +32,12 @@
             },
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "attribute": "tint",
+              "attribute": "coloring",
               "reflects": true,
               "inheritedFrom": {
                 "name": "TailitElement",
@@ -46,7 +46,7 @@
             },
             {
               "kind": "method",
-              "name": "getTintClass",
+              "name": "getColoring",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -196,13 +196,13 @@
               "fieldName": "summary"
             },
             {
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "fieldName": "tint",
-              "attribute": "tint",
+              "fieldName": "coloring",
+              "attribute": "coloring",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -312,7 +312,7 @@
           "type": {
             "text": "object"
           },
-          "default": "{\n  tints: ['primary', 'secondary', 'neutral'] as const,\n}"
+          "default": "{\n  colorings: ['primary', 'secondary', 'neutral'] as const,\n}"
         },
         {
           "kind": "class",
@@ -321,14 +321,14 @@
           "members": [
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               }
             },
             {
               "kind": "method",
-              "name": "getTintClass",
+              "name": "getColoring",
               "return": {
                 "type": {
                   "text": "'var-primary' | 'var-secondary' | 'var-neutral'"
@@ -344,17 +344,17 @@
           "members": [
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "attribute": "tint",
+              "attribute": "coloring",
               "reflects": true
             },
             {
               "kind": "method",
-              "name": "getTintClass"
+              "name": "getColoring"
             },
             {
               "kind": "field",
@@ -368,13 +368,13 @@
           ],
           "attributes": [
             {
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "fieldName": "tint",
-              "attribute": "tint"
+              "fieldName": "coloring",
+              "attribute": "coloring"
             }
           ],
           "parameters": [
@@ -393,15 +393,15 @@
           "members": [
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'"
             },
             {
               "kind": "method",
-              "name": "getTintClass"
+              "name": "getColoring"
             }
           ],
           "superclass": {
@@ -735,12 +735,12 @@
             },
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "attribute": "tint",
+              "attribute": "coloring",
               "reflects": true,
               "inheritedFrom": {
                 "name": "TailitElement",
@@ -749,7 +749,7 @@
             },
             {
               "kind": "method",
-              "name": "getTintClass",
+              "name": "getColoring",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -797,13 +797,13 @@
               "fieldName": "role"
             },
             {
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "fieldName": "tint",
-              "attribute": "tint",
+              "fieldName": "coloring",
+              "attribute": "coloring",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -847,14 +847,6 @@
       "kind": "javascript-module",
       "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
       "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
-        },
         {
           "kind": "class",
           "description": "",
@@ -939,12 +931,12 @@
             },
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "attribute": "tint",
+              "attribute": "coloring",
               "reflects": true,
               "inheritedFrom": {
                 "name": "TailitChip",
@@ -953,7 +945,7 @@
             },
             {
               "kind": "method",
-              "name": "getTintClass",
+              "name": "getColoring",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1029,13 +1021,13 @@
               }
             },
             {
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "fieldName": "tint",
-              "attribute": "tint",
+              "fieldName": "coloring",
+              "attribute": "coloring",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1051,14 +1043,6 @@
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        },
         {
           "kind": "js",
           "name": "default",
@@ -1164,12 +1148,12 @@
             },
             {
               "kind": "field",
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "attribute": "tint",
+              "attribute": "coloring",
               "reflects": true,
               "inheritedFrom": {
                 "name": "TailitChip",
@@ -1178,7 +1162,7 @@
             },
             {
               "kind": "method",
-              "name": "getTintClass",
+              "name": "getColoring",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1246,13 +1230,13 @@
               }
             },
             {
-              "name": "tint",
+              "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.tints[number]"
+                "text": "typeof tailitProperties.colorings[number]"
               },
               "default": "'primary'",
-              "fieldName": "tint",
-              "attribute": "tint",
+              "fieldName": "coloring",
+              "attribute": "coloring",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"

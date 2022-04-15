@@ -2,10 +2,6 @@ import { customElement, property, eventOptions } from 'lit/decorators.js';
 import { html } from 'lit/static-html.js';
 import TailitChip from '../tailit-chip/tailit-chip';
 
-export const properties = {
-  colors: ['primary', 'secondary', 'gray'] as const,
-};
-
 /**
  * @since 0.1
  * @status beta

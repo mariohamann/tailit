@@ -4,7 +4,7 @@ import { tailitProperties } from '../../tailit-element/tailit-element';
 export const chipAvatar = (args: any) => html`
     <tailit-chip-avatar
       img=${args.img}
-      tint=${args.tint}
+      coloring=${args.coloring}
       ?checked=${args.checked}
       >${args.slot}</tailit-chip-avatar
     >
@@ -25,10 +25,10 @@ export default {
       defaultValue:
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
-    tint: {
+    coloring: {
       control: { type: 'select' },
-      options: tailitProperties.tints,
-      defaultValue: tailitProperties.tints[0],
+      options: tailitProperties.colorings,
+      defaultValue: tailitProperties.colorings[0],
     },
     checked: {
       control: { type: 'boolean' },

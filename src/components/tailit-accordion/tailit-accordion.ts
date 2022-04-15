@@ -22,7 +22,7 @@ export default class TailitAccordion extends TailitElement(HeadlessExpandable) {
     return html`
       <div
         part="base"
-        class="${this.getTintClass()} rounded-sm overflow-hidden shadow-md"
+        class="${this.getColoring()} rounded-sm overflow-hidden shadow-md"
       >
         ${this.renderHeader(html`
           <div

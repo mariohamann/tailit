@@ -5,23 +5,23 @@ import { tailwind } from '../../index';
 type Constructor<T> = new (...args: any[]) => T;
 
 export const tailitProperties = {
-  tints: ['primary', 'secondary', 'neutral'] as const,
+  colorings: ['primary', 'secondary', 'neutral'] as const,
 };
 
 export declare class TailitElementInterface {
-  tint: typeof tailitProperties.tints[number];
-  getTintClass(): 'var-primary' | 'var-secondary' | 'var-neutral';
+  coloring: typeof tailitProperties.colorings[number];
+  getColoring(): 'var-primary' | 'var-secondary' | 'var-neutral';
 }
 
 export const TailitElement =
   <T extends Constructor<LitElement>>(superClass: T) => {
     class TailitElement extends superClass {
       // This will be used as 'var-neutral var-primary var-secondary'
-      @property({ type: String, reflect: true}) tint: typeof tailitProperties.tints[number] =
+      @property({ type: String, reflect: true}) coloring: typeof tailitProperties.colorings[number] =
     'primary';
 
-      getTintClass(){
-        switch (this.tint) {
+      getColoring(){
+        switch (this.coloring) {
           case 'primary':
             return 'var-primary';
           case 'secondary':

@@ -9,7 +9,7 @@ declare const _default: {
             };
             defaultValue: string;
         };
-        tint: {
+        coloring: {
             control: {
                 type: string;
             };

@@ -8,7 +8,7 @@ export const Default = (args: any) => html`
       summary="Toggle Me"
       ?open=${args.open}
       ?disabled=${args.disabled}
-      tint=${args.tint}
+      coloring=${args.coloring}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -25,10 +25,10 @@ export default {
     //   control: { type: 'text' },
     //   defaultValue: 'Slot',
     // },
-    tint: {
+    coloring: {
       control: { type: 'select' },
-      options: tailitProperties.tints,
-      defaultValue: tailitProperties.tints[0],
+      options: tailitProperties.colorings,
+      defaultValue: tailitProperties.colorings[0],
     },
     open: {
       control: { type: 'boolean' },

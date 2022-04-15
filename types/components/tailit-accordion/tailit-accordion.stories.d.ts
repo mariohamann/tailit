@@ -4,7 +4,7 @@ declare const _default: {
     title: string;
     component: string;
     argTypes: {
-        tint: {
+        coloring: {
             control: {
                 type: string;
             };

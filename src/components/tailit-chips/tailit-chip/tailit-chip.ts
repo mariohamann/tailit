@@ -36,7 +36,7 @@ export default class TailitChip extends TailitElement(LitElement) {
       <${tag}
         @click=${this._onClick}
         part="base"
-        class="${ this.getTintClass() } ${filledClass} text-sm transition-all inline-flex items-center border justify-center rounded-full font-medium leading-none whitespace-nowrap h-7 px-3 select-none" role=${this.role}
+        class="${ this.getColoring() } ${filledClass} text-sm transition-all inline-flex items-center border justify-center rounded-full font-medium leading-none whitespace-nowrap h-7 px-3 select-none" role=${this.role}
       >
         ${content}
       </${tag}>
