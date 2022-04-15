@@ -15,9 +15,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // external: /^lit/
-      plugins: [
-        minifyHTML(),
-      ],
+      plugins: [minifyHTML()],
     },
   },
 });

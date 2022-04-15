@@ -1,14 +1,14 @@
 import { LitElement, html } from 'lit';
-import { property, query } from 'lit/decorators';
-import { emit, waitForEvent } from '../../internal/event';
-import { watch } from '../../internal/watch';
+import { property, query, state } from 'lit/decorators.js';
+import { emit, waitForEvent } from '../../../internal/event';
+import { watch } from '../../../internal/watch';
 
 /**
  * @since 2.0
  * @status stable
  *
  * @dependency sl-icon
- * 
+ *
  * @event sl-show - Emitted when the details opens.
  * @event sl-after-show - Emitted after the details opens and all animations are complete.
  * @event sl-hide - Emitted when the details closes.
@@ -16,15 +16,18 @@ import { watch } from '../../internal/watch';
  */
 
 export default class HeadlessExpandable extends LitElement {
-  @query('#header') header!: HTMLElement;
+  @query('[part="header"]') header!: HTMLElement
 
   /** Indicates whether or not the details is open.
    * You can use this in lieu of the show/hide methods.
    */
-  @property({ type: Boolean, reflect: true }) open = false;
+  @property({ type: Boolean, reflect: true }) open = false
 
   /** Disables the details so it can't be toggled. */
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) disabled = false
+
+  /** Makes the header non-tapable – should be used, if you have a button inside the element */
+  @state() inherit = false
 
   /** Shows the details. */
   async show() {
@@ -93,33 +96,26 @@ export default class HeadlessExpandable extends LitElement {
     }
   }
 
-  styledHeader = () => html``
-
-  headlessHeader = () => html`
+  renderHeader = (content: unknown) => html`
     <header
-      id="header"
+      part="header"
       role="button"
       aria-expanded=${this.open ? 'true' : 'false'}
       aria-controls="body"
       aria-disabled=${this.disabled ? 'true' : 'false'}
-      tabindex=${this.disabled ? '-1' : '0'}
+      tabindex=${this.disabled || this.inherit ? '-1' : '0'}
       @click=${this.handleSummaryClick}
       @keydown=${this.handleSummaryKeyDown}
     >
-        ${this.styledHeader()}
+      ${content}
     </header>
-  `;
+  `
 
-  styledBody = () => html`<slot></slot>`
-
-  headlessBody = () => html`
-  <div id="body">
-    ${this.styledBody()}
-  </div>`;
+  renderBody = (content: unknown) => html` <div id="body">${content}</div>`
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'headless-expandable': HeadlessExpandable;
+    'headless-expandable': HeadlessExpandable
   }
 }

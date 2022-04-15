@@ -1,4 +1,4 @@
-import HeadlessExpandable from '../headless-expandable/headless-expandable';
+import HeadlessExpandable from '../headless/headless-expandable/headless-expandable';
 /**
  * @since 2.0
  * @status stable
@@ -16,10 +16,9 @@ import HeadlessExpandable from '../headless-expandable/headless-expandable';
  */
 export default class TailitAccordion extends HeadlessExpandable {
     static styles: import("lit").CSSResult[];
-    /** The summary to show in the details header. If you need to display HTML, use the `summary` slot instead. */
+    /** The summary to show in the details header.
+     * If you need to display HTML, use the `summary` slot instead. */
     summary: string;
-    styledHeader: () => import("lit").TemplateResult<1>;
-    styledBody: () => import("lit").TemplateResult<1>;
     render(): import("lit").TemplateResult<1>;
 }
 declare global {

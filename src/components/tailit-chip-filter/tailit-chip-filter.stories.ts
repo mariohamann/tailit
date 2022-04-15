@@ -2,19 +2,17 @@ import { html } from 'lit';
 import '../../index';
 import { properties } from './tailit-chip-filter';
 
-export const chipFilter = (args: any) =>
-  html`
-  <tailit-chip-filter
-    color=${args.color}
-    ?checked=${args.checked}
-  >${args.slot}</tailit-chip-filter>
-`;
+export const chipFilter = (args: any) => html`
+    <tailit-chip-filter color=${args.color} ?checked=${args.checked}
+      >${args.slot}</tailit-chip-filter
+    >
+  `;
 
-const disabled = { table: { disable: true, }, };
+const disabled = { table: { disable: true } };
 
 export default {
   title: 'Components/Chip',
-  component: "tailit-chip-filter",
+  component: 'tailit-chip-filter',
   argTypes: {
     slot: {
       control: { type: 'text' },
@@ -33,4 +31,4 @@ export default {
     role: disabled,
     as: disabled,
   },
-}; 
+};

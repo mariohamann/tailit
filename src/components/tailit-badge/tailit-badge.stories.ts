@@ -2,13 +2,9 @@ import { html } from 'lit';
 import '../../index';
 import { properties } from './tailit-badge';
 
-export const Default = (args: any) =>
-  html`
-  <sl-badge
-    variant=${args.variant}
-    ?ping=${args.ping}
-  >${args.slot}</sl-badge>
-`;
+export const Default = (args: any) => html`
+    <sl-badge variant=${args.variant} ?ping=${args.ping}>${args.slot}</sl-badge>
+  `;
 
 Default.args = {
   variant: 'primary',
@@ -24,10 +20,10 @@ export default {
       options: properties.variants,
     },
     ping: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     slot: {
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
   },
-}; 
+};

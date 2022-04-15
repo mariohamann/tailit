@@ -1,6 +1,6 @@
-import { html, LitElement, css } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
-import { tailwind } from '../../index'
+import { html, LitElement, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { tailwind } from '../../index';
 
 /**
  * An example element.
@@ -10,7 +10,6 @@ import { tailwind } from '../../index'
  */
 @customElement('my-element')
 export class MyElement extends LitElement {
-
   /**
    * The name to say "Hello" to.
    */
@@ -23,35 +22,43 @@ export class MyElement extends LitElement {
   @property({ type: Number })
   count = 0
 
-  static styles = css`${tailwind}`;
+  static styles = css`
+    ${tailwind}
+  `
 
   render() {
     return html`
       <div class="bg-indigo-700">
-        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+        <div
+          class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8"
+        >
           <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
             <span class="block">Hello, ${this.name}!</span>
           </h2>
           <p class="mt-4 text-lg leading-6 text-indigo-200">
-            Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.
+            Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
+            Malesuada adipiscing sagittis vel nulla nec.
             <slot></slot>
           </p>
-          
-          <button class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto" @click=${this._onClick} part="button">
+
+          <button
+            class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
+            @click=${this._onClick}
+            part="button"
+          >
             Click Count: ${this.count}
           </button>
         </div>
       </div>
-      
-    `
+    `;
   }
 
   private _onClick() {
-    this.count++
+    this.count++;
   }
 
   foo(): string {
-    return 'foo'
+    return 'foo';
   }
 }
 

@@ -17,30 +17,30 @@
 
 import type { LitElement } from 'lit';
 
-type UpdateHandler = (prev?: unknown, next?: unknown) => void;
+type UpdateHandler = (prev?: unknown, next?: unknown) => void
 
-type NonUndefined<A> = A extends undefined ? never : A;
+type NonUndefined<A> = A extends undefined ? never : A
 
 type UpdateHandlerFunctionKeys<T extends object> = {
-  [K in keyof T]-?: NonUndefined<T[K]> extends UpdateHandler ? K : never;
-}[keyof T];
+  [K in keyof T]-?: NonUndefined<T[K]> extends UpdateHandler ? K : never
+}[keyof T]
 
 interface WatchOptions {
   /**
    * If true, will only start watching after the initial update/render
    */
-  waitUntilFirstUpdate?: boolean;
+  waitUntilFirstUpdate?: boolean
 }
 
 // eslint-disable-next-line import/prefer-default-export
 export function watch(propName: string, options?: WatchOptions) {
   const resolvedOptions: Required<WatchOptions> = {
     waitUntilFirstUpdate: false,
-    ...options
+    ...options,
   };
   return <ElemClass extends LitElement>(
     proto: ElemClass,
-    decoratedFnName: UpdateHandlerFunctionKeys<ElemClass>
+    decoratedFnName: UpdateHandlerFunctionKeys<ElemClass>,
   ): void => {
     // @ts-expect-error -- update is a protected property
     const { update } = proto;
@@ -50,7 +50,7 @@ export function watch(propName: string, options?: WatchOptions) {
       // eslint-disable-next-line no-param-reassign
       proto.update = function (
         this: ElemClass,
-        changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>
+        changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>,
       ) {
         if (changedProps.has(propNameKey)) {
           const oldValue = changedProps.get(propNameKey);
@@ -58,7 +58,10 @@ export function watch(propName: string, options?: WatchOptions) {
 
           if (oldValue !== newValue) {
             if (!resolvedOptions.waitUntilFirstUpdate || this.hasUpdated) {
-              (this[decoratedFnName] as unknown as UpdateHandler)(oldValue, newValue);
+              (this[decoratedFnName] as unknown as UpdateHandler)(
+                oldValue,
+                newValue,
+              );
             }
           }
         }
