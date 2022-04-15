@@ -9,21 +9,21 @@ export declare class MyElement extends LitElement {
   /**
    * The name to say "Hello" to.
    */
-  name: string
+  name: string;
 
   /**
    * The number of times the button has been clicked.
    */
-  count: number
+  count: number;
 
-  render(): import('lit-html').TemplateResult<1>
+  render(): import('lit-html').TemplateResult<1>;
 
-  private _onClick
+  private onClick;
 
-  foo(): string
+  foo(): string;
 }
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement
+    'my-element': MyElement;
   }
 }

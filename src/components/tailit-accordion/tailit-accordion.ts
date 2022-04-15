@@ -63,6 +63,6 @@ export default class TailitAccordion extends TailitElement(HeadlessExpandable) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'tailit-accordion': TailitAccordion
+    'tailit-accordion': TailitAccordion;
   }
 }

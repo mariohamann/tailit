@@ -12,16 +12,16 @@ import TailitChip from '../tailit-chip/tailit-chip';
  *
  */
 export default class TailitChipAvatar extends TailitChip {
-    /** Overwrites default of TailitChip */
-    as: string;
-    img: string;
-    filled: boolean;
-    renderAvatar(): import("lit").TemplateResult<2 | 1>;
-    render(): import("lit").TemplateResult<2 | 1>;
-    _onClick(): void;
+  /** Overwrites default of TailitChip */
+  as: string;
+  img: string;
+  filled: boolean;
+  renderAvatar(): import("lit").TemplateResult<2 | 1>;
+  render(): import("lit").TemplateResult<2 | 1>;
+  onClick(): void;
 }
 declare global {
-    interface HTMLElementTagNameMap {
-        'tailit-chip-avatar': TailitChipAvatar;
-    }
+  interface HTMLElementTagNameMap {
+    'tailit-chip-avatar': TailitChipAvatar;
+  }
 }

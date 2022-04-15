@@ -17,10 +17,10 @@ export const properties = {
 export default class SlBadge extends LitElement {
   /** The badge's variant. */
   @property({ reflect: true }) variant: typeof properties.variants[number] =
-    'primary'
+  'primary';
 
   /** Makes the badge pulsate to draw attention. */
-  @property({ type: Boolean, reflect: true }) ping = false
+  @property({ type: Boolean, reflect: true }) ping = false;
 
   static styles = [
     css`
@@ -43,7 +43,7 @@ export default class SlBadge extends LitElement {
         }
       }
     `,
-  ]
+  ];
 
   render() {
     return html`

@@ -13,18 +13,18 @@ declare const TailitChip_base: (new (...args: any[]) => import("../../tailit-ele
  *
  */
 export default class TailitChip extends TailitChip_base {
-    /** Changes the buttons style. This is especially useful for filter-styles. */
-    filled: boolean;
-    /** Changes the tag of the chip */
-    as: string;
-    role: string;
-    renderChip: (content: unknown) => import("lit").TemplateResult<2 | 1>;
-    render(): import("lit").TemplateResult<2 | 1>;
-    _onClick(): void;
+  /** Changes the buttons style. This is especially useful for filter-styles. */
+  filled: boolean;
+  /** Changes the tag of the chip */
+  as: string;
+  role: string;
+  renderChip: (content: unknown) => import("lit").TemplateResult<2 | 1>;
+  render(): import("lit").TemplateResult<2 | 1>;
+  onClick(): void;
 }
 declare global {
-    interface HTMLElementTagNameMap {
-        'tailit-chip': TailitChip;
-    }
+  interface HTMLElementTagNameMap {
+    'tailit-chip': TailitChip;
+  }
 }
-export {};
+export { };

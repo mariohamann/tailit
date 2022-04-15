@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { tailitElementProperties } from '../../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../../tailit-element/tailit-element';
 
 export const Chip = (args: any) => html`
     <tailit-chip coloring=${args.coloring} ?filled=${args.filled}

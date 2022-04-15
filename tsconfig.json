@@ -16,6 +16,6 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

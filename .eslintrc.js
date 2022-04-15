@@ -5,15 +5,29 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'airbnb-base', ,
-    'airbnb-typescript/base',
+    'airbnb-base',
     'plugin:storybook/recommended',
+    'plugin:wc/recommended',
+    'plugin:lit/recommended',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    project: './tsconfig.json',
-  },
-  plugins: ['@typescript-eslint'],
-  rules: {},
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'airbnb-typescript/base',
+      ],
+      rules: {
+        'import/extensions': 0, // Some lit modueles have to be imported with ".js"-suffix
+        'max-classes-per-file': 0, // Needed for headless components
+        'no-shadow': 0, // Needed for headless components
+        '@typescript-eslint/no-shadow': 0, // Needed for headless components
+      },
+
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: ['./tsconfig.json'], // Specify it only for TypeScript files
+      },
+    },
+  ],
+  plugins: ['@typescript-eslint', 'eslint-plugin-lit'],
 };

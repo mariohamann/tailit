@@ -25,7 +25,9 @@ specifiers:
   eslint-config-airbnb-base: ^15.0.0
   eslint-config-airbnb-typescript: ^17.0.0
   eslint-plugin-import: ^2.26.0
+  eslint-plugin-lit: ^1.6.1
   eslint-plugin-storybook: ^0.5.8
+  eslint-plugin-wc: ^1.3.2
   jest: ^27.5.1
   lit: ^2.2.2
   lit-html: ^2.2.2
@@ -70,7 +72,9 @@ devDependencies:
   cssnano: 5.1.7_postcss@8.4.12
   eslint-config-airbnb-typescript: 17.0.0_d23080cd1bf78e96bc7a44ed8d160a0a
   eslint-plugin-import: 2.26.0_eslint@7.32.0
+  eslint-plugin-lit: 1.6.1_eslint@7.32.0
   eslint-plugin-storybook: 0.5.8_eslint@7.32.0+typescript@4.6.3
+  eslint-plugin-wc: 1.3.2_eslint@7.32.0
   jest: 27.5.1
   lit-html: 2.2.2
   postcss: 8.4.12
@@ -7410,6 +7414,18 @@ packages:
       tsconfig-paths: 3.14.1
     dev: true
 
+  /eslint-plugin-lit/1.6.1_eslint@7.32.0:
+    resolution: {integrity: sha512-BpPoWVhf8dQ/Sz5Pi9NlqbGoH5BcMcVyXhi2XTx2XGMAO9U2lS+GTSsqJjI5hL3OuxCicNiUEWXazAwi9cAGxQ==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      eslint: '>= 5'
+    dependencies:
+      eslint: 7.32.0
+      parse5: 6.0.1
+      parse5-htmlparser2-tree-adapter: 6.0.1
+      requireindex: 1.2.0
+    dev: true
+
   /eslint-plugin-storybook/0.5.8_eslint@7.32.0+typescript@4.6.3:
     resolution: {integrity: sha512-k67mXT9dOl0z8RFWL9SAQ38NaNst6BjCUDQudaDGjMJHrXncOfCSOz9ROGIVu//zVepZw8D3abdGn9OVvyJ3QA==}
     engines: {node: 12.x || 14.x || >= 16}
@@ -7423,6 +7439,16 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
+    dev: true
+
+  /eslint-plugin-wc/1.3.2_eslint@7.32.0:
+    resolution: {integrity: sha512-/Tt3kIXBp1jh06xYtRqPwAvpNxVVk9YtbcFCKEgLa5l3GY+urZyn376pISaaZxkm9HVD3AIPOF5i9/uFwyF0Zw==}
+    peerDependencies:
+      eslint: '>=5'
+    dependencies:
+      eslint: 7.32.0
+      is-valid-element-name: 1.0.0
+      js-levenshtein-esm: 1.2.0
     dev: true
 
   /eslint-scope/4.0.3:
@@ -9010,6 +9036,12 @@ packages:
     resolution: {integrity: sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=}
     dev: true
 
+  /is-valid-element-name/1.0.0:
+    resolution: {integrity: sha1-Ju8/12zfHxItEFQG4y01sN4AWYE=}
+    dependencies:
+      is-potential-custom-element-name: 1.0.1
+    dev: true
+
   /is-weakref/1.0.2:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
     dependencies:
@@ -9648,6 +9680,10 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
+    dev: true
+
+  /js-levenshtein-esm/1.2.0:
+    resolution: {integrity: sha512-fzreKVq1eD7eGcQr7MtRpQH94f8gIfhdrc7yeih38xh684TNMK9v5aAu2wxfIRMk/GpAJRrzcirMAPIaSDaByQ==}
     dev: true
 
   /js-string-escape/1.0.1:
@@ -10878,6 +10914,12 @@ packages:
     dependencies:
       typescript: 4.6.3
     dev: false
+
+  /parse5-htmlparser2-tree-adapter/6.0.1:
+    resolution: {integrity: sha512-qPuWvbLgvDGilKc5BoicRovlT4MtYT6JfJyBOMDsKoiT+GiuP5qyrPCnR9HcPECIJJmZh5jRndyNThnhhb/vlA==}
+    dependencies:
+      parse5: 6.0.1
+    dev: true
 
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}

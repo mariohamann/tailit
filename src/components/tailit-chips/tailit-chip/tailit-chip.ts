@@ -18,12 +18,12 @@ import { TailitElement } from '../../tailit-element/tailit-element';
 @customElement('tailit-chip')
 export default class TailitChip extends TailitElement(LitElement) {
   /** Changes the buttons style. This is especially useful for filter-styles. */
-  @property({ type: Boolean, reflect: true }) filled = false
+  @property({ type: Boolean, reflect: true }) filled = false;
 
   /** Changes the tag of the chip */
-  @property() as = 'span'
+  @property() as = 'span';
 
-  @property() role = ''
+  @property() role = '';
 
   renderChip = (content: unknown) => {
     const tag = literal`${unsafeStatic(this.as)}`;
@@ -32,30 +32,32 @@ export default class TailitChip extends TailitElement(LitElement) {
       ? 'bg-var-100 border-var-100 text-var-900'
       : 'border-var-600 border text-var-600';
 
+    /* eslint-disable lit/binding-positions, lit/no-invalid-html */
     return html`
       <${tag}
-        @click=${this._onClick}
+        @click=${this.onClick}
         part="base"
-        class="${ this.coloringClass() } ${filledClass} text-sm transition-all inline-flex items-center border justify-center rounded-full font-medium leading-none whitespace-nowrap h-7 px-3 select-none" role=${this.role}
+        class="${this.coloringClass()} ${filledClass} text-sm transition-all inline-flex items-center border justify-center rounded-full font-medium leading-none whitespace-nowrap h-7 px-3 select-none" role=${this.role}
       >
         ${content}
       </${tag}>
     `;
-  }
+  };
 
   render() {
     return this.renderChip(html`<slot></slot>`);
   }
 
-
   @eventOptions({ capture: true })
-  _onClick() {
+  // eslint-disable-next-line class-methods-use-this
+  onClick() {
+    // eslint-disable-next-line no-useless-return
     return;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'tailit-chip': TailitChip
+    'tailit-chip': TailitChip;
   }
 }

@@ -1,7 +1,7 @@
 import { html } from 'lit';
-import { tailitElementProperties } from '../../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../../tailit-element/tailit-element';
 
-export const chipAvatar = (args: any) => html`
+export const ChipAvatar = (args: any) => html`
     <tailit-chip-avatar
       img=${args.img}
       coloring=${args.coloring}

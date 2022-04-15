@@ -17,19 +17,19 @@
 
 import type { LitElement } from 'lit';
 
-type UpdateHandler = (prev?: unknown, next?: unknown) => void
+type UpdateHandler = (prev?: unknown, next?: unknown) => void;
 
-type NonUndefined<A> = A extends undefined ? never : A
+type NonUndefined<A> = A extends undefined ? never : A;
 
 type UpdateHandlerFunctionKeys<T extends object> = {
   [K in keyof T]-?: NonUndefined<T[K]> extends UpdateHandler ? K : never
-}[keyof T]
+}[keyof T];
 
 interface WatchOptions {
   /**
    * If true, will only start watching after the initial update/render
    */
-  waitUntilFirstUpdate?: boolean
+  waitUntilFirstUpdate?: boolean;
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -47,7 +47,7 @@ export function watch(propName: string, options?: WatchOptions) {
     if (propName in proto) {
       const propNameKey = propName as keyof ElemClass;
       // @ts-expect-error -- update is a protected property
-      // eslint-disable-next-line no-param-reassign
+      // eslint-disable-next-line no-param-reassign, func-names
       proto.update = function (
         this: ElemClass,
         changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>,

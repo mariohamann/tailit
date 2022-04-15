@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 /*
  * 1. Make Tailwind-CSS globally accessible
  *
@@ -16,12 +18,11 @@ export const tailwind = css`
 `;
 
 /*
- * 2. Import all components
+ * 2. Import all components and register them
  */
+
 const modules = import.meta.glob('./components/**/!(*.stories).ts');
 
-for (const path in modules) {
-  modules[path]().then((mod) => {
-    console.log(path, mod);
-  });
-}
+Object.values(modules).forEach((module) => {
+  module();
+});

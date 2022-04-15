@@ -4,6 +4,689 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/tailit-badge/tailit-badge.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "properties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SlBadge",
+          "slots": [
+            {
+              "description": "The badge's content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "attribute": "ping",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "fieldName": "ping"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "sl-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "properties",
+          "declaration": {
+            "name": "properties",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "sl-badge",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-button/tailit-button.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailitButtonProperties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  variants: ['primary', 'secondary', 'tertiary'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "typeof tailitButtonProperties.variants[number]"
+              },
+              "default": "'secondary'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabledClass",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'opacity-50 pointer-events-none cursor-not-allowed'"
+            },
+            {
+              "kind": "field",
+              "name": "focusClass",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'focus:ring-4 focus:ring-var-300'"
+            },
+            {
+              "kind": "field",
+              "name": "variantClass",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'",
+              "attribute": "coloring",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "coloringClass",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "button",
+              "type": {
+                "text": "HTMLButtonElement | HTMLLinkElement"
+              },
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "privacy": "private",
+              "default": "new FormSubmitController(this, {\n      form: (input: any) => {\n        // Buttons support a form attribute that points to an arbitrary form,\n        // so if this attribute it set we need to query\n        // the form from the same root using its id\n        if (input.hasAttribute('form')) {\n          const doc = input.getRootNode() as Document | ShadowRoot;\n          const formId = input.getAttribute('form')!;\n          return doc.getElementById(formId) as HTMLFormElement;\n        }\n\n        // Fall back to the closest containing form\n        return input.closest('form');\n      },\n    })",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the button.",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "HeadlessButtonInterface['type']"
+              },
+              "default": "'button'",
+              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
+              "attribute": "type",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "HeadlessButtonInterface['name'] | undefined"
+              },
+              "description": "An optional name for the button. Ignored when `href` is set.",
+              "attribute": "name",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "HeadlessButtonInterface['value'] | undefined"
+              },
+              "description": "An optional value for the button. Ignored when `href` is set.",
+              "attribute": "value",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "HeadlessButtonInterface['href'] | undefined"
+              },
+              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
+              "attribute": "href",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "HeadlessButtonInterface['target'] | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "attribute": "target",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "download",
+              "type": {
+                "text": "HeadlessButtonInterface['download'] | undefined"
+              },
+              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
+              "attribute": "download",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HeadlessButtonInterface['form']"
+              },
+              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
+              "attribute": "form",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formAction",
+              "type": {
+                "text": "HeadlessButtonInterface['formAction']"
+              },
+              "description": "Used to override the form owner's `action` attribute.",
+              "attribute": "formaction",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formMethod",
+              "type": {
+                "text": "HeadlessButtonInterface['formMethod']"
+              },
+              "description": "Used to override the form owner's `method` attribute.",
+              "attribute": "formmethod",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formNoValidate",
+              "type": {
+                "text": "HeadlessButtonInterface['formNoValidate']"
+              },
+              "description": "Used to override the form owner's `novalidate` attribute.",
+              "attribute": "formnovalidate",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formTarget",
+              "type": {
+                "text": "HeadlessButtonInterface['formTarget']"
+              },
+              "description": "Used to override the form owner's `target` attribute.",
+              "attribute": "formtarget",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "click",
+              "description": "Simulates a click on the button.",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Sets focus on the button.",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "blur",
+              "description": "Removes focus from the button.",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderButton",
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "unknown"
+                  }
+                },
+                {
+                  "name": "classes",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "typeof tailitButtonProperties.variants[number]"
+              },
+              "default": "'secondary'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "coloring",
+              "attribute": "coloring",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the button.",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "HeadlessButtonInterface['type']"
+              },
+              "default": "'button'",
+              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
+              "fieldName": "type",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "HeadlessButtonInterface['name'] | undefined"
+              },
+              "description": "An optional name for the button. Ignored when `href` is set.",
+              "fieldName": "name",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "HeadlessButtonInterface['value'] | undefined"
+              },
+              "description": "An optional value for the button. Ignored when `href` is set.",
+              "fieldName": "value",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "HeadlessButtonInterface['href'] | undefined"
+              },
+              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
+              "fieldName": "href",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "HeadlessButtonInterface['target'] | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "fieldName": "target",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "download",
+              "type": {
+                "text": "HeadlessButtonInterface['download'] | undefined"
+              },
+              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
+              "fieldName": "download",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "form",
+              "type": {
+                "text": "HeadlessButtonInterface['form']"
+              },
+              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
+              "fieldName": "form",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "formaction",
+              "type": {
+                "text": "HeadlessButtonInterface['formAction']"
+              },
+              "description": "Used to override the form owner's `action` attribute.",
+              "fieldName": "formAction",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "formmethod",
+              "type": {
+                "text": "HeadlessButtonInterface['formMethod']"
+              },
+              "description": "Used to override the form owner's `method` attribute.",
+              "fieldName": "formMethod",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "formnovalidate",
+              "type": {
+                "text": "HeadlessButtonInterface['formNoValidate']"
+              },
+              "description": "Used to override the form owner's `novalidate` attribute.",
+              "fieldName": "formNoValidate",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            },
+            {
+              "name": "formtarget",
+              "type": {
+                "text": "HeadlessButtonInterface['formTarget']"
+              },
+              "description": "Used to override the form owner's `target` attribute.",
+              "fieldName": "formTarget",
+              "inheritedFrom": {
+                "name": "HeadlessButton",
+                "module": "src/components/headless/headless-button/headless-button.ts"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TailitElement",
+              "module": "/src/components/tailit-element/tailit-element"
+            },
+            {
+              "name": "HeadlessButton",
+              "module": "/src/components/headless/headless-button/headless-button"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "tailit-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tailitButtonProperties",
+          "declaration": {
+            "name": "tailitButtonProperties",
+            "module": "src/components/tailit-button/tailit-button.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitButton",
+            "module": "src/components/tailit-button/tailit-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-button",
+          "declaration": {
+            "name": "TailitButton",
+            "module": "src/components/tailit-button/tailit-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/tailit-accordion/tailit-accordion.ts",
       "declarations": [
         {
@@ -59,7 +742,7 @@
                 "text": "array"
               },
               "static": true,
-              "default": "[ css` ${tailwind} ` ]",
+              "default": "[css` ${tailwind} `]",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -363,7 +1046,7 @@
                 "text": "array"
               },
               "static": true,
-              "default": "[ css` ${tailwind} ` ]"
+              "default": "[css` ${tailwind} `]"
             }
           ],
           "attributes": [
@@ -433,107 +1116,6 @@
           "declaration": {
             "name": "TailitElement",
             "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-badge/tailit-badge.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "SlBadge",
-          "slots": [
-            {
-              "description": "The badge's content.",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "attribute": "ping",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "fieldName": "variant"
-            },
-            {
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "fieldName": "ping"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "sl-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "sl-badge",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
           }
         }
       ]
@@ -682,6 +1264,460 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/headless/headless-button/headless-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HeadlessButtonInterface",
+          "members": [
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "'button' | 'submit'"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formAction",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formMethod",
+              "type": {
+                "text": "'get' | 'post'"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formNoValidate",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formTarget",
+              "type": {
+                "text": "'_self' | '_blank' | '_parent' | '_top' | string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "download",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "'_blank' | '_parent' | '_self' | '_top'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderButton",
+              "return": {
+                "type": {
+                  "text": "unknown"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "unknown"
+                  }
+                },
+                {
+                  "name": "classes",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "HeadlessButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "button",
+              "type": {
+                "text": "HTMLButtonElement | HTMLLinkElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "privacy": "private",
+              "default": "new FormSubmitController(this, {\n      form: (input: any) => {\n        // Buttons support a form attribute that points to an arbitrary form,\n        // so if this attribute it set we need to query\n        // the form from the same root using its id\n        if (input.hasAttribute('form')) {\n          const doc = input.getRootNode() as Document | ShadowRoot;\n          const formId = input.getAttribute('form')!;\n          return doc.getElementById(formId) as HTMLFormElement;\n        }\n\n        // Fall back to the closest containing form\n        return input.closest('form');\n      },\n    })"
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the button.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "HeadlessButtonInterface['type']"
+              },
+              "default": "'button'",
+              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "HeadlessButtonInterface['name'] | undefined"
+              },
+              "description": "An optional name for the button. Ignored when `href` is set.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "HeadlessButtonInterface['value'] | undefined"
+              },
+              "description": "An optional value for the button. Ignored when `href` is set.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "HeadlessButtonInterface['href'] | undefined"
+              },
+              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "HeadlessButtonInterface['target'] | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "download",
+              "type": {
+                "text": "HeadlessButtonInterface['download'] | undefined"
+              },
+              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
+              "attribute": "download"
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HeadlessButtonInterface['form']"
+              },
+              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
+              "attribute": "form"
+            },
+            {
+              "kind": "field",
+              "name": "formAction",
+              "type": {
+                "text": "HeadlessButtonInterface['formAction']"
+              },
+              "description": "Used to override the form owner's `action` attribute.",
+              "attribute": "formaction"
+            },
+            {
+              "kind": "field",
+              "name": "formMethod",
+              "type": {
+                "text": "HeadlessButtonInterface['formMethod']"
+              },
+              "description": "Used to override the form owner's `method` attribute.",
+              "attribute": "formmethod"
+            },
+            {
+              "kind": "field",
+              "name": "formNoValidate",
+              "type": {
+                "text": "HeadlessButtonInterface['formNoValidate']"
+              },
+              "description": "Used to override the form owner's `novalidate` attribute.",
+              "attribute": "formnovalidate"
+            },
+            {
+              "kind": "field",
+              "name": "formTarget",
+              "type": {
+                "text": "HeadlessButtonInterface['formTarget']"
+              },
+              "description": "Used to override the form owner's `target` attribute.",
+              "attribute": "formtarget"
+            },
+            {
+              "kind": "method",
+              "name": "click",
+              "description": "Simulates a click on the button."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Sets focus on the button."
+            },
+            {
+              "kind": "method",
+              "name": "blur",
+              "description": "Removes focus from the button."
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderButton",
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "unknown"
+                  }
+                },
+                {
+                  "name": "classes",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the button.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "HeadlessButtonInterface['type']"
+              },
+              "default": "'button'",
+              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
+              "fieldName": "type"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "HeadlessButtonInterface['name'] | undefined"
+              },
+              "description": "An optional name for the button. Ignored when `href` is set.",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "HeadlessButtonInterface['value'] | undefined"
+              },
+              "description": "An optional value for the button. Ignored when `href` is set.",
+              "fieldName": "value"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "HeadlessButtonInterface['href'] | undefined"
+              },
+              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "HeadlessButtonInterface['target'] | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "fieldName": "target"
+            },
+            {
+              "name": "download",
+              "type": {
+                "text": "HeadlessButtonInterface['download'] | undefined"
+              },
+              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
+              "fieldName": "download"
+            },
+            {
+              "name": "form",
+              "type": {
+                "text": "HeadlessButtonInterface['form']"
+              },
+              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
+              "fieldName": "form"
+            },
+            {
+              "name": "formaction",
+              "type": {
+                "text": "HeadlessButtonInterface['formAction']"
+              },
+              "description": "Used to override the form owner's `action` attribute.",
+              "fieldName": "formAction"
+            },
+            {
+              "name": "formmethod",
+              "type": {
+                "text": "HeadlessButtonInterface['formMethod']"
+              },
+              "description": "Used to override the form owner's `method` attribute.",
+              "fieldName": "formMethod"
+            },
+            {
+              "name": "formnovalidate",
+              "type": {
+                "text": "HeadlessButtonInterface['formNoValidate']"
+              },
+              "description": "Used to override the form owner's `novalidate` attribute.",
+              "fieldName": "formNoValidate"
+            },
+            {
+              "name": "formtarget",
+              "type": {
+                "text": "HeadlessButtonInterface['formTarget']"
+              },
+              "description": "Used to override the form owner's `target` attribute.",
+              "fieldName": "formTarget"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HeadlessButtonInterface",
+          "declaration": {
+            "name": "HeadlessButtonInterface",
+            "module": "src/components/headless/headless-button/headless-button.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "HeadlessButton",
+          "declaration": {
+            "name": "HeadlessButton",
+            "module": "src/components/headless/headless-button/headless-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/tailit-chips/tailit-chip/tailit-chip.ts",
       "declarations": [
         {
@@ -731,7 +1767,7 @@
             },
             {
               "kind": "method",
-              "name": "_onClick"
+              "name": "onClick"
             },
             {
               "kind": "field",
@@ -762,7 +1798,7 @@
                 "text": "array"
               },
               "static": true,
-              "default": "[ css` ${tailwind} ` ]",
+              "default": "[css` ${tailwind} `]",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -845,224 +1881,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitChipAvatar",
-          "slots": [
-            {
-              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "attribute": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "img"
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "checked",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderAvatar"
-            },
-            {
-              "kind": "method",
-              "name": "_onClick",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderChip",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "coloring",
-              "type": {
-                "text": "typeof tailitElementProperties.colorings[number]"
-              },
-              "default": "'primary'",
-              "attribute": "coloring",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "coloringClass",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[ css` ${tailwind} ` ]",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "fieldName": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "img"
-            },
-            {
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "filled"
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "coloring",
-              "type": {
-                "text": "typeof tailitElementProperties.colorings[number]"
-              },
-              "default": "'primary'",
-              "fieldName": "coloring",
-              "attribute": "coloring",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "TailitChip",
-            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
-          },
-          "tagName": "tailit-chip-avatar",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip-avatar",
-          "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/tailit-chips/tailit-chip-filter/tailit-chip-filter.ts",
       "declarations": [
         {
@@ -1119,7 +1937,7 @@
             },
             {
               "kind": "method",
-              "name": "_onClick",
+              "name": "onClick",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1175,7 +1993,7 @@
                 "text": "array"
               },
               "static": true,
-              "default": "[ css` ${tailwind} ` ]",
+              "default": "[css` ${tailwind} `]",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1274,6 +2092,224 @@
           "declaration": {
             "name": "TailitChipFilter",
             "module": "src/components/tailit-chips/tailit-chip-filter/tailit-chip-filter.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitChipAvatar",
+          "slots": [
+            {
+              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "attribute": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "img"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "checked",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderAvatar"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderChip",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'",
+              "attribute": "coloring",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "coloringClass",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "fieldName": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "img"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "coloring",
+              "attribute": "coloring",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "TailitChip",
+            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
+          },
+          "tagName": "tailit-chip-avatar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-chip-avatar",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
           }
         }
       ]

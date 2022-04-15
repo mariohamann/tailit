@@ -1,7 +1,7 @@
 import { html } from 'lit';
-import { tailitElementProperties } from '../../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../../tailit-element/tailit-element';
 
-export const chipFilter = (args: any) => html`
+export const ChipFilter = (args: any) => html`
     <tailit-chip-filter coloring=${args.coloring} ?checked=${args.checked}
       >${args.slot}</tailit-chip-filter
     >

@@ -1,18 +1,21 @@
 import './formdata-event-polyfill';
-import type ConnectaButton from '../components/tailit-button/tailit-button';
 import type { ReactiveController, ReactiveControllerHost } from 'lit';
+import type ConnectaButton from '../components/tailit-button/tailit-button';
 
 export interface FormSubmitControllerOptions {
   /** A function that returns the form containing the form control. */
   form: (input: unknown) => HTMLFormElement | null;
-  /** A function that returns the form control's name, which will be submitted with the form data. */
+  /** A function that returns the form control's name,
+   * which will be submitted with the form data. */
   name: (input: unknown) => string;
   /** A function that returns the form control's current value. */
   value: (input: unknown) => unknown | unknown[];
-  /** A function that returns the form control's current disabled state. If disabled, the value won't be submitted. */
+  /** A function that returns the form control's current disabled state.
+   * If disabled, the value won't be submitted. */
   disabled: (input: unknown) => boolean;
   /**
-   * A function that maps to the form control's reportValidity() function. When the control is invalid, this will
+   * A function that maps to the form control's reportValidity() function.
+   * When the control is invalid, this will
    * prevent submission and trigger the browser's constraint violation warning.
    */
   reportValidity: (input: unknown) => boolean;
@@ -20,20 +23,23 @@ export interface FormSubmitControllerOptions {
 
 export class FormSubmitController implements ReactiveController {
   host?: ReactiveControllerHost & Element;
+
   form?: HTMLFormElement | null;
+
   options: FormSubmitControllerOptions;
 
-  constructor(host: ReactiveControllerHost & Element, options?: Partial<FormSubmitControllerOptions>) {
+  constructor(
+    host: ReactiveControllerHost & Element,
+    options?: Partial<FormSubmitControllerOptions>,
+  ) {
     (this.host = host).addController(this);
     this.options = {
       form: (input: any) => input.closest('form'),
       name: (input: any) => input.name,
       value: (input: any) => input.value,
       disabled: (input: any) => input.disabled,
-      reportValidity: (input: any) => {
-        return typeof input.reportValidity === 'function' ? input.reportValidity() : true;
-      },
-      ...options
+      reportValidity: (input: any) => (typeof input.reportValidity === 'function' ? input.reportValidity() : true),
+      ...options,
     };
     this.handleFormData = this.handleFormData.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -63,7 +69,7 @@ export class FormSubmitController implements ReactiveController {
 
     if (!disabled && typeof name === 'string' && typeof value !== 'undefined') {
       if (Array.isArray(value)) {
-        (value as unknown[]).forEach(val => {
+        (value as unknown[]).forEach((val) => {
           event.formData.append(name, (val as string | number | boolean).toString());
         });
       } else {
@@ -74,7 +80,7 @@ export class FormSubmitController implements ReactiveController {
 
   handleFormSubmit(event: Event) {
     const disabled = this.options.disabled(this.host);
-    const reportValidity = this.options.reportValidity;
+    const { reportValidity } = this.options;
 
     if (this.form && !this.form.noValidate && !disabled && !reportValidity(this.host)) {
       event.preventDefault();
@@ -83,8 +89,11 @@ export class FormSubmitController implements ReactiveController {
   }
 
   submit(submitter?: HTMLInputElement | ConnectaButton) {
-    // Calling form.submit() bypasses the submit event and constraint validation. To prevent this, we can inject a
-    // native submit button into the form, "click" it, then remove it to simulate a standard form submission.
+    /**
+     * Calling form.submit() bypasses the submit event and constraint validation.
+     * To prevent this, we can inject a native submit button into the form,
+     * "click" it, then remove it to simulate a standard form submission.
+    */
     if (this.form) {
       const button = document.createElement('button');
       button.type = 'submit';
@@ -98,7 +107,7 @@ export class FormSubmitController implements ReactiveController {
 
       // Pass form attributes through to the temporary button
       if (submitter) {
-        ['formaction', 'formmethod', 'formnovalidate', 'formtarget'].forEach(attr => {
+        ['formaction', 'formmethod', 'formnovalidate', 'formtarget'].forEach((attr) => {
           if (submitter.hasAttribute(attr)) {
             button.setAttribute(attr, submitter.getAttribute(attr)!);
           }

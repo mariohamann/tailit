@@ -17,24 +17,24 @@ import TailitChip from '../tailit-chip/tailit-chip';
 @customElement('tailit-chip-avatar')
 export default class TailitChipAvatar extends TailitChip {
   /** Overwrites default of TailitChip */
-  @property() as = 'button'
+  @property() as = 'button';
 
-  @property() img = ''
+  @property() img = '';
 
   /* Changes the buttons style. This is especially useful for filter-styles. */
   @property({ type: Boolean, reflect: true, attribute: 'checked' }) filled =
-    false
+  false;
 
   renderAvatar() {
     return this.img
-    ? html`<img
+      ? html`<img
           src="${this.img}"
           class="w-6 h-6 rounded-full -ml-2.5 mr-2 object-cover overflow-hidden transition-all"
         />`
-    : html`<span
+      : html`<span
           class="material-icons var-spacing-7 text-gray-400 text-var -ml-3 mr-1.5 overflow-hidden transition-all"
           >account_circle</span
-        >`
+        >`;
   }
 
   render() {
@@ -42,13 +42,13 @@ export default class TailitChipAvatar extends TailitChip {
   }
 
   @eventOptions({ capture: true })
-  _onClick() {
+  onClick() {
     this.filled = !this.filled;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'tailit-chip-avatar': TailitChipAvatar
+    'tailit-chip-avatar': TailitChipAvatar;
   }
 }

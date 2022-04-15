@@ -1,6 +1,6 @@
 import { html } from 'lit';
-import { tailitElementProperties } from '../tailit-element/tailit-element'; 
-import { tailitButtonProperties } from './tailit-button'; 
+import { tailitElementProperties } from '../tailit-element/tailit-element';
+import { tailitButtonProperties } from './tailit-button';
 
 export const Button = (args: any) => html`
     <tailit-button coloring=${args.coloring} variant=${args.variant} ?disabled=${args.disabled}>

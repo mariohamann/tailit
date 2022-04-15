@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import '../../index';
-import { tailitElementProperties } from '../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../tailit-element/tailit-element';
 
 export const Default = (args: any) => html`
     <tailit-accordion

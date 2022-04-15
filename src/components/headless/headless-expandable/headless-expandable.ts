@@ -16,18 +16,18 @@ import { watch } from '../../../internal/watch';
  */
 
 export default class HeadlessExpandable extends LitElement {
-  @query('[part="header"]') header!: HTMLElement
+  @query('[part="header"]') header!: HTMLElement;
 
   /** Indicates whether or not the details is open.
    * You can use this in lieu of the show/hide methods.
    */
-  @property({ type: Boolean, reflect: true }) open = false
+  @property({ type: Boolean, reflect: true }) open = false;
 
   /** Disables the details so it can't be toggled. */
-  @property({ type: Boolean, reflect: true }) disabled = false
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   /** Makes the header non-tapable – should be used, if you have a button inside the element */
-  @state() inherit = false
+  @state() inherit = false;
 
   /** Shows the details. */
   async show() {
@@ -109,13 +109,13 @@ export default class HeadlessExpandable extends LitElement {
     >
       ${content}
     </header>
-  `
+  `;
 
-  renderBody = (content: unknown) => html`<div id="body">${content}</div>`
+  renderBody = (content: unknown) => html`<div id="body">${content}</div>`;
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'headless-expandable': HeadlessExpandable
+    'headless-expandable': HeadlessExpandable;
   }
 }

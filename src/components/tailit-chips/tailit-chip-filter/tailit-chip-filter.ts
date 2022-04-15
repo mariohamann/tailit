@@ -21,11 +21,11 @@ export const properties = {
 @customElement('tailit-chip-filter')
 export default class TailitChipFilter extends TailitChip {
   /** Overwrites default of TailitChip */
-  @property() as = 'button'
+  @property() as = 'button';
 
   /* Changes the buttons style. This is especially useful for filter-styles. */
   @property({ type: Boolean, reflect: true, attribute: 'checked' }) filled =
-    false
+  false;
 
   renderCheckmark = () => html`<span
     class="${this.filled
@@ -33,20 +33,20 @@ export default class TailitChipFilter extends TailitChip {
     : 'invisible w-0 opacity-0 mr-0'}
     material-icons var-spacing-4 text-var overflow-hidden transition-all"
     >check</span
-  >`
+  >`;
 
   render() {
     return this.renderChip(html`${this.renderCheckmark()} <slot></slot>`);
   }
 
   @eventOptions({ capture: true })
-  _onClick() {
+  onClick() {
     this.filled = !this.filled;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'tailit-chip-filter': TailitChipFilter
+    'tailit-chip-filter': TailitChipFilter;
   }
 }

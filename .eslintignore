@@ -7,6 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+*.d.ts
+
 node_modules
 # We're using pnpm to manage dependencies
 package-lock.json

@@ -13,28 +13,24 @@ export declare class TailitElementInterface {
   coloringClass(): 'var-primary' | 'var-secondary' | 'var-neutral';
 }
 
-export const TailitElement =
-  <T extends Constructor<LitElement>>(superClass: T) => {
-    class TailitElement extends superClass {
-      @property({ reflect: true}) coloring: typeof tailitElementProperties.colorings[number] =
-    'primary';
+export const TailitElement = <T extends Constructor<LitElement>>(superClass: T) => {
+  class TailitElement extends superClass {
+    @property({ reflect: true }) coloring: typeof tailitElementProperties.colorings[number] = 'primary';
 
-      coloringClass(){
-        switch (this.coloring) {
-          case 'primary':
-            return 'var-primary';
-          case 'secondary':
-            return 'var-secondary';
-          case 'neutral':
-            return 'var-neutral';
-          default:
-            return 'var-primary';
-        }
-      } 
-
-      static styles = [ css` ${tailwind} ` ];
-
-      
+    coloringClass() {
+      switch (this.coloring) {
+        case 'primary':
+          return 'var-primary';
+        case 'secondary':
+          return 'var-secondary';
+        case 'neutral':
+          return 'var-neutral';
+        default:
+          return 'var-primary';
+      }
     }
-    return TailitElement as Constructor<TailitElementInterface> & T;
+
+    static styles = [css` ${tailwind} `];
   }
+  return TailitElement as Constructor<TailitElementInterface> & T;
+};

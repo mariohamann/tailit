@@ -1,6 +1,6 @@
 import TailitChip from '../tailit-chip/tailit-chip';
 export declare const properties: {
-    colors: readonly ["primary", "secondary", "gray"];
+  colors: readonly ["primary", "secondary", "gray"];
 };
 /**
  * @since 0.1
@@ -15,14 +15,14 @@ export declare const properties: {
  *
  */
 export default class TailitChipFilter extends TailitChip {
-    /** Overwrites default of TailitChip */
-    as: string;
-    filled: boolean;
-    beforeSlot: () => import("lit").TemplateResult<2 | 1>;
-    _onClick(): void;
+  /** Overwrites default of TailitChip */
+  as: string;
+  filled: boolean;
+  beforeSlot: () => import("lit").TemplateResult<2 | 1>;
+  onClick(): void;
 }
 declare global {
-    interface HTMLElementTagNameMap {
-        'tailit-chip-filter': TailitChipFilter;
-    }
+  interface HTMLElementTagNameMap {
+    'tailit-chip-filter': TailitChipFilter;
+  }
 }
