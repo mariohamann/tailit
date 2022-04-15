@@ -1,0 +1,39 @@
+{
+  "name": "headless-components",
+  "version": "0.0.0",
+  "main": "dist/my-element.es.js",
+  "exports": {
+    ".": "./dist/my-element.es.js"
+  },
+  "types": "types/my-element.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "start": "concurrently 'npm run dev' 'npm:cem'",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts' --watch",
+    "build-cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts'"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "lit": "^2.2.2",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
+    "vite": "^2.9.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@typescript-eslint/parser": "^5.19.0",
+    "concurrently": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "lit-html": "^2.2.2",
+    "rollup": "^2.70.2",
+    "typescript": "^4.6.3"
+  },
+  "customElements": "custom-elements.json"
+}

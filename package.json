@@ -1,63 +1,21 @@
 {
-  "name": "vite-lit-ts-starter",
-  "version": "0.0.0",
-  "main": "dist/my-element.es.js",
-  "exports": {
-    ".": "./dist/my-element.es.js"
-  },
-  "types": "types/my-element.d.ts",
-  "files": [
-    "dist",
-    "types"
-  ],
+  "name": "tailit",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
-    "start": "concurrently 'npm:storybook' 'npm:cem'",
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts' --watch",
-    "build-cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts'",
-    "storybook": "start-storybook -p 6999",
-    "build-storybook": "build-storybook"
+    "start": "pnpm run start -r",
+    "start:tailit": "pnpm run start -r --filter tailit-components",
+    "start:headless": "pnpm run start -r --filter headless-components",
+    "test": "echo \"Error: no test specified\""
   },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.18.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "lit": "^2.2.2",
-    "rollup-plugin-minify-html-literals": "^1.2.6",
-    "vite": "^2.9.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariohamann/tailit.git"
   },
-  "devDependencies": {
-    "@babel/core": "^7.17.9",
-    "@custom-elements-manifest/analyzer": "^0.5.7",
-    "@mariohamann/tailwindcss-var": "^0.1.1",
-    "@mdx-js/react": "^2.1.1",
-    "@storybook/addon-actions": "^6.4.20",
-    "@storybook/addon-backgrounds": "^6.4.20",
-    "@storybook/addon-docs": "^6.4.20",
-    "@storybook/addon-essentials": "^6.4.20",
-    "@storybook/addon-links": "^6.4.20",
-    "@storybook/builder-vite": "^0.1.25",
-    "@storybook/client-api": "^6.4.20",
-    "@storybook/client-logger": "^6.4.20",
-    "@storybook/core-common": "^6.4.20",
-    "@storybook/web-components": "^6.4.20",
-    "@typescript-eslint/parser": "^5.18.0",
-    "autoprefixer": "^10.4.4",
-    "babel-loader": "^8.2.4",
-    "concurrently": "^7.1.0",
-    "cssnano": "^5.1.7",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-storybook": "^0.5.8",
-    "jest": "^27.5.1",
-    "lit-html": "^2.2.2",
-    "postcss": "^8.4.12",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rollup": "^2.70.1",
-    "tailwindcss": "^3.0.23",
-    "typescript": "^4.6.3",
-    "webpack": "^5.72.0"
+  "author": "Mario Hamann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariohamann/tailit/issues"
   },
-  "customElements": "custom-elements.json"
+  "homepage": "https://github.com/mariohamann/tailit#readme"
 }
