@@ -23,10 +23,10 @@ export default class HeadlessExpandable extends LitElement {
     handleSummaryClick(): void;
     handleSummaryKeyDown(event: KeyboardEvent): void;
     handleOpenChange(): Promise<void>;
-    styledHeader: () => import("lit-html").TemplateResult<1>;
-    headlessHeader: () => import("lit-html").TemplateResult<1>;
-    styledBody: () => import("lit-html").TemplateResult<1>;
-    headlessBody: () => import("lit-html").TemplateResult<1>;
+    styledHeader: () => import("lit").TemplateResult<1>;
+    headlessHeader: () => import("lit").TemplateResult<1>;
+    styledBody: () => import("lit").TemplateResult<1>;
+    headlessBody: () => import("lit").TemplateResult<1>;
 }
 declare global {
     interface HTMLElementTagNameMap {

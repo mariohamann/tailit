@@ -1,6 +1,6 @@
 import '../../index';
 export declare const Default: {
-    (args: any): import("lit-html").TemplateResult<1>;
+    (args: any): import("lit").TemplateResult<1>;
     args: {
         variant: string;
         ping: boolean;

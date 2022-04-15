@@ -18,7 +18,7 @@ export default class TailitChipFilter extends TailitChip {
     /** Overwrites default of TailitChip */
     as: string;
     filled: boolean;
-    beforeSlot: () => import("lit-html").TemplateResult<2 | 1>;
+    beforeSlot: () => import("lit").TemplateResult<2 | 1>;
     _onClick(): void;
 }
 declare global {

@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators';
 import { emit, waitForEvent } from '../../internal/event';
 import { watch } from '../../internal/watch';
 
@@ -18,7 +18,9 @@ import { watch } from '../../internal/watch';
 export default class HeadlessExpandable extends LitElement {
   @query('#header') header!: HTMLElement;
 
-  /** Indicates whether or not the details is open. You can use this in lieu of the show/hide methods. */
+  /** Indicates whether or not the details is open.
+   * You can use this in lieu of the show/hide methods.
+   */
   @property({ type: Boolean, reflect: true }) open = false;
 
   /** Disables the details so it can't be toggled. */

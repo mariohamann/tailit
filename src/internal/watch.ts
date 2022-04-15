@@ -1,16 +1,19 @@
-// @watch decorator
-//
-// Runs when an observed property changes, e.g. @property or @state, but before the component updates.
-//
-// To wait for an update to complete after a change occurs, use `await this.updateComplete` in the handler. To start
-// watching after the initial update/render, use `{ waitUntilFirstUpdate: true }` or `this.hasUpdated` in the handler.
-//
-// Usage:
-//
-//  @watch('propName')
-//  handlePropChange(oldValue, newValue) {
-//    ...
-//  }
+/* @watch decorator
+
+  Runs when an observed property changes, e.g. @property or @state,
+  but before the component updates.
+
+  To wait for an update to complete after a change occurs,
+  use `await this.updateComplete` in the handler. To start
+  watching after the initial update/render, use `{ waitUntilFirstUpdate: true }`
+  or `this.hasUpdated` in the handler.
+
+  Usage:
+   @watch('propName')
+   handlePropChange(oldValue, newValue) {
+     ...
+   }
+*/
 
 import type { LitElement } from 'lit';
 
@@ -29,6 +32,7 @@ interface WatchOptions {
   waitUntilFirstUpdate?: boolean;
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export function watch(propName: string, options?: WatchOptions) {
   const resolvedOptions: Required<WatchOptions> = {
     waitUntilFirstUpdate: false,
@@ -43,7 +47,11 @@ export function watch(propName: string, options?: WatchOptions) {
     if (propName in proto) {
       const propNameKey = propName as keyof ElemClass;
       // @ts-expect-error -- update is a protected property
-      proto.update = function (this: ElemClass, changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>) {
+      // eslint-disable-next-line no-param-reassign
+      proto.update = function (
+        this: ElemClass,
+        changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>
+      ) {
         if (changedProps.has(propNameKey)) {
           const oldValue = changedProps.get(propNameKey);
           const newValue = this[propNameKey];
@@ -54,7 +62,6 @@ export function watch(propName: string, options?: WatchOptions) {
             }
           }
         }
-        /* @ts-ignore @TODO: Should be fixed!*/
         update.call(this, changedProps);
       };
     }

@@ -1,5 +1,5 @@
 import '../../index';
-export declare const chipAvatar: (args: any) => import("lit-html").TemplateResult<1>;
+export declare const chipAvatar: (args: any) => import("lit").TemplateResult<1>;
 declare const _default: {
     title: string;
     component: string;

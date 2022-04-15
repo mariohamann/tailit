@@ -25,7 +25,7 @@ export default class TailitChip extends LitElement {
     static styles: import("lit").CSSResult[];
     beforeSlot(): void;
     afterSlot(): void;
-    render(): import("lit-html").TemplateResult<2 | 1>;
+    render(): import("lit").TemplateResult<2 | 1>;
     _onClick(e: Event): void;
 }
 declare global {

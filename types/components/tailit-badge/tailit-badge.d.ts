@@ -14,7 +14,7 @@ export default class SlBadge extends LitElement {
     /** Makes the badge pulsate to draw attention. */
     ping: boolean;
     static styles: import("lit").CSSResult[];
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 declare global {
     interface HTMLElementTagNameMap {
