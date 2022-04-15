@@ -1,4 +1,5 @@
 import HeadlessExpandable from '../headless/headless-expandable/headless-expandable';
+declare const TailitAccordion_base: (new (...args: any[]) => import("../tailit-element/tailit-element").TailitElementInterface) & typeof HeadlessExpandable;
 /**
  * @since 2.0
  * @status stable
@@ -7,15 +8,8 @@ import HeadlessExpandable from '../headless/headless-expandable/headless-expanda
  *
  * @slot - The details' content.
  * @slot summary - The details' summary. Alternatively, you can use the summary prop.
- *
- * @csspart base - The component's base wrapper.
- * @csspart header - The summary header.
- * @csspart summary - The details summary.
- * @csspart summary-icon - The expand/collapse summary icon.
- * @csspart content - The details content.
  */
-export default class TailitAccordion extends HeadlessExpandable {
-    static styles: import("lit").CSSResult[];
+export default class TailitAccordion extends TailitAccordion_base {
     /** The summary to show in the details header.
      * If you need to display HTML, use the `summary` slot instead. */
     summary: string;
@@ -26,3 +20,4 @@ declare global {
         'tailit-accordion': TailitAccordion;
     }
 }
+export {};

@@ -29,7 +29,8 @@ export default class TailitChipAvatar extends TailitChip {
   @property({ type: Boolean, reflect: true, attribute: 'checked' }) filled =
     false
 
-  beforeSlot = () => (this.img
+  renderAvatar() {
+    return this.img
     ? html`<img
           src="${this.img}"
           class="w-6 h-6 rounded-full -ml-2.5 mr-2 object-cover overflow-hidden transition-all"
@@ -37,7 +38,12 @@ export default class TailitChipAvatar extends TailitChip {
     : html`<span
           class="material-icons var-spacing-7 text-gray-400 text-var -ml-3 mr-1.5 overflow-hidden transition-all"
           >account_circle</span
-        >`)
+        >`
+  }
+
+  render() {
+    return this.renderChip(html`${this.renderAvatar()} <slot></slot>`);
+  }
 
   @eventOptions({ capture: true })
   _onClick() {

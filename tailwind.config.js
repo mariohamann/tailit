@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.sky,
-        secondary: colors.orange,
+        secondary: colors.pink,
+        neutral: colors.gray,
         var: {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',

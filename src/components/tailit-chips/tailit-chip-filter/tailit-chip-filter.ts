@@ -27,13 +27,17 @@ export default class TailitChipFilter extends TailitChip {
   @property({ type: Boolean, reflect: true, attribute: 'checked' }) filled =
     false
 
-  beforeSlot = () => html`<span
+  renderCheckmark = () => html`<span
     class="${this.filled
     ? 'w-auto opacity-100 mr-1'
     : 'invisible w-0 opacity-0 mr-0'}
     material-icons var-spacing-4 text-var overflow-hidden transition-all"
     >check</span
   >`
+
+  render() {
+    return this.renderChip(html`${this.renderCheckmark()} <slot></slot>`);
+  }
 
   @eventOptions({ capture: true })
   _onClick() {

@@ -7,6 +7,10 @@
     format('woff2');
 }
 
+:not(:defined) {
+  visibility: hidden;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

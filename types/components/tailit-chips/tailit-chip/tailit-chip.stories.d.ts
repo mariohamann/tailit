@@ -1,9 +1,14 @@
-import '../../index';
-export declare const Default: (args: any) => import("lit").TemplateResult<1>;
+export declare const Chip: (args: any) => import("lit").TemplateResult<1>;
 declare const _default: {
     title: string;
     component: string;
     argTypes: {
+        slot: {
+            control: {
+                type: string;
+            };
+            defaultValue: string;
+        };
         tint: {
             control: {
                 type: string;
@@ -11,13 +16,7 @@ declare const _default: {
             options: readonly ["primary", "secondary", "neutral"];
             defaultValue: "primary";
         };
-        open: {
-            control: {
-                type: string;
-            };
-            defaultValue: boolean;
-        };
-        disabled: {
+        filled: {
             control: {
                 type: string;
             };

@@ -10,28 +10,6 @@
           "kind": "class",
           "description": "",
           "name": "TailitAccordion",
-          "cssParts": [
-            {
-              "description": "The component's base wrapper.",
-              "name": "base"
-            },
-            {
-              "description": "The summary header.",
-              "name": "header"
-            },
-            {
-              "description": "The details summary.",
-              "name": "summary"
-            },
-            {
-              "description": "The expand/collapse summary icon.",
-              "name": "summary-icon"
-            },
-            {
-              "description": "The details content.",
-              "name": "content"
-            }
-          ],
           "slots": [
             {
               "description": "The details' content.",
@@ -54,12 +32,34 @@
             },
             {
               "kind": "field",
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "attribute": "tint",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getTintClass",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "styles",
               "type": {
                 "text": "array"
               },
               "static": true,
-              "default": "[ css` ${tailwind} `, ]",
+              "default": "[ css` ${tailwind} ` ]",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -196,6 +196,19 @@
               "fieldName": "summary"
             },
             {
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "tint",
+              "attribute": "tint",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
               "name": "open",
               "type": {
                 "text": "boolean"
@@ -291,87 +304,57 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-chip/tailit-chip.ts",
+      "path": "src/components/tailit-element/tailit-element.ts",
       "declarations": [
         {
           "kind": "variable",
-          "name": "properties",
+          "name": "tailitProperties",
           "type": {
             "text": "object"
           },
-          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
+          "default": "{\n  tints: ['primary', 'secondary', 'neutral'] as const,\n}"
         },
         {
           "kind": "class",
           "description": "",
-          "name": "TailitChip",
-          "slots": [
-            {
-              "description": "The badge's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
+          "name": "TailitElementInterface",
           "members": [
             {
               "kind": "field",
-              "name": "color",
+              "name": "tint",
               "type": {
-                "text": "typeof properties.colors[number]"
+                "text": "typeof tailitProperties.tints[number]"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getTintClass",
+              "return": {
+                "type": {
+                  "text": "'var-primary' | 'var-secondary' | 'var-neutral'"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "TailitElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
               },
               "default": "'primary'",
-              "description": "The badge's color.",
-              "attribute": "color",
+              "attribute": "tint",
               "reflects": true
             },
             {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'span'",
-              "description": "Changes the tag of the chip",
-              "attribute": "as"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "role"
-            },
-            {
               "kind": "method",
-              "name": "beforeSlot"
-            },
-            {
-              "kind": "method",
-              "name": "afterSlot"
-            },
-            {
-              "kind": "method",
-              "name": "_onClick",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ]
+              "name": "getTintClass"
             },
             {
               "kind": "field",
@@ -380,548 +363,76 @@
                 "text": "array"
               },
               "static": true,
-              "default": "[ css` ${tailwind} `, ]",
-              "inheritedFrom": {
-                "name": "TailitElement",
-                "module": "src/components/tailit-element/tailit-element.ts"
-              }
+              "default": "[ css` ${tailwind} ` ]"
             }
           ],
           "attributes": [
             {
-              "name": "color",
+              "name": "tint",
               "type": {
-                "text": "typeof properties.colors[number]"
+                "text": "typeof tailitProperties.tints[number]"
               },
               "default": "'primary'",
-              "description": "The badge's color.",
-              "fieldName": "color"
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled"
-            },
-            {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'span'",
-              "description": "Changes the tag of the chip",
-              "fieldName": "as"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role"
+              "fieldName": "tint",
+              "attribute": "tint"
             }
           ],
-          "mixins": [
+          "parameters": [
             {
-              "name": "TailitElement",
-              "module": "/src/components/tailit-element/tailit-element"
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
             }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "tailit-chip",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-chip/tailit-chip.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "TailitChip",
-            "module": "src/components/tailit-chip/tailit-chip.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip",
-          "declaration": {
-            "name": "TailitChip",
-            "module": "src/components/tailit-chip/tailit-chip.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-chip-avatar/tailit-chip-avatar.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
+          ]
         },
         {
           "kind": "class",
           "description": "",
-          "name": "TailitChipAvatar",
-          "slots": [
-            {
-              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
+          "name": "TailitElement",
           "members": [
             {
               "kind": "field",
-              "name": "as",
+              "name": "tint",
               "type": {
-                "text": "string"
+                "text": "typeof tailitProperties.tints[number]"
               },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "attribute": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "img"
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "checked",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "beforeSlot",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
+              "default": "'primary'"
             },
             {
               "kind": "method",
-              "name": "_onClick",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof properties.colors[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's color.",
-              "attribute": "color",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "afterSlot",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[ css` ${tailwind} `, ]",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "fieldName": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "img"
-            },
-            {
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "filled"
-            },
-            {
-              "name": "color",
-              "type": {
-                "text": "typeof properties.colors[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's color.",
-              "fieldName": "color",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
+              "name": "getTintClass"
             }
           ],
           "superclass": {
-            "name": "TailitChip",
-            "module": "/src/components/tailit-chip/tailit-chip"
-          },
-          "tagName": "tailit-chip-avatar",
-          "customElement": true
+            "name": "superClass",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "properties",
+          "name": "tailitProperties",
           "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-chip-avatar/tailit-chip-avatar.ts"
+            "name": "tailitProperties",
+            "module": "src/components/tailit-element/tailit-element.ts"
           }
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "TailitElementInterface",
           "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip-avatar",
-          "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-chip-filter/tailit-chip-filter.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitChipFilter",
-          "slots": [
-            {
-              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "attribute": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "checked",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "beforeSlot",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_onClick",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof properties.colors[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's color.",
-              "attribute": "color",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "afterSlot",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[ css` ${tailwind} `, ]",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "fieldName": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "filled"
-            },
-            {
-              "name": "color",
-              "type": {
-                "text": "typeof properties.colors[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's color.",
-              "fieldName": "color",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "TailitChip",
-            "module": "/src/components/tailit-chip/tailit-chip"
-          },
-          "tagName": "tailit-chip-filter",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-chip-filter/tailit-chip-filter.ts"
+            "name": "TailitElementInterface",
+            "module": "src/components/tailit-element/tailit-element.ts"
           }
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "TailitElement",
           "declaration": {
-            "name": "TailitChipFilter",
-            "module": "src/components/tailit-chip-filter/tailit-chip-filter.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip-filter",
-          "declaration": {
-            "name": "TailitChipFilter",
-            "module": "src/components/tailit-chip-filter/tailit-chip-filter.ts"
+            "name": "TailitElement",
+            "module": "src/components/tailit-element/tailit-element.ts"
           }
         }
       ]
@@ -1023,159 +534,6 @@
           "declaration": {
             "name": "SlBadge",
             "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-element/tailit-element.ts",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "TailitElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[ css` ${tailwind} `, ]"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitElement",
-          "members": [],
-          "superclass": {
-            "name": "superClass",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TailitElement",
-          "declaration": {
-            "name": "TailitElement",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-example/tailit-example.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "An example element.",
-          "name": "MyElement",
-          "cssParts": [
-            {
-              "description": "The button",
-              "name": "button"
-            }
-          ],
-          "slots": [
-            {
-              "description": "This element has a slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'World'",
-              "description": "The name to say \"Hello\" to.",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "count",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The number of times the button has been clicked.",
-              "attribute": "count"
-            },
-            {
-              "kind": "method",
-              "name": "_onClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "foo",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'World'",
-              "description": "The name to say \"Hello\" to.",
-              "fieldName": "name"
-            },
-            {
-              "name": "count",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The number of times the button has been clicked.",
-              "fieldName": "count"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "my-element",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MyElement",
-          "declaration": {
-            "name": "MyElement",
-            "module": "src/components/tailit-example/tailit-example.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "my-element",
-          "declaration": {
-            "name": "MyElement",
-            "module": "src/components/tailit-example/tailit-example.ts"
           }
         }
       ]
@@ -1318,6 +676,620 @@
           "declaration": {
             "name": "HeadlessExpandable",
             "module": "src/components/headless/headless-expandable/headless-expandable.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-chips/tailit-chip/tailit-chip.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitChip",
+          "slots": [
+            {
+              "description": "The badge's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'span'",
+              "description": "Changes the tag of the chip",
+              "attribute": "as"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role"
+            },
+            {
+              "kind": "field",
+              "name": "renderChip"
+            },
+            {
+              "kind": "method",
+              "name": "_onClick"
+            },
+            {
+              "kind": "field",
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "attribute": "tint",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getTintClass",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} ` ]",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled"
+            },
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'span'",
+              "description": "Changes the tag of the chip",
+              "fieldName": "as"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role"
+            },
+            {
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "tint",
+              "attribute": "tint",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TailitElement",
+              "module": "/src/components/tailit-element/tailit-element"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "tailit-chip",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitChip",
+            "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-chip",
+          "declaration": {
+            "name": "TailitChip",
+            "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "properties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitChipAvatar",
+          "slots": [
+            {
+              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "attribute": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "img"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "checked",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderAvatar"
+            },
+            {
+              "kind": "method",
+              "name": "_onClick",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderChip",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "attribute": "tint",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getTintClass",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} ` ]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "fieldName": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "img"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "tint",
+              "attribute": "tint",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "TailitChip",
+            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
+          },
+          "tagName": "tailit-chip-avatar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "properties",
+          "declaration": {
+            "name": "properties",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-chip-avatar",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-chips/tailit-chip-filter/tailit-chip-filter.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "properties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitChipFilter",
+          "slots": [
+            {
+              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "attribute": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "checked",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderCheckmark"
+            },
+            {
+              "kind": "method",
+              "name": "_onClick",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderChip",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "attribute": "tint",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getTintClass",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} ` ]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "fieldName": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "tint",
+              "type": {
+                "text": "typeof tailitProperties.tints[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "tint",
+              "attribute": "tint",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "TailitChip",
+            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
+          },
+          "tagName": "tailit-chip-filter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "properties",
+          "declaration": {
+            "name": "properties",
+            "module": "src/components/tailit-chips/tailit-chip-filter/tailit-chip-filter.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitChipFilter",
+            "module": "src/components/tailit-chips/tailit-chip-filter/tailit-chip-filter.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-chip-filter",
+          "declaration": {
+            "name": "TailitChipFilter",
+            "module": "src/components/tailit-chips/tailit-chip-filter/tailit-chip-filter.ts"
           }
         }
       ]

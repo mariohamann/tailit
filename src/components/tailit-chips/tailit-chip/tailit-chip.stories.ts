@@ -1,9 +1,8 @@
 import { html } from 'lit';
-import '../../index';
-import { properties } from './tailit-chip';
+import { tailitProperties } from '../../tailit-element/tailit-element'; 
 
 export const Chip = (args: any) => html`
-    <tailit-chip color=${args.color} ?filled=${args.filled}
+    <tailit-chip tint=${args.tint} ?filled=${args.filled}
       >${args.slot}</tailit-chip
     >
   `;
@@ -16,10 +15,10 @@ export default {
       control: { type: 'text' },
       defaultValue: 'Slot-Content',
     },
-    color: {
+    tint: {
       control: { type: 'select' },
-      options: properties.colors,
-      defaultValue: properties.colors[0],
+      options: tailitProperties.tints,
+      defaultValue: tailitProperties.tints[0],
     },
     filled: {
       control: { type: 'boolean' },

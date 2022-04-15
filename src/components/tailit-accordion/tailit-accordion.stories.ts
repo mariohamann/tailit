@@ -1,5 +1,6 @@
 import { html } from 'lit';
 import '../../index';
+import { tailitProperties } from '../tailit-element/tailit-element'; 
 
 export const Default = (args: any) => html`
     <tailit-accordion
@@ -7,6 +8,7 @@ export const Default = (args: any) => html`
       summary="Toggle Me"
       ?open=${args.open}
       ?disabled=${args.disabled}
+      tint=${args.tint}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -23,11 +25,11 @@ export default {
     //   control: { type: 'text' },
     //   defaultValue: 'Slot',
     // },
-    // color: {
-    //   control: { type: 'select' },
-    //   options: properties.colors,
-    //   defaultValue: properties.colors[0],
-    // },
+    tint: {
+      control: { type: 'select' },
+      options: tailitProperties.tints,
+      defaultValue: tailitProperties.tints[0],
+    },
     open: {
       control: { type: 'boolean' },
       defaultValue: false,

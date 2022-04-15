@@ -1,11 +1,10 @@
 import { html } from 'lit';
-import '../../index';
-import { properties } from './tailit-chip-avatar';
+import { tailitProperties } from '../../tailit-element/tailit-element'; 
 
 export const chipAvatar = (args: any) => html`
     <tailit-chip-avatar
       img=${args.img}
-      color=${args.color}
+      tint=${args.tint}
       ?checked=${args.checked}
       >${args.slot}</tailit-chip-avatar
     >
@@ -24,12 +23,12 @@ export default {
     img: {
       control: { type: 'text' },
       defaultValue:
-        'https://this-person-does-not-exist.com/img/avatar-6024f78f10fdf60656e15aed72fe871a.jpg',
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
-    color: {
+    tint: {
       control: { type: 'select' },
-      options: properties.colors,
-      defaultValue: properties.colors[0],
+      options: tailitProperties.tints,
+      defaultValue: tailitProperties.tints[0],
     },
     checked: {
       control: { type: 'boolean' },
