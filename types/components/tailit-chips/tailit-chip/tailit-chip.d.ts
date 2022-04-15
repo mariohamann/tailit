@@ -20,7 +20,7 @@ export default class TailitChip extends TailitChip_base {
     role: string;
     renderChip: (content: unknown) => import("lit").TemplateResult<2 | 1>;
     render(): import("lit").TemplateResult<2 | 1>;
-    _onClick(e: Event): void;
+    _onClick(): void;
 }
 declare global {
     interface HTMLElementTagNameMap {

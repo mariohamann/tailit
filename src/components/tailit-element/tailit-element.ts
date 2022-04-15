@@ -4,23 +4,22 @@ import { tailwind } from '../../index';
 
 type Constructor<T> = new (...args: any[]) => T;
 
-export const tailitProperties = {
+export const tailitElementProperties = {
   colorings: ['primary', 'secondary', 'neutral'] as const,
 };
 
 export declare class TailitElementInterface {
-  coloring: typeof tailitProperties.colorings[number];
-  getColoring(): 'var-primary' | 'var-secondary' | 'var-neutral';
+  coloring: typeof tailitElementProperties.colorings[number];
+  coloringClass(): 'var-primary' | 'var-secondary' | 'var-neutral';
 }
 
 export const TailitElement =
   <T extends Constructor<LitElement>>(superClass: T) => {
     class TailitElement extends superClass {
-      // This will be used as 'var-neutral var-primary var-secondary'
-      @property({ type: String, reflect: true}) coloring: typeof tailitProperties.colorings[number] =
+      @property({ reflect: true}) coloring: typeof tailitElementProperties.colorings[number] =
     'primary';
 
-      getColoring(){
+      coloringClass(){
         switch (this.coloring) {
           case 'primary':
             return 'var-primary';

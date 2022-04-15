@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { tailitProperties } from '../../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../../tailit-element/tailit-element'; 
 
 export const chipAvatar = (args: any) => html`
     <tailit-chip-avatar
@@ -27,8 +27,8 @@ export default {
     },
     coloring: {
       control: { type: 'select' },
-      options: tailitProperties.colorings,
-      defaultValue: tailitProperties.colorings[0],
+      options: tailitElementProperties.colorings,
+      defaultValue: tailitElementProperties.colorings[0],
     },
     checked: {
       control: { type: 'boolean' },

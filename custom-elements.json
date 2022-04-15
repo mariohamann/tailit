@@ -34,7 +34,7 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "attribute": "coloring",
@@ -46,7 +46,7 @@
             },
             {
               "kind": "method",
-              "name": "getColoring",
+              "name": "coloringClass",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -198,7 +198,7 @@
             {
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "fieldName": "coloring",
@@ -308,7 +308,7 @@
       "declarations": [
         {
           "kind": "variable",
-          "name": "tailitProperties",
+          "name": "tailitElementProperties",
           "type": {
             "text": "object"
           },
@@ -323,12 +323,12 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               }
             },
             {
               "kind": "method",
-              "name": "getColoring",
+              "name": "coloringClass",
               "return": {
                 "type": {
                   "text": "'var-primary' | 'var-secondary' | 'var-neutral'"
@@ -346,7 +346,7 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "attribute": "coloring",
@@ -354,7 +354,7 @@
             },
             {
               "kind": "method",
-              "name": "getColoring"
+              "name": "coloringClass"
             },
             {
               "kind": "field",
@@ -370,7 +370,7 @@
             {
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "fieldName": "coloring",
@@ -395,13 +395,13 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'"
             },
             {
               "kind": "method",
-              "name": "getColoring"
+              "name": "coloringClass"
             }
           ],
           "superclass": {
@@ -413,9 +413,9 @@
       "exports": [
         {
           "kind": "js",
-          "name": "tailitProperties",
+          "name": "tailitElementProperties",
           "declaration": {
-            "name": "tailitProperties",
+            "name": "tailitElementProperties",
             "module": "src/components/tailit-element/tailit-element.ts"
           }
         },
@@ -737,7 +737,7 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "attribute": "coloring",
@@ -749,7 +749,7 @@
             },
             {
               "kind": "method",
-              "name": "getColoring",
+              "name": "coloringClass",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -799,7 +799,7 @@
             {
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "fieldName": "coloring",
@@ -933,7 +933,7 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "attribute": "coloring",
@@ -945,7 +945,7 @@
             },
             {
               "kind": "method",
-              "name": "getColoring",
+              "name": "coloringClass",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1023,7 +1023,7 @@
             {
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "fieldName": "coloring",
@@ -1150,7 +1150,7 @@
               "kind": "field",
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "attribute": "coloring",
@@ -1162,7 +1162,7 @@
             },
             {
               "kind": "method",
-              "name": "getColoring",
+              "name": "coloringClass",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
@@ -1232,7 +1232,7 @@
             {
               "name": "coloring",
               "type": {
-                "text": "typeof tailitProperties.colorings[number]"
+                "text": "typeof tailitElementProperties.colorings[number]"
               },
               "default": "'primary'",
               "fieldName": "coloring",

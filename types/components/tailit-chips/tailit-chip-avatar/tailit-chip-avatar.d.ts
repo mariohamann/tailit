@@ -1,7 +1,4 @@
 import TailitChip from '../tailit-chip/tailit-chip';
-export declare const properties: {
-    colors: readonly ["primary", "secondary", "gray"];
-};
 /**
  * @since 0.1
  * @status beta
@@ -19,6 +16,7 @@ export default class TailitChipAvatar extends TailitChip {
     as: string;
     img: string;
     filled: boolean;
+    renderAvatar(): import("lit").TemplateResult<2 | 1>;
     render(): import("lit").TemplateResult<2 | 1>;
     _onClick(): void;
 }

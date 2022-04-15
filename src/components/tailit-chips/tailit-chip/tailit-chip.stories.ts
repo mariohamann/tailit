@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { tailitProperties } from '../../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../../tailit-element/tailit-element'; 
 
 export const Chip = (args: any) => html`
     <tailit-chip coloring=${args.coloring} ?filled=${args.filled}
@@ -17,8 +17,8 @@ export default {
     },
     coloring: {
       control: { type: 'select' },
-      options: tailitProperties.colorings,
-      defaultValue: tailitProperties.colorings[0],
+      options: tailitElementProperties.colorings,
+      defaultValue: tailitElementProperties.colorings[0],
     },
     filled: {
       control: { type: 'boolean' },

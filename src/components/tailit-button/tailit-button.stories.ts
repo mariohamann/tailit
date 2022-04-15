@@ -1,8 +1,9 @@
 import { html } from 'lit';
-import { tailitProperties } from '../tailit-element/tailit-element'; 
+import { tailitElementProperties } from '../tailit-element/tailit-element'; 
+import { tailitButtonProperties } from './tailit-button'; 
 
 export const Button = (args: any) => html`
-    <tailit-button coloring=${args.coloring}>
+    <tailit-button coloring=${args.coloring} variant=${args.variant} ?disabled=${args.disabled}>
       ${args.slot}
     </tailit-button>
   `;
@@ -17,8 +18,17 @@ export default {
     },
     coloring: {
       control: { type: 'select' },
-      options: tailitProperties.colorings,
-      defaultValue: tailitProperties.colorings[0],
+      options: tailitElementProperties.colorings,
+      defaultValue: tailitElementProperties.colorings[0],
+    },
+    variant: {
+      control: { type: 'select' },
+      options: tailitButtonProperties.variants,
+      defaultValue: tailitButtonProperties.variants[1],
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      defaultValue: false,
     },
   },
 };
