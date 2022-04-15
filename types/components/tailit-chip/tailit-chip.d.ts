@@ -2,6 +2,7 @@ import { LitElement } from 'lit';
 export declare const properties: {
     colors: readonly ["primary", "secondary", "gray"];
 };
+declare const TailitChip_base: typeof LitElement;
 /**
  * @since 0.1
  * @status beta
@@ -14,7 +15,7 @@ export declare const properties: {
  * - https://tailwindui.com/components/application-ui/elements/badges
  *
  */
-export default class TailitChip extends LitElement {
+export default class TailitChip extends TailitChip_base {
     /** The badge's color. */
     color: typeof properties.colors[number];
     /** Changes the buttons style. This is especially useful for filter-styles. */
@@ -22,7 +23,6 @@ export default class TailitChip extends LitElement {
     /** Changes the tag of the chip */
     as: string;
     role: string;
-    static styles: import("lit").CSSResult[];
     beforeSlot(): void;
     afterSlot(): void;
     render(): import("lit").TemplateResult<2 | 1>;
@@ -33,3 +33,4 @@ declare global {
         'tailit-chip': TailitChip;
     }
 }
+export {};

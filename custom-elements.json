@@ -4,147 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/headless-expandable/headless-expandable.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "HeadlessExpandable",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
-              "attribute": "open",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "description": "Shows the details."
-            },
-            {
-              "kind": "method",
-              "name": "hide",
-              "description": "Hides the details"
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryClick"
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryKeyDown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleOpenChange"
-            },
-            {
-              "kind": "field",
-              "name": "styledHeader"
-            },
-            {
-              "kind": "field",
-              "name": "headlessHeader"
-            },
-            {
-              "kind": "field",
-              "name": "styledBody"
-            },
-            {
-              "kind": "field",
-              "name": "headlessBody"
-            }
-          ],
-          "events": [
-            {
-              "description": "Emitted when the details opens.",
-              "name": "sl-show"
-            },
-            {
-              "description": "Emitted after the details opens and all animations are complete.",
-              "name": "sl-after-show"
-            },
-            {
-              "description": "Emitted when the details closes.",
-              "name": "sl-hide"
-            },
-            {
-              "description": "Emitted after the details closes and all animations are complete.",
-              "name": "sl-after-hide"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
-              "fieldName": "open"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "HeadlessExpandable",
-            "module": "src/components/headless-expandable/headless-expandable.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/tailit-accordion/tailit-accordion.ts",
       "declarations": [
         {
@@ -190,23 +49,20 @@
               "type": {
                 "text": "string"
               },
-              "description": "The summary to show in the details header. If you need to display HTML, use the `summary` slot instead.",
+              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
               "attribute": "summary"
             },
             {
               "kind": "field",
-              "name": "styledHeader",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} `, ]",
               "inheritedFrom": {
-                "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "styledBody",
-              "inheritedFrom": {
-                "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
               }
             },
             {
@@ -217,7 +73,7 @@
               },
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -227,12 +83,12 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
               "attribute": "open",
               "reflects": true,
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -247,7 +103,20 @@
               "reflects": true,
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inherit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the header non-tapable – should be used, if you have a button inside the element",
+              "inheritedFrom": {
+                "name": "HeadlessExpandable",
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -256,7 +125,7 @@
               "description": "Shows the details.",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -265,7 +134,7 @@
               "description": "Hides the details",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -273,7 +142,7 @@
               "name": "handleSummaryClick",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -289,7 +158,7 @@
               ],
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -297,23 +166,23 @@
               "name": "handleOpenChange",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "field",
-              "name": "headlessHeader",
+              "name": "renderHeader",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
               "kind": "field",
-              "name": "headlessBody",
+              "name": "renderBody",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             }
           ],
@@ -323,7 +192,7 @@
               "type": {
                 "text": "string"
               },
-              "description": "The summary to show in the details header. If you need to display HTML, use the `summary` slot instead.",
+              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
               "fieldName": "summary"
             },
             {
@@ -332,11 +201,11 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
               "fieldName": "open",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -349,13 +218,19 @@
               "fieldName": "disabled",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TailitElement",
+              "module": "/src/components/tailit-element/tailit-element"
             }
           ],
           "superclass": {
             "name": "HeadlessExpandable",
-            "module": "/src/components/headless-expandable/headless-expandable"
+            "module": "/src/components/headless/headless-expandable/headless-expandable"
           },
           "tagName": "tailit-accordion",
           "customElement": true,
@@ -365,7 +240,7 @@
               "name": "sl-show",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -373,7 +248,7 @@
               "name": "sl-after-show",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -381,7 +256,7 @@
               "name": "sl-hide",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             },
             {
@@ -389,7 +264,7 @@
               "name": "sl-after-hide",
               "inheritedFrom": {
                 "name": "HeadlessExpandable",
-                "module": "src/components/headless-expandable/headless-expandable.ts"
+                "module": "src/components/headless/headless-expandable/headless-expandable.ts"
               }
             }
           ]
@@ -416,7 +291,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-badge/tailit-badge.ts",
+      "path": "src/components/tailit-chip/tailit-chip.ts",
       "declarations": [
         {
           "kind": "variable",
@@ -424,67 +299,142 @@
           "type": {
             "text": "object"
           },
-          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
+          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
         },
         {
           "kind": "class",
           "description": "",
-          "name": "SlBadge",
+          "name": "TailitChip",
           "slots": [
             {
-              "description": "The badge's content.",
+              "description": "The badge's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
               "name": ""
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "variant",
+              "name": "color",
               "type": {
-                "text": "typeof properties.variants[number]"
+                "text": "typeof properties.colors[number]"
               },
               "default": "'primary'",
-              "description": "The badge's variant.",
-              "attribute": "variant",
+              "description": "The badge's color.",
+              "attribute": "color",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "ping",
+              "name": "filled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "attribute": "ping",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "filled",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'span'",
+              "description": "Changes the tag of the chip",
+              "attribute": "as"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role"
+            },
+            {
+              "kind": "method",
+              "name": "beforeSlot"
+            },
+            {
+              "kind": "method",
+              "name": "afterSlot"
+            },
+            {
+              "kind": "method",
+              "name": "_onClick",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} `, ]",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
             }
           ],
           "attributes": [
             {
-              "name": "variant",
+              "name": "color",
               "type": {
-                "text": "typeof properties.variants[number]"
+                "text": "typeof properties.colors[number]"
               },
               "default": "'primary'",
-              "description": "The badge's variant.",
-              "fieldName": "variant"
+              "description": "The badge's color.",
+              "fieldName": "color"
             },
             {
-              "name": "ping",
+              "name": "filled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "fieldName": "ping"
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled"
+            },
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'span'",
+              "description": "Changes the tag of the chip",
+              "fieldName": "as"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TailitElement",
+              "module": "/src/components/tailit-element/tailit-element"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "sl-badge",
+          "tagName": "tailit-chip",
           "customElement": true
         }
       ],
@@ -494,23 +444,23 @@
           "name": "properties",
           "declaration": {
             "name": "properties",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
+            "module": "src/components/tailit-chip/tailit-chip.ts"
           }
         },
         {
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
+            "name": "TailitChip",
+            "module": "src/components/tailit-chip/tailit-chip.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "sl-badge",
+          "name": "tailit-chip",
           "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
+            "name": "TailitChip",
+            "module": "src/components/tailit-chip/tailit-chip.ts"
           }
         }
       ]
@@ -635,6 +585,19 @@
                 "name": "TailitChip",
                 "module": "src/components/tailit-chip/tailit-chip.ts"
               }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} `, ]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chip/tailit-chip.ts"
+              }
             }
           ],
           "attributes": [
@@ -737,163 +700,6 @@
           "declaration": {
             "name": "TailitChipAvatar",
             "module": "src/components/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-chip/tailit-chip.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  colors: ['primary', 'secondary', 'gray'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitChip",
-          "slots": [
-            {
-              "description": "The badge's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof properties.colors[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's color.",
-              "attribute": "color",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'span'",
-              "description": "Changes the tag of the chip",
-              "attribute": "as"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "role"
-            },
-            {
-              "kind": "method",
-              "name": "beforeSlot"
-            },
-            {
-              "kind": "method",
-              "name": "afterSlot"
-            },
-            {
-              "kind": "method",
-              "name": "_onClick",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "color",
-              "type": {
-                "text": "typeof properties.colors[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's color.",
-              "fieldName": "color"
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled"
-            },
-            {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'span'",
-              "description": "Changes the tag of the chip",
-              "fieldName": "as"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "tailit-chip",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-chip/tailit-chip.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "TailitChip",
-            "module": "src/components/tailit-chip/tailit-chip.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip",
-          "declaration": {
-            "name": "TailitChip",
-            "module": "src/components/tailit-chip/tailit-chip.ts"
           }
         }
       ]
@@ -1009,6 +815,19 @@
                 "name": "TailitChip",
                 "module": "src/components/tailit-chip/tailit-chip.ts"
               }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} `, ]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chip/tailit-chip.ts"
+              }
             }
           ],
           "attributes": [
@@ -1103,6 +922,157 @@
           "declaration": {
             "name": "TailitChipFilter",
             "module": "src/components/tailit-chip-filter/tailit-chip-filter.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-badge/tailit-badge.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "properties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SlBadge",
+          "slots": [
+            {
+              "description": "The badge's content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "attribute": "ping",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "typeof properties.variants[number]"
+              },
+              "default": "'primary'",
+              "description": "The badge's variant.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "fieldName": "ping"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "sl-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "properties",
+          "declaration": {
+            "name": "properties",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "sl-badge",
+          "declaration": {
+            "name": "SlBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-element/tailit-element.ts",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "TailitElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[ css` ${tailwind} `, ]"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitElement",
+          "members": [],
+          "superclass": {
+            "name": "superClass",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TailitElement",
+          "declaration": {
+            "name": "TailitElement",
+            "module": "src/components/tailit-element/tailit-element.ts"
           }
         }
       ]
@@ -1206,6 +1176,148 @@
           "declaration": {
             "name": "MyElement",
             "module": "src/components/tailit-example/tailit-example.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/headless/headless-expandable/headless-expandable.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HeadlessExpandable",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "attribute": "open",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "inherit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the header non-tapable – should be used, if you have a button inside the element"
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Shows the details."
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Hides the details"
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleOpenChange"
+            },
+            {
+              "kind": "field",
+              "name": "renderHeader"
+            },
+            {
+              "kind": "field",
+              "name": "renderBody"
+            }
+          ],
+          "events": [
+            {
+              "description": "Emitted when the details opens.",
+              "name": "sl-show"
+            },
+            {
+              "description": "Emitted after the details opens and all animations are complete.",
+              "name": "sl-after-show"
+            },
+            {
+              "description": "Emitted when the details closes.",
+              "name": "sl-hide"
+            },
+            {
+              "description": "Emitted after the details closes and all animations are complete.",
+              "name": "sl-after-hide"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "fieldName": "open"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "HeadlessExpandable",
+            "module": "src/components/headless/headless-expandable/headless-expandable.ts"
           }
         }
       ]

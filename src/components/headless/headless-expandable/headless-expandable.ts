@@ -111,7 +111,7 @@ export default class HeadlessExpandable extends LitElement {
     </header>
   `
 
-  renderBody = (content: unknown) => html` <div id="body">${content}</div>`
+  renderBody = (content: unknown) => html`<div id="body">${content}</div>`
 }
 
 declare global {

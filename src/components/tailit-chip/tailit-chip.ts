@@ -1,7 +1,7 @@
-import { LitElement, css } from 'lit';
+import { LitElement } from 'lit';
 import { customElement, property, eventOptions } from 'lit/decorators.js';
 import { html, literal, unsafeStatic } from 'lit/static-html.js';
-import { tailwind } from '../../index';
+import { TailitElement } from '../tailit-element/tailit-element';
 
 export const properties = {
   colors: ['primary', 'secondary', 'gray'] as const,
@@ -20,7 +20,7 @@ export const properties = {
  *
  */
 @customElement('tailit-chip')
-export default class TailitChip extends LitElement {
+export default class TailitChip extends TailitElement(LitElement) {
   /** The badge's color. */
   @property({ reflect: true }) color: typeof properties.colors[number] =
     'primary'
@@ -32,12 +32,6 @@ export default class TailitChip extends LitElement {
   @property() as = 'span'
 
   @property() role = ''
-
-  static styles = [
-    css`
-      ${tailwind}
-    `,
-  ]
 
   beforeSlot() {
 

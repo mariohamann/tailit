@@ -1,7 +1,7 @@
 import { html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { tailwind } from '../../index';
 import HeadlessExpandable from '../headless/headless-expandable/headless-expandable';
+import { TailitElement } from '../tailit-element/tailit-element';
 
 /**
  * @since 2.0
@@ -19,13 +19,7 @@ import HeadlessExpandable from '../headless/headless-expandable/headless-expanda
  * @csspart content - The details content.
  */
 @customElement('tailit-accordion')
-export default class TailitAccordion extends HeadlessExpandable {
-  static styles = [
-    css`
-      ${tailwind}
-    `,
-  ]
-
+export default class TailitAccordion extends TailitElement(HeadlessExpandable) {
   /** The summary to show in the details header.
    * If you need to display HTML, use the `summary` slot instead. */
   @property() summary!: string

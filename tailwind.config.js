@@ -5,9 +5,6 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      fontSize: {
-        var: 'var(--tw-var-spacing)',
-      },
       colors: {
         primary: colors.sky,
         secondary: colors.orange,
@@ -24,8 +21,11 @@ module.exports = {
           900: 'var(--tw-var-color-900)',
         },
       },
+      fontSize: {
+        var: 'var(--tw-var-spacing)',
+      },
       spacing: {
-        var: 'var(--tw-var-size)',
+        var: 'var(--tw-var-spacing)',
       },
     },
   },
