@@ -1,5 +1,6 @@
 const colors = require('tailwindcss/colors');
 const tailwindcssVar = require('@mariohamann/tailwindcss-var');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -30,5 +31,8 @@ module.exports = {
       },
     },
   },
-  plugins: [tailwindcssVar],
+  plugins: [tailwindcssVar, plugin(({ addVariant }) => {
+    // Add a `third` variant, ie. `third:pb-0`
+    addVariant('not-disabled', '&:not([disabled])');
+  })],
 };

@@ -23,6 +23,6 @@ export const tailwind = css`
 
 const modules = import.meta.glob('./components/**/!(*.stories).ts');
 
-Object.values(modules).forEach((module) => {
-  module();
+Object.keys(modules).forEach((module) => {
+  modules[module]();
 });

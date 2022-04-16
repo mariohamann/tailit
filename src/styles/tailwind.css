@@ -7,10 +7,6 @@
     format('woff2');
 }
 
-:not(:defined) {
-  visibility: hidden;
-}
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -29,3 +25,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :not(:defined) {
+    visibility: hidden;
+  }
+
+  html {
+    @apply text-base font-sans;
+  }
+}

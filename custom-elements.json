@@ -132,24 +132,6 @@
             },
             {
               "kind": "field",
-              "name": "disabledClass",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "'opacity-50 pointer-events-none cursor-not-allowed'"
-            },
-            {
-              "kind": "field",
-              "name": "focusClass",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "'focus:ring-4 focus:ring-var-300'"
-            },
-            {
-              "kind": "field",
               "name": "variantClass",
               "privacy": "private"
             },

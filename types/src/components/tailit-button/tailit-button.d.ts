@@ -5,8 +5,6 @@ export declare const tailitButtonProperties: {
 declare const TailitButton_base: (new (...args: any[]) => import("../tailit-element/tailit-element").TailitElementInterface) & (new (...args: any[]) => import("../headless/headless-button/headless-button").HeadlessButtonInterface) & typeof LitElement;
 export default class TailitButton extends TailitButton_base {
     variant: typeof tailitButtonProperties.variants[number];
-    private readonly disabledClass;
-    private readonly focusClass;
     private readonly variantClass;
     render(): unknown;
 }
