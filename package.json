@@ -13,7 +13,9 @@
   "scripts": {
     "start": "concurrently 'npm:storybook' 'npm:cem'",
     "dev": "vite --open",
-    "build": "tsc && vite build",
+    "build": "tsc && npm run build:www && npm run build:lib",
+    "build:www": "vite build",
+    "build:lib": "vite build -c vite.lib.config.ts",
     "preview": "vite build && vite preview --open",
     "cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts' --watch",
     "build-cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts'",
