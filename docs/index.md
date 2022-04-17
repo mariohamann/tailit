@@ -6,4 +6,6 @@ sidebarDepth: 2
 
 Tailit Web Components are build with Lit & Tailwind. Together they are beautiful.
 
-<tailit-button>Hello!</tailit-button>
+<div v-html="`<tailit-button>Hello!</tailit-button>`">
+</div>
+

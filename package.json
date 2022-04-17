@@ -14,7 +14,7 @@
     "dev": "vite --open",
     "dev:docs": "vitepress dev docs",
     "dev:cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts' --watch",
-    "serve:docs": "vitepress serve docs",
+    "serve:docs": "vitepress serve docs  --port 8080",
     "build": "tsc && npm run build:cem && npm run build:www && npm run build:lib",
     "build:docs": "vitepress build docs",
     "build:www": "vite build",

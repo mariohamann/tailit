@@ -1,30 +1,15 @@
 import { defineConfig } from 'vite';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import { terser } from 'rollup-plugin-terser';
-import vue from '@vitejs/plugin-vue';
 
 const path = require('path');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  optimizeDeps: {
-    include: ['vue'],
-  },
-  // @ts-expect-error Invalid types can be ignored
-  ssr: {
-    noExternal: ['api-viewer-element'],
-  },
-  plugins: [vue({
-    template: {
-      compilerOptions: {
-        // treat all tags with a dash as custom elements
-        isCustomElement: (tag) => tag.includes('-'),
-      },
-    },
-  })],
   build: {
     outDir: 'dist',
     rollupOptions: {
+      external: ['tailit-components'],
       input: {
         index: path.resolve(__dirname, 'index.html'),
       },

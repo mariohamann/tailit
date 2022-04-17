@@ -405,6 +405,141 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/tailit-element/tailit-element.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailitElementProperties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  colorings: ['primary', 'secondary', 'neutral'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitElementInterface",
+          "members": [
+            {
+              "kind": "field",
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "coloringClass",
+              "return": {
+                "type": {
+                  "text": "'var-primary' | 'var-secondary' | 'var-neutral'"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "TailitElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'",
+              "attribute": "coloring",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "coloringClass"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "coloring",
+              "attribute": "coloring"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "coloring",
+              "type": {
+                "text": "typeof tailitElementProperties.colorings[number]"
+              },
+              "default": "'primary'"
+            },
+            {
+              "kind": "method",
+              "name": "coloringClass"
+            }
+          ],
+          "superclass": {
+            "name": "superClass",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tailitElementProperties",
+          "declaration": {
+            "name": "tailitElementProperties",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TailitElementInterface",
+          "declaration": {
+            "name": "TailitElementInterface",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TailitElement",
+          "declaration": {
+            "name": "TailitElement",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/tailit-button/tailit-button.ts",
       "declarations": [
         {
@@ -963,141 +1098,6 @@
           "declaration": {
             "name": "TailitButton",
             "module": "src/components/tailit-button/tailit-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-element/tailit-element.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "tailitElementProperties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  colorings: ['primary', 'secondary', 'neutral'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitElementInterface",
-          "members": [
-            {
-              "kind": "field",
-              "name": "coloring",
-              "type": {
-                "text": "typeof tailitElementProperties.colorings[number]"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "coloringClass",
-              "return": {
-                "type": {
-                  "text": "'var-primary' | 'var-secondary' | 'var-neutral'"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "TailitElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "coloring",
-              "type": {
-                "text": "typeof tailitElementProperties.colorings[number]"
-              },
-              "default": "'primary'",
-              "attribute": "coloring",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "coloringClass"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[css` ${tailwind} `]"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "coloring",
-              "type": {
-                "text": "typeof tailitElementProperties.colorings[number]"
-              },
-              "default": "'primary'",
-              "fieldName": "coloring",
-              "attribute": "coloring"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "coloring",
-              "type": {
-                "text": "typeof tailitElementProperties.colorings[number]"
-              },
-              "default": "'primary'"
-            },
-            {
-              "kind": "method",
-              "name": "coloringClass"
-            }
-          ],
-          "superclass": {
-            "name": "superClass",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "tailitElementProperties",
-          "declaration": {
-            "name": "tailitElementProperties",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TailitElementInterface",
-          "declaration": {
-            "name": "TailitElementInterface",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TailitElement",
-          "declaration": {
-            "name": "TailitElement",
-            "module": "src/components/tailit-element/tailit-element.ts"
           }
         }
       ]
