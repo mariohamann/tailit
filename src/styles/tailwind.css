@@ -31,7 +31,7 @@
     visibility: hidden;
   }
 
-  html {
+  :host{
     @apply text-base font-sans;
   }
 }

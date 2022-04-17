@@ -6,7 +6,6 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:storybook/recommended',
     'plugin:wc/recommended',
     'plugin:lit/recommended',
   ],
@@ -25,7 +24,8 @@ module.exports = {
 
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: ['./tsconfig.json'], // Specify it only for TypeScript files
+        project: ['tsconfig.json', 'vite.lib.config.ts', 'vite.config.ts'], // Specify it only for TypeScript files
+        tsconfigRootDir: __dirname,
       },
     },
   ],
