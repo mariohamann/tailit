@@ -21,9 +21,9 @@ export default class HeadlessExpandable extends LitElement {
     /** Makes the header non-tapable – should be used, if you have a button inside the element */
     inherit: boolean;
     /** Shows the details. */
-    show(): Promise<void>;
+    show(): Promise<any>;
     /** Hides the details */
-    hide(): Promise<void>;
+    hide(): Promise<any>;
     handleSummaryClick(): void;
     handleSummaryKeyDown(event: KeyboardEvent): void;
     handleOpenChange(): Promise<void>;

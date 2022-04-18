@@ -13,8 +13,8 @@ declare const _default: {
             control: {
                 type: string;
             };
-            options: readonly ["primary", "secondary", "neutral"];
-            defaultValue: "primary";
+            options: any;
+            defaultValue: any;
         };
         checked: {
             control: {

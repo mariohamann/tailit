@@ -4,15 +4,7 @@ const path = require('path');
 module.exports = {
   async viteFinal(config, { configType }) {
     config.resolve.dedupe = ["@storybook/client-api"];
-    const { config: userConfig } = await loadConfigFromFile(
-      path.resolve(__dirname, "../vite.config.ts")
-    );
-
-    return mergeConfig(config, {
-      ...userConfig,
-      // manually specify plugins to avoid conflict
-      plugins: [],
-    });
+    return config;
   },
   "stories": [
     "../src/**/*.stories.@(js|jsx|ts|tsx)"

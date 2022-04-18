@@ -3,7 +3,9 @@ const tailwindcssVar = require('@mariohamann/tailwindcss-var');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: process.env.VITE_BUILD !== 'lib'
+    ? ['./index.html', './docs/**/*.{html,hbs,ts}', './src/components/**/*.ts']
+    : ['./src/components/**/*.ts'],
   theme: {
     extend: {
       colors: {

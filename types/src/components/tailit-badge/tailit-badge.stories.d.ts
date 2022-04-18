@@ -14,7 +14,7 @@ declare const _default: {
             control: {
                 type: string;
             };
-            options: readonly ["primary", "success", "neutral", "warning", "danger"];
+            options: any;
         };
         ping: {
             control: {

@@ -1,5 +1,4 @@
-import { LitElement } from 'lit';
-declare const TailitChip_base: (new (...args: any[]) => import("../../tailit-element/tailit-element").TailitElementInterface) & typeof LitElement;
+declare const TailitChip_base: any;
 /**
  * @since 0.1
  * @status beta

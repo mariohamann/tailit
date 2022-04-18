@@ -1,7 +1,6 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
     es2021: true,
   },
   extends: [
@@ -24,9 +23,6 @@ module.exports = {
       },
 
       parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: ['./tsconfig.json'], // Specify it only for TypeScript files
-      },
     },
   ],
   plugins: ['@typescript-eslint', 'eslint-plugin-lit'],

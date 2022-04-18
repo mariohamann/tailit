@@ -2,7 +2,8 @@
   "compilerOptions": {
     "composite": true,
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": ["vite/client"]
   },
-  "include": ["vite.config.ts", "vite.bundle.config.ts"]
+  "include": ["src/**/*.ts", "vite.docs.config.ts", "vite.lib.config.ts", "docs/**/*.ts"]
 }

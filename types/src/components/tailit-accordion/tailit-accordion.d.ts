@@ -1,5 +1,4 @@
-import HeadlessExpandable from '../headless/headless-expandable/headless-expandable';
-declare const TailitAccordion_base: (new (...args: any[]) => import("../tailit-element/tailit-element").TailitElementInterface) & typeof HeadlessExpandable;
+declare const TailitAccordion_base: any;
 /**
  * @since 2.0
  * @status stable

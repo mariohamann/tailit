@@ -13,15 +13,15 @@ declare const _default: {
             control: {
                 type: string;
             };
-            options: readonly ["primary", "secondary", "neutral"];
-            defaultValue: "primary";
+            options: any;
+            defaultValue: any;
         };
         variant: {
             control: {
                 type: string;
             };
-            options: readonly ["primary", "secondary", "tertiary"];
-            defaultValue: "secondary";
+            options: any;
+            defaultValue: any;
         };
         disabled: {
             control: {
