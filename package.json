@@ -6,11 +6,11 @@
     "types"
   ],
   "scripts": {
-    "start:docs": "concurrently 'vite -c vite.docs.config.ts --open' 'node scripts/vite-jit-workaround.mjs'",
+    "start:docs": "astro dev",
     "start:lib": "concurrently 'npm:storybook' 'npm:cem'",
     "build": "pnpm build:www && pnpm build:lib",
-    "build:docs": "vite build -c vite.docs.config.ts",
-    "build:lib": "vite build -c vite.lib.config.ts",
+    "build:docs": "astro build",
+    "build:lib": "astro build -c vite.lib.config.ts",
     "preview": "pnpm build:docs && vite preview --open",
     "cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts' --watch",
     "build-cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts'",
@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "@mariohamann/tailwindcss-var": "^0.1.1",
+    "astro": "^1.0.0-beta.14",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "lit": "^2.2.2",
     "rollup-plugin-minify-html-literals": "^1.2.6",
     "rollup-plugin-terser": "^7.0.2",
     "tailwindcss": "^3.0.24",
@@ -29,6 +29,7 @@
     "vite-plugin-handlebars": "^1.6.0"
   },
   "devDependencies": {
+    "@astrojs/lit": "^0.1.1",
     "@babel/core": "^7.17.9",
     "@custom-elements-manifest/analyzer": "^0.5.7",
     "@mdx-js/react": "^2.1.1",
@@ -44,6 +45,7 @@
     "@storybook/web-components": "^6.4.22",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
+    "@webcomponents/template-shadowroot": "^0.1.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "concurrently": "^7.1.0",
@@ -54,6 +56,7 @@
     "eslint-plugin-storybook": "^0.5.10",
     "eslint-plugin-wc": "^1.3.2",
     "jest": "^27.5.1",
+    "lit": "^2.1.3",
     "lit-html": "^2.2.2",
     "postcss": "^8.4.12",
     "react": "^17.0.2",

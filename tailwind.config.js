@@ -2,9 +2,11 @@ const colors = require('tailwindcss/colors');
 const tailwindcssVar = require('@mariohamann/tailwindcss-var');
 const plugin = require('tailwindcss/plugin');
 
+console.log(process.env.VITE_BUILD);
+
 module.exports = {
   content: process.env.VITE_BUILD !== 'lib'
-    ? ['./index.html', './docs/**/*.{html,hbs,ts}', './src/components/**/*.ts']
+    ? ['./index.html', './docs/**/*.{html,astro}', './src/components/**/*.ts']
     : ['./src/components/**/*.ts'],
   theme: {
     extend: {

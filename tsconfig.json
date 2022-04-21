@@ -14,7 +14,12 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "baseUrl": ".",
+    "paths": {
+      "@tailit/*": ["./src/*"],
+      "@docs/*": ["./docs/*"]
+    }
   },
   "include": ["src/**/*(!.d).ts", "vite.docs.config.ts", "vite.lib.config.ts", "docs/**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

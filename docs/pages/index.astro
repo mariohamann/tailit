@@ -1,0 +1,21 @@
+---
+import Base from '@docs/layouts/Base.astro'
+// Component Imports
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'Example Blog';
+let description = 'The perfect starter for your perfect blog.';
+let permalink = 'https://example.com/';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<Base description={description} title={title} permalink={permalink}>
+  <section class="intro">
+   <tailit-button>Hello Demo</tailit-button>
+  </section>
+</Base>
