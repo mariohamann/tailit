@@ -3,7 +3,7 @@ import { tailitElementProperties } from '../tailit-element/tailit-element';
 import { tailitButtonProperties } from './tailit-button';
 
 export const Button = (args: any) => html`
-    <tailit-button coloring=${args.coloring} variant=${args.variant} ?disabled=${args.disabled}>
+    <tailit-button color=${args.color} variant=${args.variant} ?disabled=${args.disabled}>
       ${args.slot}
     </tailit-button>
   `;
@@ -16,10 +16,10 @@ export default {
       control: { type: 'text' },
       defaultValue: 'Slot-Content',
     },
-    coloring: {
+    color: {
       control: { type: 'select' },
-      options: tailitElementProperties.colorings,
-      defaultValue: tailitElementProperties.colorings[0],
+      options: tailitElementProperties.colors,
+      defaultValue: tailitElementProperties.colors[0],
     },
     variant: {
       control: { type: 'select' },

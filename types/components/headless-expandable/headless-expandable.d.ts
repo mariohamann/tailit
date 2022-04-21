@@ -10,37 +10,37 @@ import { LitElement } from 'lit';
  * @event sl-hide - Emitted when the details closes.
  * @event sl-after-hide - Emitted after the details closes and all animations are complete.
  */
-export default class HeadlessExpandable extends LitElement {
-  header: HTMLElement
+export default class RenderlessExpandable extends LitElement {
+  header: HTMLElement;
 
   /** Indicates whether or not the details is open. You can use this in lieu of the show/hide methods. */
-  open: boolean
+  open: boolean;
 
   /** Disables the details so it can't be toggled. */
-  disabled: boolean
+  disabled: boolean;
 
   /** Shows the details. */
-  show(): Promise<void>
+  show(): Promise<void>;
 
   /** Hides the details */
-  hide(): Promise<void>
+  hide(): Promise<void>;
 
-  handleSummaryClick(): void
+  handleSummaryClick(): void;
 
-  handleSummaryKeyDown(event: KeyboardEvent): void
+  handleSummaryKeyDown(event: KeyboardEvent): void;
 
-  handleOpenChange(): Promise<void>
+  handleOpenChange(): Promise<void>;
 
-  styledHeader: () => import('lit').TemplateResult<1>
+  styledHeader: () => import('lit').TemplateResult<1>;
 
-  headlessHeader: () => import('lit').TemplateResult<1>
+  headlessHeader: () => import('lit').TemplateResult<1>;
 
-  styledBody: () => import('lit').TemplateResult<1>
+  styledBody: () => import('lit').TemplateResult<1>;
 
-  headlessBody: () => import('lit').TemplateResult<1>
+  headlessBody: () => import('lit').TemplateResult<1>;
 }
 declare global {
   interface HTMLElementTagNameMap {
-    'headless-expandable': HeadlessExpandable
+    'renderless-expandable': RenderlessExpandable;
   }
 }

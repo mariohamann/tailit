@@ -37,4 +37,7 @@ module.exports = {
     // Add a `third` variant, ie. `third:pb-0`
     addVariant('not-disabled', '&:not([disabled])');
   })],
+  safelist: [
+    ...['primary', 'secondary', 'neutral'].map((key) => `var-${key})`),
+  ],
 };

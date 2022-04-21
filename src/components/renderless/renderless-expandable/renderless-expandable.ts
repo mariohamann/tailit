@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { emit, waitForEvent } from '../../../internal/event';
 import { watch } from '../../../internal/watch';
 
@@ -15,8 +16,8 @@ import { watch } from '../../../internal/watch';
  * @event sl-after-hide - Emitted after the details closes and all animations are complete.
  */
 
-export default class HeadlessExpandable extends LitElement {
-  @query('[part="header"]') header!: HTMLElement;
+export default class RenderlessExpandable extends LitElement {
+  @query('[part="button"]') header!: HTMLElement;
 
   /** Indicates whether or not the details is open.
    * You can use this in lieu of the show/hide methods.
@@ -96,26 +97,35 @@ export default class HeadlessExpandable extends LitElement {
     }
   }
 
-  renderHeader = (content: unknown) => html`
-    <header
-      part="header"
-      role="button"
+  renderButton = (content: unknown, classes?: string) => html`
+    <button
+      part="button"
       aria-expanded=${this.open ? 'true' : 'false'}
-      aria-controls="body"
+      aria-controls="content"
       aria-disabled=${this.disabled ? 'true' : 'false'}
       tabindex=${this.disabled || this.inherit ? '-1' : '0'}
       @click=${this.handleSummaryClick}
       @keydown=${this.handleSummaryKeyDown}
+      class=${ifDefined(classes)}
+      ?disabled=${this.disabled}
     >
       ${content}
-    </header>
+    </button>
   `;
 
-  renderBody = (content: unknown) => html`<div id="body">${content}</div>`;
+  renderContent = (content: unknown, classes?: string) => html`
+    <div part="content"
+      id="content"
+      role="region"
+      aria-labelledby="button"
+      class=${ifDefined(classes)}
+    >
+      ${content}
+    </div>`;
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'headless-expandable': HeadlessExpandable;
+    'renderless-expandable': RenderlessExpandable;
   }
 }

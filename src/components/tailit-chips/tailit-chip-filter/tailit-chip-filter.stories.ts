@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { tailitElementProperties } from '../../tailit-element/tailit-element';
 
 export const ChipFilter = (args: any) => html`
-    <tailit-chip-filter coloring=${args.coloring} ?checked=${args.checked}
+    <tailit-chip-filter color=${args.color} ?checked=${args.checked}
       >${args.slot}</tailit-chip-filter
     >
   `;
@@ -17,10 +17,10 @@ export default {
       control: { type: 'text' },
       defaultValue: 'Slot',
     },
-    coloring: {
+    color: {
       control: { type: 'select' },
-      options: tailitElementProperties.colorings,
-      defaultValue: tailitElementProperties.colorings[0],
+      options: tailitElementProperties.colors,
+      defaultValue: tailitElementProperties.colors[0],
     },
     checked: {
       control: { type: 'boolean' },

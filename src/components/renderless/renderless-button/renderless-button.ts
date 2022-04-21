@@ -6,7 +6,7 @@ import { emit } from '../../../internal/event';
 import { FormSubmitController } from '../../../internal/form';
 
 type Constructor<T> = new (...args: any[]) => T;
-export declare class HeadlessButtonInterface {
+export declare class RenderlessButtonInterface {
   disabled: boolean;
 
   type: 'button' | 'submit';
@@ -32,11 +32,12 @@ export declare class HeadlessButtonInterface {
   download: string;
 
   target: '_blank' | '_parent' | '_self' | '_top';
-  renderButton(content: unknown, classes: string): unknown;
+
+  renderButton(content: unknown, classes?: string): unknown;
 }
 
-export const HeadlessButton = <T extends Constructor<LitElement>>(superClass: T) => {
-  class HeadlessButtonElement extends superClass {
+export const RenderlessButton = <T extends Constructor<LitElement>>(superClass: T) => {
+  class RenderlessButtonElement extends superClass {
     @query('[part="base"]') button!: HTMLButtonElement | HTMLLinkElement;
 
     private readonly formSubmitController = new FormSubmitController(this, {
@@ -66,24 +67,24 @@ export const HeadlessButton = <T extends Constructor<LitElement>>(superClass: T)
        * value is `button` instead of `submit`, which is opposite of how native
        * `<button>` elements behave.
        */
-    @property() type: HeadlessButtonInterface['type'] = 'button';
+    @property() type: RenderlessButtonInterface['type'] = 'button';
 
     /** An optional name for the button. Ignored when `href` is set. */
-    @property() name?: HeadlessButtonInterface['name'];
+    @property() name?: RenderlessButtonInterface['name'];
 
     /** An optional value for the button. Ignored when `href` is set. */
-    @property() value?: HeadlessButtonInterface['value'];
+    @property() value?: RenderlessButtonInterface['value'];
 
     /** When set, the underlying button will be rendered as an `<a>`
      * with this `href` instead of a `<button>`. */
-    @property() href?: HeadlessButtonInterface['href'];
+    @property() href?: RenderlessButtonInterface['href'];
 
     /** Tells the browser where to open the link. Only used when `href` is set. */
-    @property() target?: HeadlessButtonInterface['target'];
+    @property() target?: RenderlessButtonInterface['target'];
 
     /** Tells the browser to download the linked file
      * as this filename. Only used when `href` is set. */
-    @property() download?: HeadlessButtonInterface['download'];
+    @property() download?: RenderlessButtonInterface['download'];
 
     /**
        * The "form owner" to associate the button with. If omitted,
@@ -91,19 +92,19 @@ export const HeadlessButton = <T extends Constructor<LitElement>>(superClass: T)
        * value of this attribute must be an id of a form in
        * the same document or shadow root as the button.
        */
-    @property() form!: HeadlessButtonInterface['form'];
+    @property() form!: RenderlessButtonInterface['form'];
 
     /** Used to override the form owner's `action` attribute. */
-    @property({ attribute: 'formaction' }) formAction!: HeadlessButtonInterface['formAction'];
+    @property({ attribute: 'formaction' }) formAction!: RenderlessButtonInterface['formAction'];
 
     /** Used to override the form owner's `method` attribute.  */
-    @property({ attribute: 'formmethod' }) formMethod!: HeadlessButtonInterface['formMethod'];
+    @property({ attribute: 'formmethod' }) formMethod!: RenderlessButtonInterface['formMethod'];
 
     /** Used to override the form owner's `novalidate` attribute. */
-    @property({ attribute: 'formnovalidate', type: Boolean }) formNoValidate!: HeadlessButtonInterface['formNoValidate'];
+    @property({ attribute: 'formnovalidate', type: Boolean }) formNoValidate!: RenderlessButtonInterface['formNoValidate'];
 
     /** Used to override the form owner's `target` attribute. */
-    @property({ attribute: 'formtarget' }) formTarget!: HeadlessButtonInterface['formTarget'];
+    @property({ attribute: 'formtarget' }) formTarget!: RenderlessButtonInterface['formTarget'];
 
     /** Simulates a click on the button. */
     click() {
@@ -142,7 +143,7 @@ export const HeadlessButton = <T extends Constructor<LitElement>>(superClass: T)
       }
     }
 
-    renderButton(content: unknown, classes: string) {
+    renderButton(content: unknown, classes: string = '') {
       const isLink = !!this.href;
       const tag = isLink ? literal`a` : literal`button`;
 
@@ -171,5 +172,5 @@ export const HeadlessButton = <T extends Constructor<LitElement>>(superClass: T)
     `;
     }
   }
-  return HeadlessButtonElement as Constructor<HeadlessButtonInterface> & T;
+  return RenderlessButtonElement as Constructor<RenderlessButtonInterface> & T;
 };
