@@ -6,6 +6,7 @@
     "emitDeclarationOnly": true,
     "outDir": "./types",
     "strict": true,
+    "rootDir": ".",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -14,7 +15,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "strictPropertyInitialization": false,
   },
   "include": ["src/**/*(!.d).ts", "vite.docs.config.ts", "vite.lib.config.ts", "docs/**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
