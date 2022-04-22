@@ -22,9 +22,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :not(:defined) {

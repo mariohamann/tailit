@@ -10,12 +10,15 @@
  * (See: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#internal_vs._external_styles)
  */
 
-import { css, unsafeCSS } from 'lit';
-import classes from './styles/tailwind.css';
+import 'virtual:windi.css';
+import 'virtual:windi-devtools';
 
-export const tailwind = css`
-  ${unsafeCSS(classes)}
-`;
+// import { css, unsafeCSS } from 'lit';
+// import classes from './styles/tailwind.css';
+
+// export const tailwind = css`
+//   ${unsafeCSS(classes)}
+// `;
 
 /*
  * 2. Import all components and register them

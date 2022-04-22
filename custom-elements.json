@@ -105,6 +105,938 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/tailit-accordion/tailit-accordion.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitAccordion",
+          "slots": [
+            {
+              "description": "The accordions' content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
+              "attribute": "summary"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "attribute": "color",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\"",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\"",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "attribute": "open",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inherit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the header non-tapable – should be used, if you have a button inside the element",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Shows the details.",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Hides the details",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryClick",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleOpenChange",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderButton",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderContent",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
+              "fieldName": "summary"
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "color",
+              "attribute": "color",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "fieldName": "open",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TailitElement",
+              "module": "/src/components/tailit-element/tailit-element"
+            }
+          ],
+          "superclass": {
+            "name": "RenderlessExpandable",
+            "module": "/src/components/renderless/renderless-expandable/renderless-expandable"
+          },
+          "tagName": "tailit-accordion",
+          "customElement": true,
+          "events": [
+            {
+              "description": "Emitted when the details opens.",
+              "name": "sl-show",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "description": "Emitted after the details opens and all animations are complete.",
+              "name": "sl-after-show",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "description": "Emitted when the details closes.",
+              "name": "sl-hide",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "description": "Emitted after the details closes and all animations are complete.",
+              "name": "sl-after-hide",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitAccordion",
+            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-accordion",
+          "declaration": {
+            "name": "TailitAccordion",
+            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-element/tailit-element.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailitElementProperties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  colors: ['primary', 'secondary', 'neutral'] as const,\n}"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitElementInterface",
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "unknown"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "unknown"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "TailitElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "attribute": "color",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\""
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\""
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "color",
+              "attribute": "color"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'"
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\""
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\""
+            }
+          ],
+          "superclass": {
+            "name": "superClass",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tailitElementProperties",
+          "declaration": {
+            "name": "tailitElementProperties",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TailitElementInterface",
+          "declaration": {
+            "name": "TailitElementInterface",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TailitElement",
+          "declaration": {
+            "name": "TailitElement",
+            "module": "src/components/tailit-element/tailit-element.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/renderless/renderless-button/renderless-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RenderlessButtonInterface",
+          "members": [
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "'button' | 'submit'"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formAction",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formMethod",
+              "type": {
+                "text": "'get' | 'post'"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formNoValidate",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formTarget",
+              "type": {
+                "text": "'_self' | '_blank' | '_parent' | '_top' | string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "download",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "'_blank' | '_parent' | '_self' | '_top'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderButton",
+              "return": {
+                "type": {
+                  "text": "unknown"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "unknown"
+                  }
+                },
+                {
+                  "name": "classes",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "RenderlessButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "button",
+              "type": {
+                "text": "HTMLButtonElement | HTMLLinkElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "privacy": "private",
+              "default": "new FormSubmitController(this, {\n      form: (input: any) => {\n        // Buttons support a form attribute that points to an arbitrary form,\n        // so if this attribute it set we need to query\n        // the form from the same root using its id\n        if (input.hasAttribute('form')) {\n          const doc = input.getRootNode() as Document | ShadowRoot;\n          const formId = input.getAttribute('form')!;\n          return doc.getElementById(formId) as HTMLFormElement;\n        }\n\n        // Fall back to the closest containing form\n        return input.closest('form');\n      },\n    })"
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the button.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "RenderlessButtonInterface['type']"
+              },
+              "default": "'button'",
+              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "RenderlessButtonInterface['name'] | undefined"
+              },
+              "description": "An optional name for the button. Ignored when `href` is set.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "RenderlessButtonInterface['value'] | undefined"
+              },
+              "description": "An optional value for the button. Ignored when `href` is set.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "RenderlessButtonInterface['href'] | undefined"
+              },
+              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "RenderlessButtonInterface['target'] | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "download",
+              "type": {
+                "text": "RenderlessButtonInterface['download'] | undefined"
+              },
+              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
+              "attribute": "download"
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "RenderlessButtonInterface['form']"
+              },
+              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
+              "attribute": "form"
+            },
+            {
+              "kind": "field",
+              "name": "formAction",
+              "type": {
+                "text": "RenderlessButtonInterface['formAction']"
+              },
+              "description": "Used to override the form owner's `action` attribute.",
+              "attribute": "formaction"
+            },
+            {
+              "kind": "field",
+              "name": "formMethod",
+              "type": {
+                "text": "RenderlessButtonInterface['formMethod']"
+              },
+              "description": "Used to override the form owner's `method` attribute.",
+              "attribute": "formmethod"
+            },
+            {
+              "kind": "field",
+              "name": "formNoValidate",
+              "type": {
+                "text": "RenderlessButtonInterface['formNoValidate']"
+              },
+              "description": "Used to override the form owner's `novalidate` attribute.",
+              "attribute": "formnovalidate"
+            },
+            {
+              "kind": "field",
+              "name": "formTarget",
+              "type": {
+                "text": "RenderlessButtonInterface['formTarget']"
+              },
+              "description": "Used to override the form owner's `target` attribute.",
+              "attribute": "formtarget"
+            },
+            {
+              "kind": "method",
+              "name": "click",
+              "description": "Simulates a click on the button."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Sets focus on the button."
+            },
+            {
+              "kind": "method",
+              "name": "blur",
+              "description": "Removes focus from the button."
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderButton",
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "unknown"
+                  }
+                },
+                {
+                  "name": "classes",
+                  "default": "''",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the button.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "RenderlessButtonInterface['type']"
+              },
+              "default": "'button'",
+              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
+              "fieldName": "type"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "RenderlessButtonInterface['name'] | undefined"
+              },
+              "description": "An optional name for the button. Ignored when `href` is set.",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "RenderlessButtonInterface['value'] | undefined"
+              },
+              "description": "An optional value for the button. Ignored when `href` is set.",
+              "fieldName": "value"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "RenderlessButtonInterface['href'] | undefined"
+              },
+              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "RenderlessButtonInterface['target'] | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "fieldName": "target"
+            },
+            {
+              "name": "download",
+              "type": {
+                "text": "RenderlessButtonInterface['download'] | undefined"
+              },
+              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
+              "fieldName": "download"
+            },
+            {
+              "name": "form",
+              "type": {
+                "text": "RenderlessButtonInterface['form']"
+              },
+              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
+              "fieldName": "form"
+            },
+            {
+              "name": "formaction",
+              "type": {
+                "text": "RenderlessButtonInterface['formAction']"
+              },
+              "description": "Used to override the form owner's `action` attribute.",
+              "fieldName": "formAction"
+            },
+            {
+              "name": "formmethod",
+              "type": {
+                "text": "RenderlessButtonInterface['formMethod']"
+              },
+              "description": "Used to override the form owner's `method` attribute.",
+              "fieldName": "formMethod"
+            },
+            {
+              "name": "formnovalidate",
+              "type": {
+                "text": "RenderlessButtonInterface['formNoValidate']"
+              },
+              "description": "Used to override the form owner's `novalidate` attribute.",
+              "fieldName": "formNoValidate"
+            },
+            {
+              "name": "formtarget",
+              "type": {
+                "text": "RenderlessButtonInterface['formTarget']"
+              },
+              "description": "Used to override the form owner's `target` attribute.",
+              "fieldName": "formTarget"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RenderlessButtonInterface",
+          "declaration": {
+            "name": "RenderlessButtonInterface",
+            "module": "src/components/renderless/renderless-button/renderless-button.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "RenderlessButton",
+          "declaration": {
+            "name": "RenderlessButton",
+            "module": "src/components/renderless/renderless-button/renderless-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/tailit-button/tailit-button.ts",
       "declarations": [
         {
@@ -159,7 +1091,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -690,482 +1622,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-accordion/tailit-accordion.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitAccordion",
-          "slots": [
-            {
-              "description": "The accordions' content.",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "summary",
-              "type": {
-                "text": "string"
-              },
-              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
-              "attribute": "summary"
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof tailitElementProperties.colors[number]"
-              },
-              "default": "'primary'",
-              "attribute": "color",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitElement",
-                "module": "src/components/tailit-element/tailit-element.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "focusClasses",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
-              "inheritedFrom": {
-                "name": "TailitElement",
-                "module": "src/components/tailit-element/tailit-element.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabledClasses",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\"",
-              "inheritedFrom": {
-                "name": "TailitElement",
-                "module": "src/components/tailit-element/tailit-element.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[css` ${tailwind} `]",
-              "inheritedFrom": {
-                "name": "TailitElement",
-                "module": "src/components/tailit-element/tailit-element.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
-              "attribute": "open",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "attribute": "disabled",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "inherit",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the header non-tapable – should be used, if you have a button inside the element",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "description": "Shows the details.",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "hide",
-              "description": "Hides the details",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryClick",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryKeyDown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleOpenChange",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderButton",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderContent",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "summary",
-              "type": {
-                "text": "string"
-              },
-              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
-              "fieldName": "summary"
-            },
-            {
-              "name": "color",
-              "type": {
-                "text": "typeof tailitElementProperties.colors[number]"
-              },
-              "default": "'primary'",
-              "fieldName": "color",
-              "attribute": "color",
-              "inheritedFrom": {
-                "name": "TailitElement",
-                "module": "src/components/tailit-element/tailit-element.ts"
-              }
-            },
-            {
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
-              "fieldName": "open",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "fieldName": "disabled",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            }
-          ],
-          "mixins": [
-            {
-              "name": "TailitElement",
-              "module": "/src/components/tailit-element/tailit-element"
-            }
-          ],
-          "superclass": {
-            "name": "RenderlessExpandable",
-            "module": "/src/components/renderless/renderless-expandable/renderless-expandable"
-          },
-          "tagName": "tailit-accordion",
-          "customElement": true,
-          "events": [
-            {
-              "description": "Emitted when the details opens.",
-              "name": "sl-show",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "description": "Emitted after the details opens and all animations are complete.",
-              "name": "sl-after-show",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "description": "Emitted when the details closes.",
-              "name": "sl-hide",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "description": "Emitted after the details closes and all animations are complete.",
-              "name": "sl-after-hide",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "TailitAccordion",
-            "module": "src/components/tailit-accordion/tailit-accordion.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-accordion",
-          "declaration": {
-            "name": "TailitAccordion",
-            "module": "src/components/tailit-accordion/tailit-accordion.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-element/tailit-element.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "tailitElementProperties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  colors: ['primary', 'secondary', 'neutral'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitElementInterface",
-          "members": [
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof tailitElementProperties.colors[number]"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "focusClasses",
-              "type": {
-                "text": "unknown"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabledClasses",
-              "type": {
-                "text": "unknown"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "TailitElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof tailitElementProperties.colors[number]"
-              },
-              "default": "'primary'",
-              "attribute": "color",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focusClasses",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\""
-            },
-            {
-              "kind": "field",
-              "name": "disabledClasses",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\""
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[css` ${tailwind} `]"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "color",
-              "type": {
-                "text": "typeof tailitElementProperties.colors[number]"
-              },
-              "default": "'primary'",
-              "fieldName": "color",
-              "attribute": "color"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "typeof tailitElementProperties.colors[number]"
-              },
-              "default": "'primary'"
-            },
-            {
-              "kind": "field",
-              "name": "focusClasses",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\""
-            },
-            {
-              "kind": "field",
-              "name": "disabledClasses",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\""
-            }
-          ],
-          "superclass": {
-            "name": "superClass",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "tailitElementProperties",
-          "declaration": {
-            "name": "tailitElementProperties",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TailitElementInterface",
-          "declaration": {
-            "name": "TailitElementInterface",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TailitElement",
-          "declaration": {
-            "name": "TailitElement",
-            "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/renderless/renderless-expandable/renderless-expandable.ts",
       "declarations": [
         {
@@ -1308,632 +1764,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/renderless/renderless-button/renderless-button.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "RenderlessButtonInterface",
-          "members": [
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "'button' | 'submit'"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "form",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "hasFocus",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "formAction",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "formMethod",
-              "type": {
-                "text": "'get' | 'post'"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "formNoValidate",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "formTarget",
-              "type": {
-                "text": "'_self' | '_blank' | '_parent' | '_top' | string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "download",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "'_blank' | '_parent' | '_self' | '_top'"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderButton",
-              "return": {
-                "type": {
-                  "text": "unknown"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "content",
-                  "type": {
-                    "text": "unknown"
-                  }
-                },
-                {
-                  "name": "classes",
-                  "optional": true,
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "RenderlessButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "button",
-              "type": {
-                "text": "HTMLButtonElement | HTMLLinkElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "privacy": "private",
-              "default": "new FormSubmitController(this, {\n      form: (input: any) => {\n        // Buttons support a form attribute that points to an arbitrary form,\n        // so if this attribute it set we need to query\n        // the form from the same root using its id\n        if (input.hasAttribute('form')) {\n          const doc = input.getRootNode() as Document | ShadowRoot;\n          const formId = input.getAttribute('form')!;\n          return doc.getElementById(formId) as HTMLFormElement;\n        }\n\n        // Fall back to the closest containing form\n        return input.closest('form');\n      },\n    })"
-            },
-            {
-              "kind": "field",
-              "name": "hasFocus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the button.",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "RenderlessButtonInterface['type']"
-              },
-              "default": "'button'",
-              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
-              "attribute": "type"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "RenderlessButtonInterface['name'] | undefined"
-              },
-              "description": "An optional name for the button. Ignored when `href` is set.",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "RenderlessButtonInterface['value'] | undefined"
-              },
-              "description": "An optional value for the button. Ignored when `href` is set.",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "RenderlessButtonInterface['href'] | undefined"
-              },
-              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
-              "attribute": "href"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "RenderlessButtonInterface['target'] | undefined"
-              },
-              "description": "Tells the browser where to open the link. Only used when `href` is set.",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "download",
-              "type": {
-                "text": "RenderlessButtonInterface['download'] | undefined"
-              },
-              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
-              "attribute": "download"
-            },
-            {
-              "kind": "field",
-              "name": "form",
-              "type": {
-                "text": "RenderlessButtonInterface['form']"
-              },
-              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
-              "attribute": "form"
-            },
-            {
-              "kind": "field",
-              "name": "formAction",
-              "type": {
-                "text": "RenderlessButtonInterface['formAction']"
-              },
-              "description": "Used to override the form owner's `action` attribute.",
-              "attribute": "formaction"
-            },
-            {
-              "kind": "field",
-              "name": "formMethod",
-              "type": {
-                "text": "RenderlessButtonInterface['formMethod']"
-              },
-              "description": "Used to override the form owner's `method` attribute.",
-              "attribute": "formmethod"
-            },
-            {
-              "kind": "field",
-              "name": "formNoValidate",
-              "type": {
-                "text": "RenderlessButtonInterface['formNoValidate']"
-              },
-              "description": "Used to override the form owner's `novalidate` attribute.",
-              "attribute": "formnovalidate"
-            },
-            {
-              "kind": "field",
-              "name": "formTarget",
-              "type": {
-                "text": "RenderlessButtonInterface['formTarget']"
-              },
-              "description": "Used to override the form owner's `target` attribute.",
-              "attribute": "formtarget"
-            },
-            {
-              "kind": "method",
-              "name": "click",
-              "description": "Simulates a click on the button."
-            },
-            {
-              "kind": "method",
-              "name": "focus",
-              "parameters": [
-                {
-                  "name": "options",
-                  "optional": true,
-                  "type": {
-                    "text": "FocusOptions"
-                  }
-                }
-              ],
-              "description": "Sets focus on the button."
-            },
-            {
-              "kind": "method",
-              "name": "blur",
-              "description": "Removes focus from the button."
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocus"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderButton",
-              "parameters": [
-                {
-                  "name": "content",
-                  "type": {
-                    "text": "unknown"
-                  }
-                },
-                {
-                  "name": "classes",
-                  "default": "''",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the button.",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "RenderlessButtonInterface['type']"
-              },
-              "default": "'button'",
-              "description": "The type of button. When the type is `submit`, the button will\nsubmit the surrounding form. Note that the default\nvalue is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave.",
-              "fieldName": "type"
-            },
-            {
-              "name": "name",
-              "type": {
-                "text": "RenderlessButtonInterface['name'] | undefined"
-              },
-              "description": "An optional name for the button. Ignored when `href` is set.",
-              "fieldName": "name"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "RenderlessButtonInterface['value'] | undefined"
-              },
-              "description": "An optional value for the button. Ignored when `href` is set.",
-              "fieldName": "value"
-            },
-            {
-              "name": "href",
-              "type": {
-                "text": "RenderlessButtonInterface['href'] | undefined"
-              },
-              "description": "When set, the underlying button will be rendered as an `<a>`\nwith this `href` instead of a `<button>`.",
-              "fieldName": "href"
-            },
-            {
-              "name": "target",
-              "type": {
-                "text": "RenderlessButtonInterface['target'] | undefined"
-              },
-              "description": "Tells the browser where to open the link. Only used when `href` is set.",
-              "fieldName": "target"
-            },
-            {
-              "name": "download",
-              "type": {
-                "text": "RenderlessButtonInterface['download'] | undefined"
-              },
-              "description": "Tells the browser to download the linked file\nas this filename. Only used when `href` is set.",
-              "fieldName": "download"
-            },
-            {
-              "name": "form",
-              "type": {
-                "text": "RenderlessButtonInterface['form']"
-              },
-              "description": "The \"form owner\" to associate the button with. If omitted,\nthe closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in\nthe same document or shadow root as the button.",
-              "fieldName": "form"
-            },
-            {
-              "name": "formaction",
-              "type": {
-                "text": "RenderlessButtonInterface['formAction']"
-              },
-              "description": "Used to override the form owner's `action` attribute.",
-              "fieldName": "formAction"
-            },
-            {
-              "name": "formmethod",
-              "type": {
-                "text": "RenderlessButtonInterface['formMethod']"
-              },
-              "description": "Used to override the form owner's `method` attribute.",
-              "fieldName": "formMethod"
-            },
-            {
-              "name": "formnovalidate",
-              "type": {
-                "text": "RenderlessButtonInterface['formNoValidate']"
-              },
-              "description": "Used to override the form owner's `novalidate` attribute.",
-              "fieldName": "formNoValidate"
-            },
-            {
-              "name": "formtarget",
-              "type": {
-                "text": "RenderlessButtonInterface['formTarget']"
-              },
-              "description": "Used to override the form owner's `target` attribute.",
-              "fieldName": "formTarget"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RenderlessButtonInterface",
-          "declaration": {
-            "name": "RenderlessButtonInterface",
-            "module": "src/components/renderless/renderless-button/renderless-button.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "RenderlessButton",
-          "declaration": {
-            "name": "RenderlessButton",
-            "module": "src/components/renderless/renderless-button/renderless-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "TailitChipAvatar",
-          "slots": [
-            {
-              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "attribute": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "img"
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "checked",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderAvatar"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderChip",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "fieldName": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "img"
-            },
-            {
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "filled"
-            },
-            {
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "TailitChip",
-            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
-          },
-          "tagName": "tailit-chip-avatar",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip-avatar",
-          "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/tailit-chips/tailit-chip/tailit-chip.ts",
       "declarations": [
         {
@@ -2005,7 +1835,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -2107,6 +1937,240 @@
           "declaration": {
             "name": "TailitChip",
             "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitChipAvatar",
+          "slots": [
+            {
+              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "attribute": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "img"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "checked",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderAvatar"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderChip",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "attribute": "color",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\"",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\"",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "fieldName": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "img"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "color",
+              "attribute": "color",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "TailitChip",
+            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
+          },
+          "tagName": "tailit-chip-avatar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-chip-avatar",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
           }
         }
       ]
@@ -2216,7 +2280,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-var-400 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"

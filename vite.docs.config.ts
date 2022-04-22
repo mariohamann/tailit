@@ -3,23 +3,25 @@ import minifyHTML from 'rollup-plugin-minify-html-literals';
 import handlebars from 'vite-plugin-handlebars';
 import { terser } from 'rollup-plugin-terser';
 import context from './docs/context';
+import WindiCSS from 'vite-plugin-windicss';
+
 
 const path = require('path');
 
 const getFilesFromNavigation = () => {
   const input: any = {};
   Object.keys(context.pages).map(
-    (entry) => { input[entry] = path.resolve(__dirname, `${entry}.html`) }
+    (entry) => { input[entry] = path.resolve(__dirname, `${entry}.html`); }
   );
-  console.log(input)
-  return {...input, index: path.resolve(__dirname, 'index.html')};
-}
+  console.log(input);
+  return { ...input, index: path.resolve(__dirname, 'index.html') };
+};
 
 const getCurrentContent = (currentPath) => {
   const cleanedPath = currentPath.replace('/', '').replace('.html', '');
   const currentPageData = context.pages[cleanedPath];
   const navigation = Object.keys(context.pages).map(
-    (entry) => { return {link: `/${entry}.html`, title: context.pages[entry].title, current: cleanedPath === entry} }
+    (entry) => { return { link: `/${entry}.html`, title: context.pages[entry].title, current: cleanedPath === entry }; }
   );
   const newContext = {
     ...context,
@@ -28,7 +30,7 @@ const getCurrentContent = (currentPath) => {
   };
   // console.log(newContext);
   return newContext;
-}
+};
 
 process.env.VITE_BUILD = 'docs';
 
@@ -60,6 +62,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    WindiCSS(),
     handlebars({
       context(pagePath) {
         return getCurrentContent(pagePath);

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import { terser } from 'rollup-plugin-terser';
+import WindiCSS from 'vite-plugin-windicss';
 
 process.env.VITE_BUILD = 'lib';
 
@@ -8,6 +9,9 @@ const path = require('path');
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [
+    WindiCSS(),
+  ],
   build: {
     outDir: 'dist/lib',
     lib: {
