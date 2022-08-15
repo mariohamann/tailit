@@ -64,7 +64,10 @@ Having [https://headlessui.dev/](https://headlessui.dev/) in mind, there are exp
 - `renderless-expandable` can be used e. g. for accordions and is used for `tailit-accordion`. It provides fully stylable and accessibile accordion elements.
 
 As said, the API should be improved. One could think about using querys which "upgrade" parts of the element to give them their full behaviour, e. g. something like:
-- in `tailit-accordion`: `<renderless-expandable-button class="whatever">Content</renderless-expandable-button>
+- in `tailit-accordion`:
+  ```html
+  <renderless-expandable-button class="whatever">Content</renderless-expandable-button>
+  ```
 - `renderless-expandable`-mixin upgrades to:
    ```html
     <button
