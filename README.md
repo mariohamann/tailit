@@ -65,7 +65,8 @@ Having [https://headlessui.dev/](https://headlessui.dev/) in mind, there are exp
 
 As said, the API should be improved. One could think about using querys which "upgrade" parts of the element to give them their full behaviour, e. g. something like:
 - in `tailit-accordion`: `<renderless-expandable-button class="whatever">Content</renderless-expandable-button>
-- `renderless-expandable`-mixin upgrades to: ```html
+- `renderless-expandable`-mixin upgrades to:
+   ```html
     <button
       class="whatever"
       part="button"
