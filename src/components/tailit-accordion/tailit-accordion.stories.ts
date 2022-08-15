@@ -18,7 +18,7 @@ export const Default = (args: any) => html`
   `;
 
 export default {
-  title: 'Components/Accordion',
+  title: 'Components/tailit-accordion',
   component: 'tailit-accordion',
   argTypes: {
     // slot: {

@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { tailitElementProperties } from '../../tailit-element/tailit-element';
 
-export const ChipAvatar = (args: any) => html`
+export const Default = (args: any) => html`
     <tailit-chip-avatar
       img=${args.img}
       color=${args.color}
@@ -13,7 +13,7 @@ export const ChipAvatar = (args: any) => html`
 const disabled = { table: { disable: true } };
 
 export default {
-  title: 'Components/Chip',
+  title: 'Components/tailit-chip/tailit-chip-avatar',
   component: 'tailit-chip-avatar',
   argTypes: {
     slot: {

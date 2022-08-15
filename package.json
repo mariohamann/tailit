@@ -7,8 +7,8 @@
   ],
   "scripts": {
     "dev": "concurrently 'npm:storybook' 'npm:cem'",
-    "build": "vite build -c vite.lib.config.ts",
-    "preview": "pnpm build:docs && vite preview --open",
+    "build": "vite build -c vite.config.ts",
+    "preview": "pnpm build && vite preview --open",
     "cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts' --watch",
     "build-cem": "cem analyze --litelement --globs 'src/components/**/!(*.stories).ts'",
     "storybook": "start-storybook -p 6999",

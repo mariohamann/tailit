@@ -9,15 +9,19 @@ const path = require('path');
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
+    minify: 'terser',
     outDir: 'dist/lib',
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'Tailit Components',
-      formats: ['es', 'umd'],
-      fileName: (format) => `tailit-components.${format}.js`,
-    },
+    // lib: {
+    //   entry: path.resolve(__dirname, 'src/index.ts'),
+    //   name: 'Tailit Components',
+    //   fileName: (format) => `tailit-components.${format}.js`,
+    // },
     rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'src/index.ts'),
+      },
       output: {
+        entryFileNames: 'tailit-components.js',
         inlineDynamicImports: true,
         assetFileNames: 'tailit-components[extname]',
       },

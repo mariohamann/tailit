@@ -9,7 +9,7 @@ export const Button = (args: any) => html`
   `;
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/tailit-button',
   component: 'tailit-button',
   argTypes: {
     slot: {

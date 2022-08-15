@@ -10,7 +10,7 @@ export const ChipFilter = (args: any) => html`
 const disabled = { table: { disable: true } };
 
 export default {
-  title: 'Components/Chip',
+  title: 'Components/tailit-chip/tailit-chip-filter',
   component: 'tailit-chip-filter',
   argTypes: {
     slot: {
