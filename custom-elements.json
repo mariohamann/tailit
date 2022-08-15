@@ -4,6 +4,318 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/tailit-accordion/tailit-accordion.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitAccordion",
+          "slots": [
+            {
+              "description": "The accordions' content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
+              "attribute": "summary"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "attribute": "color",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\"",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\"",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "attribute": "open",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "attribute": "disabled",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inherit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the header non-tapable – should be used, if you have a button inside the element",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Shows the details.",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Hides the details",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryClick",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleOpenChange",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderButton",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderContent",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
+              "fieldName": "summary"
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "color",
+              "attribute": "color",
+              "inheritedFrom": {
+                "name": "TailitElement",
+                "module": "src/components/tailit-element/tailit-element.ts"
+              }
+            },
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "fieldName": "open",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "fieldName": "disabled",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TailitElement",
+              "module": "/src/components/tailit-element/tailit-element"
+            }
+          ],
+          "superclass": {
+            "name": "RenderlessExpandable",
+            "module": "/src/components/renderless/renderless-expandable/renderless-expandable"
+          },
+          "tagName": "tailit-accordion",
+          "customElement": true,
+          "events": [
+            {
+              "description": "Emitted when the details opens.",
+              "name": "sl-show",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "description": "Emitted after the details opens and all animations are complete.",
+              "name": "sl-after-show",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "description": "Emitted when the details closes.",
+              "name": "sl-hide",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            },
+            {
+              "description": "Emitted after the details closes and all animations are complete.",
+              "name": "sl-after-hide",
+              "inheritedFrom": {
+                "name": "RenderlessExpandable",
+                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitAccordion",
+            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-accordion",
+          "declaration": {
+            "name": "TailitAccordion",
+            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/tailit-button/tailit-button.ts",
       "declarations": [
         {
@@ -589,27 +901,41 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-accordion/tailit-accordion.ts",
+      "path": "src/components/tailit-badge/tailit-badge.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailitBadgeProperties",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  variants: ['primary', 'secondary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
+        },
         {
           "kind": "class",
           "description": "",
-          "name": "TailitAccordion",
-          "slots": [
-            {
-              "description": "The accordions' content.",
-              "name": ""
-            }
-          ],
+          "name": "TailitBadge",
           "members": [
             {
               "kind": "field",
-              "name": "summary",
+              "name": "variant",
               "type": {
-                "text": "string"
+                "text": "typeof tailitBadgeProperties.variants[number]"
               },
-              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
-              "attribute": "summary"
+              "default": "'secondary'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "attribute": "ping",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -661,136 +987,25 @@
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
               }
-            },
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
-              "attribute": "open",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "attribute": "disabled",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "inherit",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the header non-tapable – should be used, if you have a button inside the element",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "description": "Shows the details.",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "hide",
-              "description": "Hides the details",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryClick",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryKeyDown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ],
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleOpenChange",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderButton",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderContent",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
             }
           ],
           "attributes": [
             {
-              "name": "summary",
+              "name": "variant",
               "type": {
-                "text": "string"
+                "text": "typeof tailitBadgeProperties.variants[number]"
               },
-              "description": "The summary to show in the details header.\nIf you need to display HTML, use the `summary` slot instead.",
-              "fieldName": "summary"
+              "default": "'secondary'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "ping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the badge pulsate to draw attention.",
+              "fieldName": "ping"
             },
             {
               "name": "color",
@@ -804,32 +1019,6 @@
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
               }
-            },
-            {
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
-              "fieldName": "open",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "fieldName": "disabled",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
             }
           ],
           "mixins": [
@@ -839,62 +1028,36 @@
             }
           ],
           "superclass": {
-            "name": "RenderlessExpandable",
-            "module": "/src/components/renderless/renderless-expandable/renderless-expandable"
+            "name": "LitElement",
+            "package": "lit"
           },
-          "tagName": "tailit-accordion",
-          "customElement": true,
-          "events": [
-            {
-              "description": "Emitted when the details opens.",
-              "name": "sl-show",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "description": "Emitted after the details opens and all animations are complete.",
-              "name": "sl-after-show",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "description": "Emitted when the details closes.",
-              "name": "sl-hide",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            },
-            {
-              "description": "Emitted after the details closes and all animations are complete.",
-              "name": "sl-after-hide",
-              "inheritedFrom": {
-                "name": "RenderlessExpandable",
-                "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
-              }
-            }
-          ]
+          "tagName": "tailit-badge",
+          "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
+          "name": "tailitBadgeProperties",
+          "declaration": {
+            "name": "tailitBadgeProperties",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
+          }
+        },
+        {
+          "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "TailitAccordion",
-            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+            "name": "TailitBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "tailit-accordion",
+          "name": "tailit-badge",
           "declaration": {
-            "name": "TailitAccordion",
-            "module": "src/components/tailit-accordion/tailit-accordion.ts"
+            "name": "TailitBadge",
+            "module": "src/components/tailit-badge/tailit-badge.ts"
           }
         }
       ]

@@ -12,13 +12,13 @@ This repo is an experiment with Lit and TailwindCSS. It provides the following s
 There are three main colors: `primary`, `secondary` and `neutral`. Those colors are used in combination with [](https://github.com/mariohamann/tailwindcss-var) to easily build different color styles for `tailit-button` and `tailit-chip`.
 
 ### Tailit-Element-Mixin
-There is one `tailit-element`-mixin, which includes default-classes for focus- and disabled-states and the default colors, declaring them as a prop.
+There is one `tailit-element`-mixin, which includes default-classes for focus- and disabled-states and the default colors, declaring them as a prop. The latter is discussable and shows its problems in `tailit-badge` where overwriting `color` led to problems.
 
 The mixin includes all TailwindCSS-styles, which are imported in the `index.ts` as a single constructable stylesheet, expecting it to be most performant. (See `index.ts` for further documentation.)
 
 
 ### Storybook + Props + Types
-Instead of redeclaring all properties and variants in Storybook, the variants were defined and exported as a const, e. g:
+Instead of redeclaring all properties and variants in Storybook, the non-boolean variants were defined and exported as a const, e. g:
 
 ```ts
 export const tailitButtonProperties = {
@@ -40,6 +40,11 @@ And re-using them in Storybook:
     },
   }
 ```
+
+### Adding custom styles in combination with TailwindCSS
+`tailit-badge` shows one way how to combine styles from Tailwind and custom styles which should only be available in the web component. This could be especially needed for stuff like `:host()`, `::slotted()` or to define special variables which should be overwritten from outside.
+
+It could be better to just extend the `styles` without having to reimport tailwind.
 
 ### Extendable Components
 `tailit-chip` is a component which shows the possibilites of simple extendability. Only the base style is defined, while the render-method can be overwritten in Components extending `tailit-chip`.
