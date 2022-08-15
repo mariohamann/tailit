@@ -8,13 +8,13 @@ This repo is an experiment with Lit and TailwindCSS. It provides the following s
 - ESLint
 
 ## Getting started
-- This project uses `pnpm`, please make sure to have it installed.
+- 🚨 This project uses `pnpm`, please make sure to have it installed.
 - `pnpm i`
 - `pnpm dev` to start Storybook
 
 ## Experiments
 ### Tailwind Vars
-There are three main colors: `primary`, `secondary` and `neutral`. Those colors are used in combination with [](https://github.com/mariohamann/tailwindcss-var) to easily build different color styles for `tailit-button` and `tailit-chip`.
+There are three main colors: `primary`, `secondary` and `neutral`. Those colors are used in combination with [https://github.com/mariohamann/tailwindcss-var](https://github.com/mariohamann/tailwindcss-var) to easily build different color styles for `tailit-button` and `tailit-chip`.
 
 ### Tailit-Element-Mixin
 There is one `tailit-element`-mixin, which includes default-classes for focus- and disabled-states and the default colors, declaring them as a prop. The latter is discussable and shows its problems in `tailit-badge` where overwriting `color` led to problems.
@@ -59,7 +59,7 @@ Examples:
 - `tailit-chip-avatar` adds the possibility to add an avatar wir a new prop and make the element selectable as well.
 
 ### Renderless Components
-Having [](https://headlessui.dev/) in mind, there are experiments to abstract recurring behaviours. The API isn't very straightforward at the moment, especially adding Tailwind-Classes isn't very nice.
+Having [https://headlessui.dev/](https://headlessui.dev/) in mind, there are experiments to abstract recurring behaviours. The API isn't very straightforward at the moment, especially adding Tailwind-Classes isn't very nice.
 - `renderless-button` abstracts the functionality of Shoelace's `sl-button` component. Currently it has lot's of copy paste, but should be reduced to mimmick original button behaviour, especially tricking the ShadowDOM regarding forms etc. (`href` etc. shouldn't be part of that component.)
 - `renderless-expandable` can be used e. g. for accordions and is used for `tailit-accordion`. It provides fully stylable and accessibile accordion elements.
 
