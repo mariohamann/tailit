@@ -31,7 +31,7 @@ export default class TailitChipFilter extends TailitChip {
     class="${this.filled
     ? 'w-auto opacity-100 mr-1'
     : 'invisible w-0 opacity-0 mr-0'}
-    material-icons var-spacing-4 text-var overflow-hidden transition-all"
+    material-icons $spacing-4 text-var overflow-hidden transition-all"
     >check</span
   >`;
 

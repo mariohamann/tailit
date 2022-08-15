@@ -29,15 +29,15 @@ export default class TailitChip extends TailitElement(LitElement) {
     const tag = literal`${unsafeStatic(this.as)}`;
 
     const filledClass = this.filled
-      ? 'bg-var-100 border-var-100 text-var-900'
-      : 'border-var-600 border text-var-600';
+      ? 'bg-$color-100 border-$color-100 text-$color-900'
+      : 'border-$color-600 border text-$color-600';
 
     /* eslint-disable lit/binding-positions, lit/no-invalid-html */
     return html`
       <${tag}
         @click=${this.onClick}
         part="base"
-        class="var-${this.color} ${filledClass} ${this.focusClasses} ${this.disabledClasses}
+        class="$color-${this.color} ${filledClass} ${this.focusClasses} ${this.disabledClasses}
         text-sm transition-all inline-flex items-center border justify-center rounded-full font-medium leading-none whitespace-nowrap h-7 px-3 select-none"
         role=${this.role}
       >

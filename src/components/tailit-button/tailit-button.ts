@@ -13,16 +13,18 @@ export default class TailitButton extends TailitElement(RenderlessButton(LitElem
   @property({ reflect: true }) variant: typeof tailitButtonProperties.variants[number] = 'secondary';
 
   private readonly variantClass = {
-    primary: 'text-white bg-var-600 border border-var-600 not-disabled:hover:bg-var-800 not-disabled:hover:border-var-800',
-    secondary: 'text-var-600 border border-var-600 not-disabled:hover:text-var-800 not-disabled:hover:border-var-800',
-    tertiary: 'bg-var-50 text-var-600 border border-var-50 not-disabled:hover:text-var-800'
+    primary: 'text-white bg-$color-600 border border-$color-600 not-disabled:hover:bg-$color-800 not-disabled:hover:border-$color-800',
+    secondary: 'text-$color-600 border border-$color-600 not-disabled:hover:text-$color-800 not-disabled:hover:border-$color-800',
+    tertiary: 'bg-$color-50 text-$color-600 border border-$color-50 not-disabled:hover:text-$color-800'
   };
 
   render() {
     return this.renderButton(
       html`<slot></slot>`,
       `
-        var-${this.color}
+        $color-primary,
+        $color-secondary,
+        $color-${this.color}
         ${this.variantClass[this.variant]}
         text-base inline-flex items-center font-medium rounded-lg whitespace-nowrap text-sm px-5 py-2.5 transition-color
         ${this.focusClasses}

@@ -5,7 +5,7 @@ export declare const tailitElementProperties: {
 };
 export declare class TailitElementInterface {
   color: typeof tailitElementProperties.colors[number];
-  colorClass(): 'var-primary' | 'var-secondary' | 'var-neutral';
+  colorClass(): '$color-primary' | '$color-secondary' | '$color-neutral';
 }
 export declare const TailitElement: <T extends Constructor<LitElement>>(superClass: T) => Constructor<TailitElementInterface> & T;
 export { };

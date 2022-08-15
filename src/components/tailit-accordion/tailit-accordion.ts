@@ -18,7 +18,7 @@ export default class TailitAccordion extends TailitElement(RenderlessExpandable)
   render() {
     return html`
       <div
-        class="var-${this.color} text-base rounded-md border border-neutral-300"
+        class="$color-${this.color} text-base rounded-md border border-neutral-300"
       >
         ${this.renderButton(html`
           <div class="flex flex-auto items-center">
@@ -28,14 +28,14 @@ export default class TailitAccordion extends TailitElement(RenderlessExpandable)
             class="flex flex-auto flex-grow-0 flex-shrink-0 items-center"
           >
             <span
-              class="material-icons var-spacing-7 text-var overflow-hidden transition-all ${this.open && 'rotate-180'}"
+              class="material-icons $spacing-7 text-var overflow-hidden transition-all ${this.open && 'rotate-180'}"
               >expand_more</span
             >
           </span>
-        `, `w-full rounded-md flex font-medium text-var-600 items-center p-4 select-none cursor-pointer transition-all
+        `, `w-full rounded-md flex font-medium text-$color-600 items-center p-4 select-none cursor-pointer transition-all
             ${this.focusClasses}
             ${this.disabledClasses}
-            ${this.open ? 'bg-var-50 text-var-900' : 'not-disabled:hover:bg-gray-50'}
+            ${this.open ? 'bg-$color-50 text-$color-900' : 'not-disabled:hover:bg-gray-50'}
         `)}
         ${this.renderContent(html`
           <div class="overflow-hidden transition-all ${this.open ? 'h-auto' : 'h-0 invisible'}" >

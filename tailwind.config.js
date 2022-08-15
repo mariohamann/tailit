@@ -12,7 +12,7 @@ module.exports = {
         primary: colors.sky,
         secondary: colors.pink,
         neutral: colors.gray,
-        var: {
+        $color: {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
           200: 'var(--tw-var-color-200)',
@@ -26,10 +26,10 @@ module.exports = {
         },
       },
       fontSize: {
-        var: 'var(--tw-var-spacing)',
+        $spacing: 'var(--tw-var-spacing)',
       },
       spacing: {
-        var: 'var(--tw-var-spacing)',
+        $spacing: 'var(--tw-var-spacing)',
       },
     },
   },
@@ -38,6 +38,6 @@ module.exports = {
     addVariant('not-disabled', '&:not([disabled])');
   })],
   safelist: [
-    ...['primary', 'secondary', 'neutral'].map((key) => `var-${key})`),
+    ...['primary', 'secondary', 'neutral'].map((key) => `$color-${key}`),
   ],
 };

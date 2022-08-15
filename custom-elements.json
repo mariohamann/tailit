@@ -4,107 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-badge/tailit-badge.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "properties",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  variants: ['primary', 'success', 'neutral', 'warning', 'danger'] as const,\n}"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "SlBadge",
-          "slots": [
-            {
-              "description": "The badge's content.",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "attribute": "ping",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "typeof properties.variants[number]"
-              },
-              "default": "'primary'",
-              "description": "The badge's variant.",
-              "fieldName": "variant"
-            },
-            {
-              "name": "ping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the badge pulsate to draw attention.",
-              "fieldName": "ping"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "sl-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "properties",
-          "declaration": {
-            "name": "properties",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "sl-badge",
-          "declaration": {
-            "name": "SlBadge",
-            "module": "src/components/tailit-badge/tailit-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/tailit-button/tailit-button.ts",
       "declarations": [
         {
@@ -137,7 +36,7 @@
                 "text": "object"
               },
               "privacy": "private",
-              "default": "{\n    primary: 'text-white bg-var-600 border border-var-600 not-disabled:hover:bg-var-800 not-disabled:hover:border-var-800',\n    secondary: 'text-var-600 border border-var-600 not-disabled:hover:text-var-800 not-disabled:hover:border-var-800',\n    tertiary: 'bg-var-50 text-var-600 border border-var-50 not-disabled:hover:text-var-800'\n  }"
+              "default": "{\n    primary: 'text-white bg-$color-600 border border-$color-600 not-disabled:hover:bg-$color-800 not-disabled:hover:border-$color-800',\n    secondary: 'text-$color-600 border border-$color-600 not-disabled:hover:text-$color-800 not-disabled:hover:border-$color-800',\n    tertiary: 'bg-$color-50 text-$color-600 border border-$color-50 not-disabled:hover:text-$color-800'\n  }"
             },
             {
               "kind": "field",
@@ -159,7 +58,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -732,7 +631,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -1061,7 +960,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\""
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\""
             },
             {
               "kind": "field",
@@ -1120,7 +1019,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\""
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\""
             },
             {
               "kind": "field",
@@ -1160,148 +1059,6 @@
           "declaration": {
             "name": "TailitElement",
             "module": "src/components/tailit-element/tailit-element.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/renderless/renderless-expandable/renderless-expandable.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "RenderlessExpandable",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
-              "attribute": "open",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "inherit",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Makes the header non-tapable – should be used, if you have a button inside the element"
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "description": "Shows the details."
-            },
-            {
-              "kind": "method",
-              "name": "hide",
-              "description": "Hides the details"
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryClick"
-            },
-            {
-              "kind": "method",
-              "name": "handleSummaryKeyDown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleOpenChange"
-            },
-            {
-              "kind": "field",
-              "name": "renderButton"
-            },
-            {
-              "kind": "field",
-              "name": "renderContent"
-            }
-          ],
-          "events": [
-            {
-              "description": "Emitted when the details opens.",
-              "name": "sl-show"
-            },
-            {
-              "description": "Emitted after the details opens and all animations are complete.",
-              "name": "sl-after-show"
-            },
-            {
-              "description": "Emitted when the details closes.",
-              "name": "sl-hide"
-            },
-            {
-              "description": "Emitted after the details closes and all animations are complete.",
-              "name": "sl-after-hide"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
-              "fieldName": "open"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the details so it can't be toggled.",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "RenderlessExpandable",
-            "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
           }
         }
       ]
@@ -1764,152 +1521,132 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
+      "path": "src/components/renderless/renderless-expandable/renderless-expandable.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "TailitChipAvatar",
-          "slots": [
-            {
-              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
-              "name": ""
-            }
-          ],
+          "name": "RenderlessExpandable",
           "members": [
             {
               "kind": "field",
-              "name": "as",
+              "name": "header",
               "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "attribute": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+                "text": "HTMLElement"
               }
             },
             {
               "kind": "field",
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "img"
-            },
-            {
-              "kind": "field",
-              "name": "filled",
+              "name": "open",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "attribute": "checked",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderAvatar"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "attribute": "open",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "role",
+              "name": "disabled",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "''",
-              "attribute": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
+              "default": "false",
+              "description": "Disables the details so it can't be toggled.",
+              "attribute": "disabled",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "renderChip",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
+              "name": "inherit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Makes the header non-tapable – should be used, if you have a button inside the element"
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Shows the details."
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Hides the details"
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleSummaryKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleOpenChange"
+            },
+            {
+              "kind": "field",
+              "name": "renderButton"
+            },
+            {
+              "kind": "field",
+              "name": "renderContent"
+            }
+          ],
+          "events": [
+            {
+              "description": "Emitted when the details opens.",
+              "name": "sl-show"
+            },
+            {
+              "description": "Emitted after the details opens and all animations are complete.",
+              "name": "sl-after-show"
+            },
+            {
+              "description": "Emitted when the details closes.",
+              "name": "sl-hide"
+            },
+            {
+              "description": "Emitted after the details closes and all animations are complete.",
+              "name": "sl-after-hide"
             }
           ],
           "attributes": [
             {
-              "name": "as",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "description": "Overwrites default of TailitChip",
-              "fieldName": "as",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "img",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "img"
-            },
-            {
-              "name": "checked",
+              "name": "open",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "fieldName": "filled"
+              "description": "Indicates whether or not the details is open.\nYou can use this in lieu of the show/hide methods.",
+              "fieldName": "open"
             },
             {
-              "name": "filled",
+              "name": "disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Changes the buttons style. This is especially useful for filter-styles.",
-              "fieldName": "filled",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "role",
-              "inheritedFrom": {
-                "name": "TailitChip",
-                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
-              }
+              "description": "Disables the details so it can't be toggled.",
+              "fieldName": "disabled"
             }
           ],
           "superclass": {
-            "name": "TailitChip",
-            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
+            "name": "LitElement",
+            "package": "lit"
           },
-          "tagName": "tailit-chip-avatar",
           "customElement": true
         }
       ],
@@ -1918,16 +1655,8 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "tailit-chip-avatar",
-          "declaration": {
-            "name": "TailitChipAvatar",
-            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+            "name": "RenderlessExpandable",
+            "module": "src/components/renderless/renderless-expandable/renderless-expandable.ts"
           }
         }
       ]
@@ -2005,7 +1734,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitElement",
                 "module": "src/components/tailit-element/tailit-element.ts"
@@ -2107,6 +1836,240 @@
           "declaration": {
             "name": "TailitChip",
             "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TailitChipAvatar",
+          "slots": [
+            {
+              "description": "The chip's content. Inspired by: - https://m3.material.io/components/chips/overview - https://material.io/components/chips - https://tailwindui.com/components/application-ui/elements/badges",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "attribute": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "img"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "attribute": "checked",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderAvatar"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderChip",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "attribute": "color",
+              "reflects": true,
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "focusClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\"",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabledClasses",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed\"",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[css` ${tailwind} `]",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "as",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "description": "Overwrites default of TailitChip",
+              "fieldName": "as",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "img",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "img"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Changes the buttons style. This is especially useful for filter-styles.",
+              "fieldName": "filled",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "role",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "typeof tailitElementProperties.colors[number]"
+              },
+              "default": "'primary'",
+              "fieldName": "color",
+              "attribute": "color",
+              "inheritedFrom": {
+                "name": "TailitChip",
+                "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "TailitChip",
+            "module": "/src/components/tailit-chips/tailit-chip/tailit-chip"
+          },
+          "tagName": "tailit-chip-avatar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "tailit-chip-avatar",
+          "declaration": {
+            "name": "TailitChipAvatar",
+            "module": "src/components/tailit-chips/tailit-chip-avatar/tailit-chip-avatar.ts"
           }
         }
       ]
@@ -2216,7 +2179,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"focus:ring-2 focus:ring-var-300 outline-none\"",
+              "default": "\"focus:ring-2 focus:ring-$color-300 outline-none\"",
               "inheritedFrom": {
                 "name": "TailitChip",
                 "module": "src/components/tailit-chips/tailit-chip/tailit-chip.ts"

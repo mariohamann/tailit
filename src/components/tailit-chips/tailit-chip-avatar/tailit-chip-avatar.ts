@@ -32,7 +32,7 @@ export default class TailitChipAvatar extends TailitChip {
           class="w-6 h-6 rounded-full -ml-2.5 mr-2 object-cover overflow-hidden transition-all"
         />`
       : html`<span
-          class="material-icons var-spacing-7 text-gray-400 text-var -ml-3 mr-1.5 overflow-hidden transition-all"
+          class="material-icons $spacing-7 text-gray-400 text-var -ml-3 mr-1.5 overflow-hidden transition-all"
           >account_circle</span
         >`;
   }

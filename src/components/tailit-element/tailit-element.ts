@@ -18,7 +18,7 @@ export const TailitElement = <T extends Constructor<LitElement>>(superClass: T) 
   class TailitElement extends superClass {
     @property({ reflect: true }) color: typeof tailitElementProperties.colors[number] = 'primary';
 
-    readonly focusClasses = "focus:ring-2 focus:ring-var-300 outline-none";
+    readonly focusClasses = "focus:ring-2 focus:ring-$color-300 outline-none";
 
     readonly disabledClasses = "disabled:opacity-50 disabled:saturate-75 disabled:cursor-not-allowed";
 
