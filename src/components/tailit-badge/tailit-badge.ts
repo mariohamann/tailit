@@ -11,7 +11,7 @@ export const tailitBadgeProperties = {
 
 @customElement('tailit-badge')
 export default class TailitBadge extends TailitElement(LitElement) {
-  @property({ reflect: true }) variant: typeof tailitBadgeProperties.variants[number] = 'secondary';
+  @property({ reflect: true }) variant: typeof tailitBadgeProperties.variants[number] = 'primary';
 
   /** Makes the badge pulsate to draw attention. */
   @property({ type: Boolean, reflect: true }) ping = false;

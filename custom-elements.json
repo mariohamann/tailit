@@ -922,7 +922,7 @@
               "type": {
                 "text": "typeof tailitBadgeProperties.variants[number]"
               },
-              "default": "'secondary'",
+              "default": "'primary'",
               "attribute": "variant",
               "reflects": true
             },
@@ -995,7 +995,7 @@
               "type": {
                 "text": "typeof tailitBadgeProperties.variants[number]"
               },
-              "default": "'secondary'",
+              "default": "'primary'",
               "fieldName": "variant"
             },
             {

@@ -17,7 +17,7 @@ export default {
     variant: {
       control: { type: 'select' },
       options: tailitBadgeProperties.variants,
-      defaultValue: tailitBadgeProperties.variants[1],
+      defaultValue: tailitBadgeProperties.variants[0],
     },
     ping: {
       control: { type: 'boolean' },
