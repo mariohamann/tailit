@@ -7,6 +7,11 @@ This repo is an experiment with Lit and TailwindCSS. It provides the following s
 - Vite
 - ESLint
 
+## Getting started
+- This project uses `pnpm`, please make sure to have it installed.
+- `pnpm i`
+- `pnpm dev` to start Storybook
+
 ## Experiments
 ### Tailwind Vars
 There are three main colors: `primary`, `secondary` and `neutral`. Those colors are used in combination with [](https://github.com/mariohamann/tailwindcss-var) to easily build different color styles for `tailit-button` and `tailit-chip`.
